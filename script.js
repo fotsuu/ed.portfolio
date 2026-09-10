@@ -26,10 +26,10 @@ function initDynamicTyping() {
   if (!target) return;
 
   const roles = [
-    'Software Developer',
-    'AI Workflow Engineer',
-    'Database Systems Builder',
-    'Data Quality Specialist'
+    'full-stack web applications',
+    'custom AI automation workflows',
+    'robust database systems',
+    'high-performance software'
   ];
 
   let roleIndex = 0;
