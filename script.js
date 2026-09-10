@@ -85,7 +85,7 @@ function initProjectFiltering() {
       projectCards.forEach(card => {
         const category = card.getAttribute('data-category');
         if (filter === 'all' || category === filter) {
-          card.style.display = 'block';
+          card.style.display = 'flex';
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
@@ -823,6 +823,11 @@ function initMinimalShowcases() {
           dot.setAttribute('aria-selected', 'false');
         }
       });
+
+      const counterEl = document.getElementById('fwSlideCounter');
+      if (counterEl) {
+        counterEl.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+      }
     }
 
     function goNext() {
@@ -930,25 +935,48 @@ function initMinimalShowcases() {
       });
     });
 
+    // Fullscreen Action Button on FeedWise card
+    const fwFullscreenBtn = document.getElementById('fwOpenLightboxBtn');
+    if (fwFullscreenBtn) {
+      fwFullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const activeSlide = slides[currentSlide];
+        const src = activeSlide?.getAttribute('data-src') || 'feedwise-hero.png';
+        const title = activeSlide?.getAttribute('data-title') || 'FeedWise';
+        if (typeof openLightbox === 'function') {
+          openLightbox(src, title, 'Full-resolution interface screenshot of FeedWise.');
+        }
+      });
+    }
+
     // Initialize first slide and start autoplay
     setSlide(0);
     startAutoplay();
   }
 
-  // 2. RLTA Barangay Inventory Frame Click to Lightbox
+  // 2. RLTA Barangay Inventory Frame & Fullscreen Button Click to Lightbox
   const rltaFrame = document.getElementById('rltaPreviewFrame');
+  const rltaFullscreenBtn = document.getElementById('rltaOpenLightboxBtn');
+
+  function openRltaModal(e) {
+    if (e) e.stopPropagation();
+    const src = rltaFrame?.getAttribute('data-src') || 'denr-dashboard.png';
+    const title = rltaFrame?.getAttribute('data-title') || 'RLTA Barangay Inventory of Davao del Sur';
+    if (typeof openLightbox === 'function') {
+      openLightbox(
+        src,
+        title,
+        'Cadastral land inventory and assessment platform deployed at DENR-CENRO Davao del Sur.'
+      );
+    }
+  }
+
   if (rltaFrame) {
-    rltaFrame.addEventListener('click', () => {
-      const src = rltaFrame.getAttribute('data-src') || 'denr-dashboard.png';
-      const title = rltaFrame.getAttribute('data-title') || 'RLTA Barangay Inventory of Davao del Sur';
-      if (typeof openLightbox === 'function') {
-        openLightbox(
-          src,
-          title,
-          'Cadastral land inventory and assessment platform deployed at DENR-CENRO Davao del Sur.'
-        );
-      }
-    });
+    rltaFrame.addEventListener('click', openRltaModal);
+  }
+
+  if (rltaFullscreenBtn) {
+    rltaFullscreenBtn.addEventListener('click', openRltaModal);
   }
 }
 

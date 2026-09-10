@@ -125,86 +125,120 @@
           </div>
         </div>
 
-        <!-- ══════════════════ PROJECT 1: FEEDWISE ══════════════════ -->
-        <article class="project-card minimal-showcase-card" id="feedwiseCard" data-category="capstone" data-project-id="feedwise">
-          <div class="minimal-showcase-header">
-            <h3 class="minimal-project-title">FeedWise</h3>
-            <p class="minimal-project-summary">
-              Dual-platform web and mobile system for poultry feed formulation and least-cost optimization compliant with PhilSAN standards.
-            </p>
-            <div class="minimal-tech-tags">
-              <span class="mini-tag">Laravel 12</span>
-              <span class="mini-tag">Flutter</span>
-              <span class="mini-tag">PHP 8.2</span>
-              <span class="mini-tag">MySQL</span>
-              <span class="mini-tag">Tailwind CSS</span>
-              <span class="mini-tag">DomPDF</span>
-              <span class="mini-tag">Chart.js</span>
-              <span class="mini-tag">Dart</span>
-            </div>
-          </div>
+        <!-- ══════════════════ 2-COLUMN SHOWCASE GRID (SAME ROW) ══════════════════ -->
+        <div class="projects-showcase-grid">
 
-          <!-- Minimal Animated Slideshow Container -->
-          <div class="minimal-carousel" id="feedwiseCarousel">
-            <div class="minimal-carousel-viewport" id="fwViewport">
-              <button type="button" class="minimal-carousel-nav prev" id="fwPrevBtn" aria-label="Previous image">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button type="button" class="minimal-carousel-nav next" id="fwNextBtn" aria-label="Next image">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-
-              <div class="minimal-carousel-track" id="fwTrack">
-                <div class="minimal-slide" data-slide-index="0" data-src="feedwise-hero.png" data-title="FeedWise — System Overview">
-                  <img src="feedwise-hero.png" alt="FeedWise System Overview" class="minimal-slide-img" />
+          <!-- ══════════════════ PROJECT 1: FEEDWISE ══════════════════ -->
+          <article class="project-card minimal-showcase-card" id="feedwiseCard" data-category="capstone" data-project-id="feedwise">
+            <div class="minimal-showcase-header">
+              <div class="card-meta-bar">
+                <div class="card-icon-tag bg-feedwise" title="FeedWise Icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <div class="minimal-slide" data-slide-index="1" data-src="feedwise-simulator.png" data-title="FeedWise — Feed Simulator">
-                  <img src="feedwise-simulator.png" alt="FeedWise Feed Simulator" class="minimal-slide-img" loading="lazy" />
-                </div>
-                <div class="minimal-slide" data-slide-index="2" data-src="feedwise-capabilities.png" data-title="FeedWise — Platform Capabilities">
-                  <img src="feedwise-capabilities.png" alt="FeedWise Platform Capabilities" class="minimal-slide-img" loading="lazy" />
-                </div>
-                <div class="minimal-slide" data-slide-index="3" data-src="feedwise-process.png" data-title="FeedWise — 3-Step Process">
-                  <img src="feedwise-process.png" alt="FeedWise 3-Step Process" class="minimal-slide-img" loading="lazy" />
-                </div>
+                <span class="card-status-pill"><span class="pulse-dot"></span>Interactive 4-Slide Gallery</span>
+              </div>
+              <h3 class="minimal-project-title">FeedWise</h3>
+              <p class="minimal-project-summary">
+                Dual-platform web and mobile system for poultry feed formulation and least-cost optimization compliant with PhilSAN standards.
+              </p>
+              <div class="minimal-tech-tags">
+                <span class="mini-tag">Laravel 12</span>
+                <span class="mini-tag">Flutter</span>
+                <span class="mini-tag">PHP 8.2</span>
+                <span class="mini-tag">MySQL</span>
+                <span class="mini-tag">Tailwind CSS</span>
+                <span class="mini-tag">DomPDF</span>
+                <span class="mini-tag">Dart</span>
               </div>
             </div>
 
-            <!-- Minimal Pagination Dots -->
-            <div class="minimal-dots-bar" id="fwDotsBar">
-              <button type="button" class="minimal-dot active" data-slide="0" aria-label="Slide 1"></button>
-              <button type="button" class="minimal-dot" data-slide="1" aria-label="Slide 2"></button>
-              <button type="button" class="minimal-dot" data-slide="2" aria-label="Slide 3"></button>
-              <button type="button" class="minimal-dot" data-slide="3" aria-label="Slide 4"></button>
-            </div>
-          </div>
-        </article>
+            <!-- Minimal Animated Slideshow Container -->
+            <div class="minimal-carousel" id="feedwiseCarousel">
+              <div class="minimal-carousel-viewport" id="fwViewport">
+                <button type="button" class="minimal-carousel-nav prev" id="fwPrevBtn" aria-label="Previous image">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button type="button" class="minimal-carousel-nav next" id="fwNextBtn" aria-label="Next image">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
 
-        <!-- ══════════════════ PROJECT 2: RLTA BARANGAY INVENTORY OF DAVAO DEL SUR ══════════════════ -->
-        <article class="project-card minimal-showcase-card" id="rltaCard" data-category="govtech" data-project-id="rlta-inventory">
-          <div class="minimal-showcase-header">
-            <h3 class="minimal-project-title">RLTA Barangay Inventory of Davao del Sur</h3>
-            <p class="minimal-project-summary">
-              Cadastral land inventory and assessment platform deployed to automate barangay overview metrics and remaining lot calculations across Davao del Sur.
-            </p>
-            <div class="minimal-tech-tags">
-              <span class="mini-tag">PHP</span>
-              <span class="mini-tag">MySQL</span>
-              <span class="mini-tag">JavaScript</span>
-              <span class="mini-tag">Excel Bulk Ingestion</span>
-              <span class="mini-tag">Cadastral Modeling</span>
-            </div>
-          </div>
+                <div class="minimal-carousel-track" id="fwTrack">
+                  <div class="minimal-slide" data-slide-index="0" data-src="feedwise-hero.png" data-title="FeedWise — System Overview">
+                    <img src="feedwise-hero.png" alt="FeedWise System Overview" class="minimal-slide-img" />
+                  </div>
+                  <div class="minimal-slide" data-slide-index="1" data-src="feedwise-simulator.png" data-title="FeedWise — Feed Simulator">
+                    <img src="feedwise-simulator.png" alt="FeedWise Feed Simulator" class="minimal-slide-img" loading="lazy" />
+                  </div>
+                  <div class="minimal-slide" data-slide-index="2" data-src="feedwise-capabilities.png" data-title="FeedWise — Platform Capabilities">
+                    <img src="feedwise-capabilities.png" alt="FeedWise Platform Capabilities" class="minimal-slide-img" loading="lazy" />
+                  </div>
+                  <div class="minimal-slide" data-slide-index="3" data-src="feedwise-process.png" data-title="FeedWise — 3-Step Process">
+                    <img src="feedwise-process.png" alt="FeedWise 3-Step Process" class="minimal-slide-img" loading="lazy" />
+                  </div>
+                </div>
+              </div>
 
-          <!-- Minimal Preview with Animation -->
-          <div class="minimal-preview-frame" data-src="denr-dashboard.png" data-title="RLTA Barangay Inventory of Davao del Sur" id="rltaPreviewFrame">
-            <img src="denr-dashboard.png" alt="RLTA Barangay Inventory of Davao del Sur Screenshot" class="minimal-slide-img" loading="lazy" />
-            <div class="minimal-preview-hint">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-              <span>View Full Screenshot</span>
+              <!-- Minimal Pagination Dots -->
+              <div class="minimal-dots-bar" id="fwDotsBar">
+                <button type="button" class="minimal-dot active" data-slide="0" aria-label="Slide 1"></button>
+                <button type="button" class="minimal-dot" data-slide="1" aria-label="Slide 2"></button>
+                <button type="button" class="minimal-dot" data-slide="2" aria-label="Slide 3"></button>
+                <button type="button" class="minimal-dot" data-slide="3" aria-label="Slide 4"></button>
+              </div>
             </div>
-          </div>
-        </article>
+
+            <!-- Card Interactive Action Bar -->
+            <div class="card-action-bar">
+              <span class="card-action-meta" id="fwSlideCounter">Slide 1 / 4</span>
+              <button type="button" class="btn-card-action" id="fwOpenLightboxBtn" aria-label="Fullscreen FeedWise screenshot">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                <span>Fullscreen</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- ══════════════════ PROJECT 2: RLTA BARANGAY INVENTORY OF DAVAO DEL SUR ══════════════════ -->
+          <article class="project-card minimal-showcase-card" id="rltaCard" data-category="govtech" data-project-id="rlta-inventory">
+            <div class="minimal-showcase-header">
+              <div class="card-meta-bar">
+                <div class="card-icon-tag bg-rlta" title="Government Land Inventory Icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3l9 7H3l9-7z"/></svg>
+                </div>
+                <span class="card-status-pill"><span class="pulse-dot"></span>Production GovTech</span>
+              </div>
+              <h3 class="minimal-project-title">RLTA Barangay Inventory of Davao del Sur</h3>
+              <p class="minimal-project-summary">
+                Cadastral land inventory and assessment platform deployed to automate barangay overview metrics and remaining lot calculations across Davao del Sur.
+              </p>
+              <div class="minimal-tech-tags">
+                <span class="mini-tag">PHP</span>
+                <span class="mini-tag">MySQL</span>
+                <span class="mini-tag">JavaScript</span>
+                <span class="mini-tag">Excel Bulk Ingestion</span>
+                <span class="mini-tag">Cadastral Modeling</span>
+              </div>
+            </div>
+
+            <!-- Minimal Preview with Animation -->
+            <div class="minimal-preview-frame" data-src="denr-dashboard.png" data-title="RLTA Barangay Inventory of Davao del Sur" id="rltaPreviewFrame">
+              <img src="denr-dashboard.png" alt="RLTA Barangay Inventory of Davao del Sur Screenshot" class="minimal-slide-img" loading="lazy" />
+              <div class="minimal-preview-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                <span>Fullscreen</span>
+              </div>
+            </div>
+
+            <!-- Card Interactive Action Bar -->
+            <div class="card-action-bar">
+              <span class="card-action-meta">DENR CENRO Deployed</span>
+              <button type="button" class="btn-card-action" id="rltaOpenLightboxBtn" aria-label="Fullscreen RLTA screenshot">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                <span>Fullscreen</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
 
       </div>
     </section>
