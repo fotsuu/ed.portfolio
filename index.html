@@ -643,26 +643,54 @@
         <!-- Projects Grid -->
         <div class="projects-grid" id="projectsGrid">
 
-          <!-- Project 1: RLTA Inventory Management System -->
-          <article class="project-card" data-category="systems" data-project-id="rlta-system">
+          <!-- Project 1: RLTA Inventory Management System (DENR-CENRO Davao del Sur) -->
+          <article class="project-card denr-project-card" data-category="systems" data-project-id="rlta-system">
             <div class="card-inner">
               <div class="project-badge-bar">
-                <span class="category-tag extension-tag">Database System</span>
-                <span class="project-status">DENR-CENRO</span>
+                <span class="category-tag denr-gov-tag">GovTech Production</span>
+                <span class="project-status">DENR-CENRO Davao del Sur</span>
               </div>
-              <div class="project-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              <div class="project-icon-wrapper denr-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
               </div>
-              <h3 class="project-title">RLTA Land Tenurial Assessment & Inventory Database</h3>
+              <h3 class="project-title">DENR CENRO: Land Inventory & RLTA Assessment Database</h3>
               <p class="project-desc">
-                Enterprise tracking and inventory database engineered for <strong>DENR-CENRO</strong> to digitize, index, and report cadastral land parcels across Davao del Sur.
+                Government cadastral land assessment and inventory platform engineered and deployed during internship at <strong>DENR-CENRO Davao del Sur, Philippines</strong>. Automates barangay land overview metrics, balance and remaining computations, cadastral lot management, and multi-parameter search across Davao del Sur municipalities.
               </p>
+
+              <!-- Live Mini Mockup Preview of the Deployed DENR Interface -->
+              <div class="denr-card-preview" id="denrCardTrigger" role="button" tabindex="0" title="Click to view full interactive deployed system preview">
+                <div class="denr-preview-bar">
+                  <span class="denr-pulse-dot"></span>
+                  <span class="denr-preview-title">DENR CENRO · Land Inventory & RLTA</span>
+                  <span class="denr-status-online">● Deployed</span>
+                </div>
+                <div class="denr-preview-grid">
+                  <div class="muni-chip active"><span>DIGOS</span> <strong>25 Brgys</strong></div>
+                  <div class="muni-chip active"><span>MATANAO</span> <strong>16 Brgys</strong></div>
+                  <div class="muni-chip"><span>BANSALAN</span> <strong>Tracked</strong></div>
+                  <div class="muni-chip"><span>STA. CRUZ</span> <strong>Tracked</strong></div>
+                </div>
+                <div class="denr-search-hint">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <span>Search lot no, survey no, claimant, barangay...</span>
+                </div>
+              </div>
+
               <div class="tech-stack-tags">
                 <span class="tech-tag">PHP</span>
                 <span class="tech-tag">MySQL / Database</span>
                 <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Data Modeling</span>
+                <span class="tech-tag">Excel Bulk Ingestion</span>
+                <span class="tech-tag">Cadastral Modeling</span>
                 <span class="tech-tag">DENR RLTA</span>
+              </div>
+
+              <div class="project-card-footer">
+                <button type="button" class="btn-card-details denr-modal-open-btn" id="openDenrModalBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span>Interactive System Preview</span>
+                </button>
               </div>
             </div>
           </article>
@@ -1178,6 +1206,224 @@
           </p>
         </iframe>
       </div>
+    </div>
+  </div>
+
+  <!-- DENR-CENRO Land Inventory & RLTA Interactive System Modal -->
+  <div id="denrModal" class="denr-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="denrModalTitle">
+    <div class="denr-modal-window">
+      
+      <!-- Modal Top Bar -->
+      <div class="denr-modal-header">
+        <div class="denr-modal-title-wrap">
+          <div class="denr-seal-icon">🏛️</div>
+          <div>
+            <div class="denr-modal-title-row">
+              <span class="denr-modal-title" id="denrModalTitle">DENR CENRO · Land Inventory & RLTA Assessment System</span>
+              <span class="denr-modal-badge">Production GovTech</span>
+            </div>
+            <span class="denr-modal-agency">Deployed during Internship at DENR-CENRO Davao del Sur, Philippines</span>
+          </div>
+        </div>
+        <button type="button" id="denrModalClose" class="denr-modal-close" aria-label="Close DENR system preview">&times;</button>
+      </div>
+
+      <!-- Modal Body (The Live Government Interface) -->
+      <div class="denr-modal-body">
+        <div class="denr-sys-layout">
+          
+          <!-- DENR Sidebar -->
+          <aside class="denr-sidebar">
+            <div class="denr-brand-block">
+              <div class="denr-emblem-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+              </div>
+              <div class="denr-brand-text">
+                <span class="denr-office-title">DENR CENRO</span>
+                <span class="denr-office-sub">Land Inventory & RLTA</span>
+              </div>
+            </div>
+
+            <nav class="denr-nav-links">
+              <button class="denr-nav-btn active" data-view="dashboard">
+                <span class="nav-icon">🏠</span> Dashboard
+              </button>
+              <button class="denr-nav-btn" data-view="barangay">
+                <span class="nav-icon">🗺️</span> Barangay Overview
+              </button>
+              <button class="denr-nav-btn" data-view="lots">
+                <span class="nav-icon">📋</span> Cadastral Lots
+              </button>
+              <button class="denr-nav-btn" data-view="import">
+                <span class="nav-icon">📥</span> Import Excel
+              </button>
+            </nav>
+
+            <div class="denr-agency-badge">
+              <span class="gov-dot"></span>
+              <span>Davao del Sur Office</span>
+            </div>
+          </aside>
+
+          <!-- DENR Main Application Content Area -->
+          <main class="denr-main-content">
+            
+            <!-- Dashboard View (Default) -->
+            <div class="denr-view active" id="denrViewDashboard">
+              
+              <div class="denr-dash-head">
+                <div>
+                  <h4 class="denr-page-title">Dashboard</h4>
+                  <p class="denr-page-desc">Barangay land overview with exact remaining and balance computations.</p>
+                </div>
+                <div class="denr-metrics-mini">
+                  <span class="chip-metric">Total Municipalities: <strong>7</strong></span>
+                  <span class="chip-metric">Cadastral Status: <strong>RLTA Active</strong></span>
+                </div>
+              </div>
+
+              <!-- Cadastral Search Bar -->
+              <div class="denr-search-row">
+                <div class="denr-input-wrap">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="denrSearchInput" placeholder="Search lot no, survey no, claimant, barangay..." aria-label="Cadastral Search Input" />
+                  <button type="button" id="denrClearSearch" class="search-clear-btn" title="Clear search">&times;</button>
+                </div>
+                <button type="button" class="btn-denr-search" id="denrSearchBtn">Search</button>
+                <button type="button" class="btn-denr-adv" id="denrAdvBtn">Advanced Search</button>
+              </div>
+
+              <!-- Barangays per Municipality Section -->
+              <div class="denr-section-heading">
+                <span class="live-dot-green"></span>
+                <span>Barangays per Municipality</span>
+              </div>
+
+              <div class="denr-muni-cards-grid" id="denrMuniGrid">
+                <div class="denr-muni-card" data-muni="BANSALAN">
+                  <span class="muni-name">BANSALAN</span>
+                  <span class="muni-count">0</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card highlighted active-filter" data-muni="DIGOS">
+                  <span class="muni-name">DIGOS</span>
+                  <span class="muni-count">25</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card" data-muni="HAGONOY">
+                  <span class="muni-name">HAGONOY</span>
+                  <span class="muni-count">0</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card" data-muni="MAGSAYSAY">
+                  <span class="muni-name">MAGSAYSAY</span>
+                  <span class="muni-count">0</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card highlighted" data-muni="MATANAO">
+                  <span class="muni-name">MATANAO</span>
+                  <span class="muni-count">16</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card" data-muni="PADADA">
+                  <span class="muni-name">PADADA</span>
+                  <span class="muni-count">0</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+                <div class="denr-muni-card" data-muni="STA. CRUZ">
+                  <span class="muni-name">STA. CRUZ</span>
+                  <span class="muni-count">0</span>
+                  <span class="muni-unit">Barangays</span>
+                </div>
+              </div>
+
+              <!-- Live Cadastral Parcels Sample Table -->
+              <div class="denr-table-block">
+                <div class="table-block-head">
+                  <span class="table-title">Cadastral Parcels & Balance Computations</span>
+                  <span class="table-status-info" id="denrTableStatus">Showing sample parcel records across Davao del Sur</span>
+                </div>
+                <div class="denr-table-responsive">
+                  <table class="denr-data-table" id="denrCadastralTable">
+                    <thead>
+                      <tr>
+                        <th>Lot No.</th>
+                        <th>Survey No.</th>
+                        <th>Claimant / Applicant</th>
+                        <th>Barangay</th>
+                        <th>Municipality</th>
+                        <th>Area (ha)</th>
+                        <th>Balance Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="denrTableBody">
+                      <tr>
+                        <td><strong>Lot 1042-A</strong></td>
+                        <td>CAD-436-D</td>
+                        <td>Davao Agro Corp / Landholder</td>
+                        <td>Tres de Mayo</td>
+                        <td><span class="muni-pill">DIGOS</span></td>
+                        <td>2.45 ha</td>
+                        <td><span class="status-pill ok">✓ Assessed & Balanced</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Lot 881</strong></td>
+                        <td>CAD-436-D</td>
+                        <td>Heirs of Bautista</td>
+                        <td>Cogon</td>
+                        <td><span class="muni-pill">DIGOS</span></td>
+                        <td>1.18 ha</td>
+                        <td><span class="status-pill ok">✓ Assessed & Balanced</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Lot 512-C</strong></td>
+                        <td>CAD-102-D</td>
+                        <td>M. S. Alvarez Claim</td>
+                        <td>Mancogon</td>
+                        <td><span class="muni-pill">MATANAO</span></td>
+                        <td>3.80 ha</td>
+                        <td><span class="status-pill ok">✓ Assessed & Balanced</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Lot 304</strong></td>
+                        <td>CAD-102-D</td>
+                        <td>Regional Farmer Agrarian Assoc.</td>
+                        <td>Poblacion</td>
+                        <td><span class="muni-pill">MATANAO</span></td>
+                        <td>4.25 ha</td>
+                        <td><span class="status-pill pend">⏳ Balance Pending</span></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Lot 119</strong></td>
+                        <td>CAD-77-D</td>
+                        <td>Public Land Assessment Hold</td>
+                        <td>Poblacion</td>
+                        <td><span class="muni-pill">BANSALAN</span></td>
+                        <td>0.95 ha</td>
+                        <td><span class="status-pill review">RLTA Review</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Technical Engineering Summary Callout -->
+              <div class="denr-tech-callout">
+                <div class="callout-header">
+                  <span class="callout-icon">💡</span>
+                  <strong>Internship Engineering Impact at DENR-CENRO Davao del Sur</strong>
+                </div>
+                <p class="callout-body">
+                  Engineered and deployed in production for <strong>DENR-CENRO Davao del Sur</strong> to replace manual spreadsheet calculations with a centralized <strong>PHP & MySQL database system</strong>. Built with an automated Excel bulk ingestion engine (<code>Import Excel</code>) to process thousands of cadastral survey records, compute remaining land balances, and provide instant parcel search for public land tenure assessments.
+                </p>
+              </div>
+
+            </div>
+          </main>
+
+        </div>
+      </div>
+
     </div>
   </div>
 

@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initDynamicTyping();
   initFeedWiseShowcase();
+  initDenrModal();
   initProjectFiltering();
   initEmailCopy();
   initContactForm();
@@ -1102,5 +1103,136 @@ function initFeedWiseShowcase() {
   // Initial calculation
   updateSimulation();
 }
+
+
+/* ==========================================================================
+   DENR-CENRO DAVAO DEL SUR: Interactive System Modal & Cadastral Filter
+   ========================================================================== */
+function initDenrModal() {
+  const modal = document.getElementById('denrModal');
+  const openBtn = document.getElementById('openDenrModalBtn');
+  const cardTrigger = document.getElementById('denrCardTrigger');
+  const closeBtn = document.getElementById('denrModalClose');
+
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (cardTrigger) cardTrigger.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     Live Cadastral Search & Municipality Filter inside DENR Modal
+     -------------------------------------------------------------------------- */
+  const searchInput = document.getElementById('denrSearchInput');
+  const searchBtn = document.getElementById('denrSearchBtn');
+  const clearSearchBtn = document.getElementById('denrClearSearch');
+  const muniCards = modal.querySelectorAll('.denr-muni-card');
+  const tableRows = modal.querySelectorAll('#denrTableBody tr');
+  const tableStatus = document.getElementById('denrTableStatus');
+  const navBtns = modal.querySelectorAll('.denr-nav-btn');
+
+  function filterTable() {
+    const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
+
+    if (clearSearchBtn) {
+      clearSearchBtn.style.display = query ? 'block' : 'none';
+    }
+
+    let matchCount = 0;
+
+    tableRows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (!query || text.includes(query)) {
+        row.style.display = '';
+        matchCount++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (tableStatus) {
+      if (query) {
+        tableStatus.textContent = `Found ${matchCount} parcel record(s) matching "${query}"`;
+      } else {
+        tableStatus.textContent = 'Showing sample parcel records across Davao del Sur';
+      }
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTable);
+  }
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', filterTable);
+  }
+
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      muniCards.forEach(c => c.classList.remove('active-filter'));
+      filterTable();
+      searchInput.focus();
+    });
+  }
+
+  // Municipality Cards Click Filter
+  muniCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const muni = card.getAttribute('data-muni');
+      const isAlreadyActive = card.classList.contains('active-filter');
+
+      muniCards.forEach(c => c.classList.remove('active-filter'));
+
+      if (!isAlreadyActive && muni) {
+        card.classList.add('active-filter');
+        if (searchInput) searchInput.value = muni;
+        filterTable();
+      } else {
+        if (searchInput) searchInput.value = '';
+        filterTable();
+      }
+    });
+  });
+
+  // Sidebar Navigation buttons
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.getAttribute('data-view');
+      if (view !== 'dashboard' && tableStatus) {
+        tableStatus.textContent = `Switched view to ${btn.textContent.trim()} — Production module live`;
+      }
+    });
+  });
+}
+
 
 
