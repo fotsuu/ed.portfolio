@@ -129,253 +129,178 @@
         <article class="feedwise-showcase-card project-card featured-capstone" id="feedwiseCapstone" data-category="capstone" data-project-id="feedwise">
           <div class="feedwise-card-inner">
             
-            <!-- Showcase Header -->
-            <div class="feedwise-header">
-              <div class="feedwise-title-area">
-                <div class="feedwise-badges">
+            <!-- Minimal Showcase Header -->
+            <div class="feedwise-header-minimal">
+              <div class="feedwise-header-top">
+                <div class="feedwise-badges-minimal">
                   <span class="capstone-badge">
                     <span class="badge-sparkle">★</span> CAPSTONE SPOTLIGHT
                   </span>
                   <span class="tech-badge-highlight">Laravel 12 + Flutter</span>
-                  <span class="compliance-badge">PhilSAN Standard Compliant</span>
-                  <span class="offline-badge">Offline-First PWA & Mobile</span>
+                  <span class="compliance-badge">PhilSAN Compliant</span>
                 </div>
-                <h3 class="feedwise-main-title">
-                  <span class="fw-logo-icon">🌿</span> FeedWise — Intelligent Poultry Feed Formulation & Least-Cost Optimization System
-                </h3>
-                <p class="feedwise-tagline">
-                  A dual-platform agricultural intelligence ecosystem engineered with <strong>Laravel 12</strong> and <strong>Flutter</strong> that empowers poultry farmers to formulate nutritionally balanced feed mixes compliant with official Philippine <strong>PhilSAN</strong> standards while minimizing production costs down to the centavo via mathematical least-cost optimization.
-                </p>
+                <div class="feedwise-header-stats">
+                  <span class="stat-pill">⚡ 12ms Solver</span>
+                  <span class="stat-pill">📉 ₱3.38/kg Avg. Saved</span>
+                  <span class="stat-pill">📱 100% Offline App</span>
+                </div>
               </div>
 
-              <!-- Quick Highlights Metric Strip -->
-              <div class="feedwise-metric-strip">
-                <div class="fw-metric">
-                  <span class="fw-metric-val">12ms</span>
-                  <span class="fw-metric-lbl">Optimization Speed</span>
-                </div>
-                <div class="fw-metric">
-                  <span class="fw-metric-val">PhilSAN</span>
-                  <span class="fw-metric-lbl">Official Target Standards</span>
-                </div>
-                <div class="fw-metric">
-                  <span class="fw-metric-val">₱3.38/kg</span>
-                  <span class="fw-metric-lbl">Simulated Cost Savings</span>
-                </div>
-                <div class="fw-metric">
-                  <span class="fw-metric-val">100%</span>
-                  <span class="fw-metric-lbl">Offline-Capable App</span>
-                </div>
-              </div>
+              <h3 class="feedwise-main-title">
+                <span class="fw-logo-icon">🌿</span> FeedWise — Poultry Feed Formulation & Least-Cost Optimization
+              </h3>
+              <p class="feedwise-tagline-minimal">
+                A dual-platform agricultural intelligence ecosystem engineered with <strong>Laravel 12</strong> and <strong>Flutter</strong>. Enables poultry farmers to formulate nutritionally balanced, PhilSAN-compliant feeds while minimizing feed production costs down to the centavo via real-time linear programming.
+              </p>
             </div>
 
-            <!-- Slideshow Navigation Controls & Tabs -->
-            <div class="slideshow-nav-bar">
-              <div class="slideshow-tabs" role="tablist" aria-label="FeedWise Showcase Slides">
-                <button class="slide-tab-btn active" data-slide="0" role="tab" aria-selected="true">
-                  <span class="tab-num">01</span> System Overview & Science
-                </button>
-                <button class="slide-tab-btn" data-slide="1" role="tab" aria-selected="false">
-                  <span class="tab-num">02</span> Live Interactive Feed Simulator
-                </button>
-                <button class="slide-tab-btn" data-slide="2" role="tab" aria-selected="false">
-                  <span class="tab-num">03</span> Architecture & Capabilities
-                </button>
-                <button class="slide-tab-btn" data-slide="3" role="tab" aria-selected="false">
-                  <span class="tab-num">04</span> 3-Step Farmer Workflow
-                </button>
-              </div>
-
-              <div class="slideshow-action-btns">
-                <button class="slide-arrow-btn" id="fwSlidePrevBtn" title="Previous Slide" aria-label="Previous Slide">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <span class="slide-counter" id="fwSlideCounter">1 / 4</span>
-                <button class="slide-arrow-btn" id="fwSlideNextBtn" title="Next Slide" aria-label="Next Slide">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-                <button class="slide-autoplay-btn" id="fwSlideAutoplayBtn" title="Toggle Slideshow Autoplay" aria-label="Toggle Slideshow Autoplay">
-                  <span class="autoplay-dot"></span>
-                  <span id="fwAutoplayText">Auto</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Slideshow Viewport: Real System Screenshots -->
-            <div class="slideshow-viewport" id="feedwiseSlideshow">
+            <!-- Animated Slideshow Carousel Component -->
+            <div class="carousel-window-frame" id="feedwiseCarousel">
               
-              <!-- SLIDE 1: System Overview & PhilSAN Formulation Landing -->
-              <div class="showcase-slide active" data-slide-index="0">
-                <div class="screenshot-slide-frame">
-                  <div class="screenshot-window-header">
-                    <div class="window-controls">
-                      <span class="win-dot dot-r"></span>
-                      <span class="win-dot dot-y"></span>
-                      <span class="win-dot dot-g"></span>
-                    </div>
-                    <span class="window-title">FeedWise · Production Landing & PhilSAN Formulation Dashboard</span>
-                    <button type="button" class="btn-zoom-screenshot" data-img-src="feedwise-hero.png" data-title="FeedWise Landing & Dashboard" data-caption="FeedWise Landing & Optimization Overview: PhilSAN-compliant linear formulation with instant least-cost calculation." title="Open full resolution screenshot">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                      <span>Full View</span>
-                    </button>
-                  </div>
-                  <div class="screenshot-img-wrap" data-img-src="feedwise-hero.png" data-title="FeedWise Landing & Dashboard" data-caption="FeedWise Landing & Optimization Overview: PhilSAN-compliant linear formulation with instant least-cost calculation.">
-                    <img src="feedwise-hero.png" alt="FeedWise Landing and Optimization Dashboard Screenshot" class="system-screenshot-img" />
+              <!-- Chrome Top Bar -->
+              <div class="screenshot-window-header">
+                <div class="window-controls">
+                  <span class="win-dot dot-r"></span>
+                  <span class="win-dot dot-y"></span>
+                  <span class="win-dot dot-g"></span>
+                </div>
+                <span class="window-title" id="fwCarouselTitle">FeedWise · 01 / 04 · System Overview & Formulation Dashboard</span>
+                <button type="button" class="btn-zoom-screenshot" id="fwZoomCurrentBtn" title="Open current screenshot in full resolution">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                  <span>Full View</span>
+                </button>
+              </div>
+
+              <!-- Top Slim Animated Progress Bar -->
+              <div class="carousel-progress-track">
+                <div class="carousel-progress-bar" id="fwProgressBar"></div>
+              </div>
+
+              <!-- Viewport with Sliding Track -->
+              <div class="carousel-viewport" id="fwViewport">
+                
+                <!-- Floating Navigation Arrows -->
+                <button type="button" class="carousel-floating-nav prev" id="fwPrevFloating" aria-label="Previous Slide">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button type="button" class="carousel-floating-nav next" id="fwNextFloating" aria-label="Next Slide">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+
+                <!-- Sliding Track holding all 4 images -->
+                <div class="carousel-track" id="fwTrack">
+                  
+                  <!-- SLIDE 1: Hero / Overview -->
+                  <div class="carousel-slide" data-slide-index="0" data-img-src="feedwise-hero.png" data-title="FeedWise · System Overview & Formulation Landing" data-caption="Production landing & formulation dashboard compliant with official Philippine Society of Animal Science (PhilSAN) nutrition standards.">
+                    <img src="feedwise-hero.png" alt="FeedWise Landing and Optimization Dashboard Screenshot" class="carousel-img" />
                     <div class="screenshot-hover-hint">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                      <span>Click to view full-resolution screenshot</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Click to view full-resolution</span>
                     </div>
                   </div>
-                  <div class="screenshot-slide-footer">
-                    <div class="screenshot-meta-left">
-                      <span class="slide-pill-tag">SCREENSHOT 01 / 04</span>
-                      <h4 class="screenshot-footer-title">Feed Smarter, Grow Faster, Spend Less — Landing & Optimization Engine</h4>
+
+                  <!-- SLIDE 2: Interactive Simulator -->
+                  <div class="carousel-slide" data-slide-index="1" data-img-src="feedwise-simulator.png" data-title="FeedWise · Interactive Feed Simulator & Live Output" data-caption="Interactive feed simulator interface with poultry stage balancing (Broiler, Layer, Breeder), live nutrient scoring (94/100), and market price sensitivity modeling.">
+                    <img src="feedwise-simulator.png" alt="FeedWise Interactive Feed Simulator Screenshot" class="carousel-img" loading="lazy" />
+                    <div class="screenshot-hover-hint">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Click to view full-resolution</span>
                     </div>
-                    <p class="screenshot-footer-desc">
-                      Production landing interface highlighting PhilSAN (Philippine Society of Animal Science) compliance, offline-first formulation capabilities, and sub-12 millisecond least-cost mathematical calculations.
-                    </p>
                   </div>
+
+                  <!-- SLIDE 3: Platform Capabilities -->
+                  <div class="carousel-slide" data-slide-index="2" data-img-src="feedwise-capabilities.png" data-title="FeedWise · Why FeedWise Works (Capabilities)" data-caption="Nutritional architecture: Precision nutrient compliance (Crude Protein, Calcium, Metabolizable Energy) and offline-first PWA / SQLite local architecture.">
+                    <img src="feedwise-capabilities.png" alt="FeedWise Platform Capabilities Screenshot" class="carousel-img" loading="lazy" />
+                    <div class="screenshot-hover-hint">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Click to view full-resolution</span>
+                    </div>
+                  </div>
+
+                  <!-- SLIDE 4: 3-Step Process -->
+                  <div class="carousel-slide" data-slide-index="3" data-img-src="feedwise-process.png" data-title="FeedWise · Simple 3-Step Farmer Formulation Workflow" data-caption="Intuitive 3-step farmer workflow: (1) Select poultry stage, (2) Algorithmic least-cost auto-balance, (3) Save formula and export DomPDF production batch sheets.">
+                    <img src="feedwise-process.png" alt="FeedWise Simple 3-Step Process Screenshot" class="carousel-img" loading="lazy" />
+                    <div class="screenshot-hover-hint">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                      <span>Click to view full-resolution</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              <!-- SLIDE 2: Interactive Feed Simulator & Live Output -->
-              <div class="showcase-slide" data-slide-index="1">
-                <div class="screenshot-slide-frame">
-                  <div class="screenshot-window-header">
-                    <div class="window-controls">
-                      <span class="win-dot dot-r"></span>
-                      <span class="win-dot dot-y"></span>
-                      <span class="win-dot dot-g"></span>
-                    </div>
-                    <span class="window-title">FeedWise · Interactive Feed Simulator & Live Formulation Output</span>
-                    <button type="button" class="btn-zoom-screenshot" data-img-src="feedwise-simulator.png" data-title="FeedWise Simulator & Optimization Engine" data-caption="FeedWise Live Simulator Interface: Interactive ingredient balancing, nutrient scoring (94/100), and market price sensitivity modeling." title="Open full resolution screenshot">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                      <span>Full View</span>
-                    </button>
-                  </div>
-                  <div class="screenshot-img-wrap" data-img-src="feedwise-simulator.png" data-title="FeedWise Simulator & Optimization Engine" data-caption="FeedWise Live Simulator Interface: Interactive ingredient balancing, nutrient scoring (94/100), and market price sensitivity modeling.">
-                    <img src="feedwise-simulator.png" alt="FeedWise Interactive Feed Simulator Screenshot" class="system-screenshot-img" />
-                    <div class="screenshot-hover-hint">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                      <span>Click to view full-resolution screenshot</span>
-                    </div>
-                  </div>
-                  <div class="screenshot-slide-footer">
-                    <div class="screenshot-meta-left">
-                      <span class="slide-pill-tag">SCREENSHOT 02 / 04</span>
-                      <h4 class="screenshot-footer-title">Experience FeedWise — Interactive Formulation Simulation & Nutrient Scoring</h4>
-                    </div>
-                    <p class="screenshot-footer-desc">
-                      Formulation simulator interface supporting poultry growth stages (Broiler, Layer, Breeder), ingredient adjustments (Corn, Soybean Meal, Fish Meal, Limestone), real-time PhilSAN balance scoring (94/100), and live corn market price inflation testing.
-                    </p>
-                  </div>
+              <!-- Carousel Controls Strip -->
+              <div class="carousel-controls-bar">
+                <div class="carousel-dots-list" role="tablist" aria-label="FeedWise Slide Controls">
+                  <button type="button" class="carousel-dot-pill active" data-slide="0" role="tab" aria-selected="true">
+                    <span class="dot-num">01</span> System Overview
+                  </button>
+                  <button type="button" class="carousel-dot-pill" data-slide="1" role="tab" aria-selected="false">
+                    <span class="dot-num">02</span> Feed Simulator
+                  </button>
+                  <button type="button" class="carousel-dot-pill" data-slide="2" role="tab" aria-selected="false">
+                    <span class="dot-num">03</span> Capabilities
+                  </button>
+                  <button type="button" class="carousel-dot-pill" data-slide="3" role="tab" aria-selected="false">
+                    <span class="dot-num">04</span> 3-Step Workflow
+                  </button>
+                </div>
+
+                <div class="carousel-actions-right">
+                  <button type="button" class="slide-arrow-btn" id="fwSlidePrevBtn" title="Previous Slide" aria-label="Previous Slide">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <span class="slide-counter" id="fwSlideCounter">1 / 4</span>
+                  <button type="button" class="slide-arrow-btn" id="fwSlideNextBtn" title="Next Slide" aria-label="Next Slide">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                  <button type="button" class="slide-autoplay-btn" id="fwSlideAutoplayBtn" title="Toggle Slideshow Autoplay" aria-label="Toggle Slideshow Autoplay">
+                    <span class="autoplay-dot"></span>
+                    <span id="fwAutoplayText">Auto</span>
+                  </button>
                 </div>
               </div>
 
-              <!-- SLIDE 3: Why FeedWise Works (Platform Capabilities) -->
-              <div class="showcase-slide" data-slide-index="2">
-                <div class="screenshot-slide-frame">
-                  <div class="screenshot-window-header">
-                    <div class="window-controls">
-                      <span class="win-dot dot-r"></span>
-                      <span class="win-dot dot-y"></span>
-                      <span class="win-dot dot-g"></span>
-                    </div>
-                    <span class="window-title">FeedWise · Platform Capabilities & Scientific Architecture</span>
-                    <button type="button" class="btn-zoom-screenshot" data-img-src="feedwise-capabilities.png" data-title="FeedWise Platform Capabilities" data-caption="Platform Capabilities: Precision nutrition tracking, least-cost optimization engine, and offline-first PWA / SQLite architecture." title="Open full resolution screenshot">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                      <span>Full View</span>
-                    </button>
-                  </div>
-                  <div class="screenshot-img-wrap" data-img-src="feedwise-capabilities.png" data-title="FeedWise Platform Capabilities" data-caption="Platform Capabilities: Precision nutrition tracking, least-cost optimization engine, and offline-first PWA / SQLite architecture.">
-                    <img src="feedwise-capabilities.png" alt="FeedWise Platform Capabilities Screenshot" class="system-screenshot-img" />
-                    <div class="screenshot-hover-hint">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                      <span>Click to view full-resolution screenshot</span>
-                    </div>
-                  </div>
-                  <div class="screenshot-slide-footer">
-                    <div class="screenshot-meta-left">
-                      <span class="slide-pill-tag">SCREENSHOT 03 / 04</span>
-                      <h4 class="screenshot-footer-title">Why FeedWise Works — Precision Nutrition, Least-Cost Math, and Offline Operation</h4>
-                    </div>
-                    <p class="screenshot-footer-desc">
-                      Real science of poultry nutrition: Precision nutrition compliance (Crude Protein, Calcium, Metabolizable Energy), automatic least-cost formulation saving ₱3.38/kg vs manual mixes, and 100% offline capability for remote rural farmers.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- SLIDE 4: 3-Step Farmer Formulation Workflow -->
-              <div class="showcase-slide" data-slide-index="3">
-                <div class="screenshot-slide-frame">
-                  <div class="screenshot-window-header">
-                    <div class="window-controls">
-                      <span class="win-dot dot-r"></span>
-                      <span class="win-dot dot-y"></span>
-                      <span class="win-dot dot-g"></span>
-                    </div>
-                    <span class="window-title">FeedWise · 3-Step Farmer Workflow from Farm to Formula</span>
-                    <button type="button" class="btn-zoom-screenshot" data-img-src="feedwise-process.png" data-title="FeedWise 3-Step Process" data-caption="3-Step Farmer Workflow: Poultry selection, algorithmic auto-balancing, and DomPDF report generation." title="Open full resolution screenshot">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-                      <span>Full View</span>
-                    </button>
-                  </div>
-                  <div class="screenshot-img-wrap" data-img-src="feedwise-process.png" data-title="FeedWise 3-Step Process" data-caption="3-Step Farmer Workflow: Poultry selection, algorithmic auto-balancing, and DomPDF report generation.">
-                    <img src="feedwise-process.png" alt="FeedWise Simple 3-Step Process Screenshot" class="system-screenshot-img" />
-                    <div class="screenshot-hover-hint">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                      <span>Click to view full-resolution screenshot</span>
-                    </div>
-                  </div>
-                  <div class="screenshot-slide-footer">
-                    <div class="screenshot-meta-left">
-                      <span class="slide-pill-tag">SCREENSHOT 04 / 04</span>
-                      <h4 class="screenshot-footer-title">Simple 3-Step Process — From Farm to Formula in Minutes</h4>
-                    </div>
-                    <p class="screenshot-footer-desc">
-                      Intuitive workflow designed for farmers without nutrition degrees: (1) Choose Poultry & Growth Stage, (2) Adjust & Auto-Balance via least-cost algorithm, and (3) Save formula, export DomPDF production batch sheets, or share with local cooperatives.
-                    </p>
-                  </div>
-                </div>
+              <!-- Minimal 1-Line Dynamic Caption Bar -->
+              <div class="carousel-caption-bar" id="fwCaptionBar">
+                <span class="carousel-caption-tag" id="fwCaptionTag">SCREENSHOT 01 / 04</span>
+                <span class="carousel-caption-desc" id="fwCaptionDesc">
+                  Production landing & formulation dashboard compliant with official Philippine Society of Animal Science (PhilSAN) nutrition standards.
+                </span>
               </div>
 
             </div>
 
-            <!-- Full Categorized Tech Stack Grid (All 20 User Technologies) -->
-            <div class="feedwise-tech-section">
-              <div class="feedwise-tech-top">
-                <div class="feedwise-tech-heading">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  <span>Technologies & Architecture Stack Used in FeedWise</span>
-                </div>
-                <span class="tech-total-badge">20 Integrated Technologies</span>
+            <!-- Minimal Categorized Tech Stack Grid (All 20 Technologies) -->
+            <div class="feedwise-tech-compact">
+              <div class="feedwise-tech-compact-header">
+                <span class="feedwise-tech-compact-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  Integrated Technology Stack
+                </span>
+                <span class="tech-total-badge">20 Technologies</span>
               </div>
 
-              <div class="feedwise-tech-grid">
+              <div class="feedwise-tech-compact-grid">
                 <!-- Group 1: Backend & REST API -->
-                <div class="tech-category-group">
-                  <div class="tech-group-title">
-                    <span class="group-dot dot-blue"></span> Backend & REST API Engine
-                  </div>
+                <div class="tech-cluster">
+                  <div class="tech-cluster-label"><span class="group-dot dot-blue"></span> Backend & REST API</div>
                   <div class="tech-tags-flex">
                     <span class="tech-pill fw-tag-php">PHP 8.2+</span>
                     <span class="tech-pill fw-tag-laravel">Laravel 12</span>
                     <span class="tech-pill">Eloquent ORM</span>
-                    <span class="tech-pill">Laravel Sanctum (REST API Auth)</span>
-                    <span class="tech-pill">Laravel Breeze (Web Auth)</span>
-                    <span class="tech-pill fw-tag-pdf">Barryvdh DomPDF (PDF Generation)</span>
+                    <span class="tech-pill">Laravel Sanctum</span>
+                    <span class="tech-pill">Laravel Breeze</span>
+                    <span class="tech-pill fw-tag-pdf">Barryvdh DomPDF</span>
                     <span class="tech-pill">Composer</span>
                   </div>
                 </div>
 
-                <!-- Group 2: Web Frontend & UI -->
-                <div class="tech-category-group">
-                  <div class="tech-group-title">
-                    <span class="group-dot dot-emerald"></span> Web Frontend & Templating
-                  </div>
+                <!-- Group 2: Web Frontend -->
+                <div class="tech-cluster">
+                  <div class="tech-cluster-label"><span class="group-dot dot-emerald"></span> Web Frontend & UI</div>
                   <div class="tech-tags-flex">
-                    <span class="tech-pill fw-tag-blade">Laravel Blade (Web Templating)</span>
+                    <span class="tech-pill fw-tag-blade">Laravel Blade</span>
                     <span class="tech-pill fw-tag-tailwind">Tailwind CSS v4</span>
                     <span class="tech-pill fw-tag-vite">Vite 7</span>
                     <span class="tech-pill">Axios</span>
@@ -384,29 +309,25 @@
                   </div>
                 </div>
 
-                <!-- Group 3: Cross-Platform Mobile App -->
-                <div class="tech-category-group">
-                  <div class="tech-group-title">
-                    <span class="group-dot dot-cyan"></span> Cross-Platform Mobile Application
-                  </div>
+                <!-- Group 3: Mobile App -->
+                <div class="tech-cluster">
+                  <div class="tech-cluster-label"><span class="group-dot dot-cyan"></span> Cross-Platform Mobile</div>
                   <div class="tech-tags-flex">
                     <span class="tech-pill fw-tag-flutter">Flutter</span>
                     <span class="tech-pill fw-tag-dart">Dart</span>
-                    <span class="tech-pill">Provider (Mobile State Management)</span>
-                    <span class="tech-pill">Dio (Mobile HTTP Client)</span>
+                    <span class="tech-pill">Provider</span>
+                    <span class="tech-pill">Dio</span>
                     <span class="tech-pill">Flutter Secure Storage</span>
-                    <span class="tech-pill">FL Chart (Mobile Charting)</span>
+                    <span class="tech-pill">FL Chart</span>
                   </div>
                 </div>
 
-                <!-- Group 4: Database & Local Environment -->
-                <div class="tech-category-group">
-                  <div class="tech-group-title">
-                    <span class="group-dot dot-amber"></span> Database & Server Environment
-                  </div>
+                <!-- Group 4: Database & Server -->
+                <div class="tech-cluster">
+                  <div class="tech-cluster-label"><span class="group-dot dot-amber"></span> Database & Server</div>
                   <div class="tech-tags-flex">
-                    <span class="tech-pill fw-tag-sql">MySQL / MariaDB (via XAMPP)</span>
-                    <span class="tech-pill fw-tag-apache">Apache & XAMPP (Local Web Server)</span>
+                    <span class="tech-pill fw-tag-sql">MySQL / MariaDB</span>
+                    <span class="tech-pill fw-tag-apache">Apache & XAMPP</span>
                   </div>
                 </div>
               </div>
@@ -426,14 +347,14 @@
                   <span class="category-tag denr-gov-tag">GovTech Production</span>
                   <span class="project-status">DENR-CENRO Davao del Sur</span>
                 </div>
-                <h3 class="project-title">DENR CENRO: Land Inventory & RLTA Assessment Database</h3>
+                <h3 class="project-title">DENR CENRO: Land Inventory & Cadastral Assessment Database</h3>
                 <p class="project-desc">
-                  Government cadastral land assessment and inventory platform engineered and deployed in production during internship at <strong>DENR-CENRO Davao del Sur, Philippines</strong>. Automates barangay land overview metrics, balance and remaining computations, cadastral lot management, and multi-parameter search across Davao del Sur municipalities.
+                  Cadastral land inventory and assessment system deployed in production during internship at <strong>DENR-CENRO Davao del Sur, Philippines</strong>. Automates barangay land overview metrics, remaining lot calculations, parcel lookup, and multi-parameter cadastral querying across Davao del Sur municipalities.
                 </p>
 
                 <div class="tech-stack-tags">
                   <span class="tech-tag">PHP</span>
-                  <span class="tech-tag">MySQL / Database</span>
+                  <span class="tech-tag">MySQL / MariaDB</span>
                   <span class="tech-tag">JavaScript</span>
                   <span class="tech-tag">Excel Bulk Ingestion</span>
                   <span class="tech-tag">Cadastral Modeling</span>
@@ -460,6 +381,16 @@
                     <img src="denr-dashboard.png" alt="DENR CENRO Davao del Sur Land Inventory and RLTA Assessment System Screenshot" class="denr-thumb-img" loading="lazy" />
                     <div class="denr-image-overlay">
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                      <span>Click to Enlarge Screenshot</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>"21" x2="10" y2="14"/></svg>
                       <span>Click to Enlarge Screenshot</span>
                     </div>
                   </div>

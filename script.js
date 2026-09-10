@@ -792,80 +792,156 @@ function initFeedWiseShowcase() {
   const showcaseContainer = document.getElementById('feedwiseCapstone');
   if (!showcaseContainer) return;
 
-  /* --------------------------------------------------------------------------
-     1. Slideshow Carousel Engine
-     -------------------------------------------------------------------------- */
-  const tabBtns = showcaseContainer.querySelectorAll('.slide-tab-btn');
-  const slides = showcaseContainer.querySelectorAll('.showcase-slide');
+  const track = document.getElementById('fwTrack');
+  const viewport = document.getElementById('fwViewport');
+  const slides = showcaseContainer.querySelectorAll('.carousel-slide');
+  const dotPills = showcaseContainer.querySelectorAll('.carousel-dot-pill');
   const prevBtn = document.getElementById('fwSlidePrevBtn');
   const nextBtn = document.getElementById('fwSlideNextBtn');
+  const prevFloating = document.getElementById('fwPrevFloating');
+  const nextFloating = document.getElementById('fwNextFloating');
   const counterEl = document.getElementById('fwSlideCounter');
   const autoplayBtn = document.getElementById('fwSlideAutoplayBtn');
   const autoplayText = document.getElementById('fwAutoplayText');
+  const titleEl = document.getElementById('fwCarouselTitle');
+  const captionTag = document.getElementById('fwCaptionTag');
+  const captionDesc = document.getElementById('fwCaptionDesc');
+  const progressBar = document.getElementById('fwProgressBar');
+  const zoomCurrentBtn = document.getElementById('fwZoomCurrentBtn');
 
   let currentSlide = 0;
-  const totalSlides = slides.length;
+  const totalSlides = slides.length || 4;
+  const AUTOPLAY_DELAY = 6000;
   let autoplayTimer = null;
   let isAutoplayActive = true;
+  let isHovered = false;
+
+  const slideData = [
+    {
+      src: 'feedwise-hero.png',
+      title: 'FeedWise · 01 / 04 · System Overview & Formulation Dashboard',
+      tag: 'SCREENSHOT 01 / 04',
+      caption: 'Production landing & formulation dashboard compliant with official Philippine Society of Animal Science (PhilSAN) nutrition standards.'
+    },
+    {
+      src: 'feedwise-simulator.png',
+      title: 'FeedWise · 02 / 04 · Interactive Feed Simulator & Live Output',
+      tag: 'SCREENSHOT 02 / 04',
+      caption: 'Interactive feed simulator interface with poultry stage balancing (Broiler, Layer, Breeder), live nutrient scoring (94/100), and market price sensitivity modeling.'
+    },
+    {
+      src: 'feedwise-capabilities.png',
+      title: 'FeedWise · 03 / 04 · Platform Architecture & Capabilities',
+      tag: 'SCREENSHOT 03 / 04',
+      caption: 'Nutritional architecture: Precision nutrient compliance (Crude Protein, Calcium, Metabolizable Energy) and offline-first PWA / SQLite local architecture.'
+    },
+    {
+      src: 'feedwise-process.png',
+      title: 'FeedWise · 04 / 04 · Simple 3-Step Farmer Formulation Workflow',
+      tag: 'SCREENSHOT 04 / 04',
+      caption: 'Intuitive 3-step farmer workflow: (1) Select poultry stage, (2) Algorithmic least-cost auto-balance, (3) Save formula and export DomPDF production batch sheets.'
+    }
+  ];
+
+  function resetProgressBar() {
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+  }
+
+  function startProgressBar() {
+    if (!progressBar || !isAutoplayActive || isHovered) return;
+    resetProgressBar();
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        progressBar.style.transition = `width ${AUTOPLAY_DELAY}ms linear`;
+        progressBar.style.width = '100%';
+      });
+    });
+  }
 
   function setSlide(index) {
     if (index < 0) index = totalSlides - 1;
     if (index >= totalSlides) index = 0;
     currentSlide = index;
 
-    // Update slides
+    // Smooth horizontal sliding track animation
+    if (track) {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Update active state on slides
     slides.forEach((slide, idx) => {
       if (idx === currentSlide) {
         slide.classList.add('active');
+        slide.setAttribute('aria-hidden', 'false');
       } else {
         slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
       }
     });
 
-    // Update tab buttons
-    tabBtns.forEach((btn, idx) => {
+    // Update navigation pill buttons
+    dotPills.forEach((pill, idx) => {
       if (idx === currentSlide) {
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
+        pill.classList.add('active');
+        pill.setAttribute('aria-selected', 'true');
       } else {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
+        pill.classList.remove('active');
+        pill.setAttribute('aria-selected', 'false');
       }
     });
 
-    // Update counter
+    // Update slide counter text
     if (counterEl) {
       counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
     }
+
+    // Update window chrome title & captions
+    const meta = slideData[currentSlide] || slideData[0];
+    if (titleEl) titleEl.textContent = meta.title;
+    if (captionTag) captionTag.textContent = meta.tag;
+    if (captionDesc) captionDesc.textContent = meta.caption;
+
+    // Update zoom button target metadata
+    if (zoomCurrentBtn) {
+      zoomCurrentBtn.setAttribute('data-img-src', meta.src);
+      zoomCurrentBtn.setAttribute('data-title', meta.title);
+      zoomCurrentBtn.setAttribute('data-caption', meta.caption);
+    }
+
+    // Reset and restart autoplay timer & progress bar
+    if (isAutoplayActive && !isHovered) {
+      startAutoplay();
+    } else {
+      resetProgressBar();
+    }
   }
 
-  // Click on tabs
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetSlide = parseInt(btn.getAttribute('data-slide'), 10);
-      setSlide(targetSlide);
+  // Dot pill click handlers
+  dotPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const target = parseInt(pill.getAttribute('data-slide'), 10);
+      if (!isNaN(target)) setSlide(target);
     });
   });
 
-  // Next and Prev buttons
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      setSlide(currentSlide - 1);
-    });
-  }
+  // Next and Prev handlers
+  function goNext() { setSlide(currentSlide + 1); }
+  function goPrev() { setSlide(currentSlide - 1); }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      setSlide(currentSlide + 1);
-    });
-  }
+  if (prevBtn) prevBtn.addEventListener('click', goPrev);
+  if (nextBtn) nextBtn.addEventListener('click', goNext);
+  if (prevFloating) prevFloating.addEventListener('click', (e) => { e.stopPropagation(); goPrev(); });
+  if (nextFloating) nextFloating.addEventListener('click', (e) => { e.stopPropagation(); goNext(); });
 
   // Autoplay functionality
   function startAutoplay() {
     stopAutoplay();
+    startProgressBar();
     autoplayTimer = setInterval(() => {
-      setSlide(currentSlide + 1);
-    }, 7000);
+      goNext();
+    }, AUTOPLAY_DELAY);
   }
 
   function stopAutoplay() {
@@ -873,6 +949,7 @@ function initFeedWiseShowcase() {
       clearInterval(autoplayTimer);
       autoplayTimer = null;
     }
+    resetProgressBar();
   }
 
   if (autoplayBtn) {
@@ -890,26 +967,79 @@ function initFeedWiseShowcase() {
     });
   }
 
-  // Pause autoplay when hovering over the showcase
-  showcaseContainer.addEventListener('mouseenter', () => {
-    if (isAutoplayActive) stopAutoplay();
-  });
-
-  showcaseContainer.addEventListener('mouseleave', () => {
-    if (isAutoplayActive) startAutoplay();
-  });
-
-  // Start initial autoplay
-  startAutoplay();
-
-  // Keyboard navigation for FeedWise Slideshow (when hovered or focused)
-  showcaseContainer.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-      setSlide(currentSlide + 1);
-    } else if (e.key === 'ArrowLeft') {
-      setSlide(currentSlide - 1);
+  // Pause on hover over slideshow container
+  const hoverContainer = document.getElementById('feedwiseCarousel') || showcaseContainer;
+  hoverContainer.addEventListener('mouseenter', () => {
+    isHovered = true;
+    if (isAutoplayActive) {
+      stopAutoplay();
     }
   });
+
+  hoverContainer.addEventListener('mouseleave', () => {
+    isHovered = false;
+    if (isAutoplayActive) {
+      startAutoplay();
+    }
+  });
+
+  // Clicking directly on a slide triggers lightbox view
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', () => {
+      const meta = slideData[idx] || slideData[0];
+      if (typeof openLightbox === 'function') {
+        openLightbox(meta.src, meta.title, meta.caption);
+      }
+    });
+  });
+
+  // Zoom button click handler
+  if (zoomCurrentBtn) {
+    zoomCurrentBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const meta = slideData[currentSlide] || slideData[0];
+      if (typeof openLightbox === 'function') {
+        openLightbox(meta.src, meta.title, meta.caption);
+      }
+    });
+  }
+
+  // Keyboard navigation when hovering or focusing the carousel
+  showcaseContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      goNext();
+    } else if (e.key === 'ArrowLeft') {
+      goPrev();
+    }
+  });
+
+  // Touch Swipe gestures for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (viewport) {
+    viewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) > 40) {
+      if (swipeDistance < 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
+    }
+  }
+
+  // Initialize first slide and kick off animation
+  setSlide(0);
 }
 
 /* ==========================================================================
