@@ -126,6 +126,520 @@
           </div>
         </div>
 
+        <!-- ══════════════════ FEATURED CAPSTONE: FEEDWISE ══════════════════ -->
+        <article class="feedwise-showcase-card project-card featured-capstone" id="feedwiseCapstone" data-category="systems" data-project-id="feedwise">
+          <div class="feedwise-card-inner">
+            
+            <!-- Showcase Header -->
+            <div class="feedwise-header">
+              <div class="feedwise-title-area">
+                <div class="feedwise-badges">
+                  <span class="capstone-badge">
+                    <span class="badge-sparkle">★</span> CAPSTONE SPOTLIGHT
+                  </span>
+                  <span class="tech-badge-highlight">Laravel 12 + Flutter</span>
+                  <span class="compliance-badge">PhilSAN Standard Compliant</span>
+                  <span class="offline-badge">Offline-First PWA & Mobile</span>
+                </div>
+                <h3 class="feedwise-main-title">
+                  <span class="fw-logo-icon">🌿</span> FeedWise — Intelligent Poultry Feed Formulation & Least-Cost Optimization System
+                </h3>
+                <p class="feedwise-tagline">
+                  A dual-platform agricultural intelligence ecosystem engineered with <strong>Laravel 12</strong> and <strong>Flutter</strong> that empowers poultry farmers to formulate nutritionally balanced feed mixes compliant with official Philippine <strong>PhilSAN</strong> standards while minimizing production costs down to the centavo via mathematical least-cost optimization.
+                </p>
+              </div>
+
+              <!-- Quick Highlights Metric Strip -->
+              <div class="feedwise-metric-strip">
+                <div class="fw-metric">
+                  <span class="fw-metric-val">12ms</span>
+                  <span class="fw-metric-lbl">Optimization Speed</span>
+                </div>
+                <div class="fw-metric">
+                  <span class="fw-metric-val">PhilSAN</span>
+                  <span class="fw-metric-lbl">Official Target Standards</span>
+                </div>
+                <div class="fw-metric">
+                  <span class="fw-metric-val">₱3.38/kg</span>
+                  <span class="fw-metric-lbl">Simulated Cost Savings</span>
+                </div>
+                <div class="fw-metric">
+                  <span class="fw-metric-val">100%</span>
+                  <span class="fw-metric-lbl">Offline-Capable App</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slideshow Navigation Controls & Tabs -->
+            <div class="slideshow-nav-bar">
+              <div class="slideshow-tabs" role="tablist" aria-label="FeedWise Showcase Slides">
+                <button class="slide-tab-btn active" data-slide="0" role="tab" aria-selected="true">
+                  <span class="tab-num">01</span> System Overview & Science
+                </button>
+                <button class="slide-tab-btn" data-slide="1" role="tab" aria-selected="false">
+                  <span class="tab-num">02</span> Live Interactive Feed Simulator
+                </button>
+                <button class="slide-tab-btn" data-slide="2" role="tab" aria-selected="false">
+                  <span class="tab-num">03</span> Architecture & Capabilities
+                </button>
+                <button class="slide-tab-btn" data-slide="3" role="tab" aria-selected="false">
+                  <span class="tab-num">04</span> 3-Step Farmer Workflow
+                </button>
+              </div>
+
+              <div class="slideshow-action-btns">
+                <button class="slide-arrow-btn" id="fwSlidePrevBtn" title="Previous Slide" aria-label="Previous Slide">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <span class="slide-counter" id="fwSlideCounter">1 / 4</span>
+                <button class="slide-arrow-btn" id="fwSlideNextBtn" title="Next Slide" aria-label="Next Slide">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <button class="slide-autoplay-btn" id="fwSlideAutoplayBtn" title="Toggle Slideshow Autoplay" aria-label="Toggle Slideshow Autoplay">
+                  <span class="autoplay-dot"></span>
+                  <span id="fwAutoplayText">Auto</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Slideshow Viewport -->
+            <div class="slideshow-viewport" id="feedwiseSlideshow">
+              
+              <!-- SLIDE 1: System Overview & Science -->
+              <div class="showcase-slide active" data-slide-index="0">
+                <div class="slide-grid slide-overview-grid">
+                  <!-- Left: Core Concept & PhilSAN Standard -->
+                  <div class="slide-content-col">
+                    <div class="slide-pill-tag">⚡ THE FUTURE OF POULTRY FARMING</div>
+                    <h4 class="slide-headline">Feed Smarter, Grow Faster, Spend Less</h4>
+                    <p class="slide-body">
+                      Formulate nutritionally balanced, cost-effective poultry feed mixes compliant with <strong>PhilSAN</strong> (Philippine Society of Animal Science) standards. Engineered offline-first and free for local agricultural communities.
+                    </p>
+
+                    <div class="slide-stats-row">
+                      <div class="slide-stat-item">
+                        <div class="stat-value text-accent">Linear Algo</div>
+                        <div class="stat-label">Least-Cost Math</div>
+                      </div>
+                      <div class="slide-stat-item">
+                        <div class="stat-value text-emerald">100% Free</div>
+                        <div class="stat-label">Accessible To Farmers</div>
+                      </div>
+                      <div class="slide-stat-item">
+                        <div class="stat-value text-amber">PhilSAN</div>
+                        <div class="stat-label">Standard Compliant</div>
+                      </div>
+                    </div>
+
+                    <div class="slide-features-list">
+                      <div class="slide-feature-check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Multi-stage poultry profiles: <strong>Broiler, Layer, and Breeder</strong></span>
+                      </div>
+                      <div class="slide-feature-check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Dynamic least-cost optimization solving in <strong>12 milliseconds</strong></span>
+                      </div>
+                      <div class="slide-feature-check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Automated PDF batch report creation powered by <strong>Barryvdh DomPDF</strong></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right: Live Visual System Mockup Preview -->
+                  <div class="slide-visual-col">
+                    <div class="fw-mockup-window">
+                      <div class="fw-mockup-topbar">
+                        <span class="win-dot dot-r"></span>
+                        <span class="win-dot dot-y"></span>
+                        <span class="win-dot dot-g"></span>
+                        <span class="win-title">FEEDWISE DASHBOARD & FORMULATOR</span>
+                      </div>
+                      <div class="fw-mockup-body">
+                        <div class="fw-mockup-card-header">
+                          <div>
+                            <span class="fw-subhead">CURRENT FORMULATION</span>
+                            <div class="fw-formula-name">Broiler Starter Mix</div>
+                            <span class="fw-meta-pill">Yield: 100 kg batch</span>
+                          </div>
+                          <div class="fw-price-block">
+                            <span class="fw-price-val">₱29.12<small>/kg</small></span>
+                            <span class="fw-badge-opt">✓ PhilSAN Compliant</span>
+                          </div>
+                        </div>
+
+                        <!-- Nutrient compliance progress bars -->
+                        <div class="fw-bars-group">
+                          <div class="fw-bar-item">
+                            <div class="fw-bar-label-row">
+                              <span>Crude Protein</span>
+                              <span class="fw-bar-nums">21.4% <small>/ 21.0% Min</small></span>
+                            </div>
+                            <div class="fw-progress-track">
+                              <div class="fw-progress-fill fill-green" style="width: 88%;"></div>
+                            </div>
+                          </div>
+
+                          <div class="fw-bar-item">
+                            <div class="fw-bar-label-row">
+                              <span>Calcium</span>
+                              <span class="fw-bar-nums">1.05% <small>/ 0.90% Min</small></span>
+                            </div>
+                            <div class="fw-progress-track">
+                              <div class="fw-progress-fill fill-emerald" style="width: 82%;"></div>
+                            </div>
+                          </div>
+
+                          <div class="fw-bar-item">
+                            <div class="fw-bar-label-row">
+                              <span>Metabolizable Energy</span>
+                              <span class="fw-bar-nums">3,012 kcal <small>/ 2,950 Min</small></span>
+                            </div>
+                            <div class="fw-progress-track">
+                              <div class="fw-progress-fill fill-cyan" style="width: 92%;"></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="fw-calc-toast">
+                          <span class="calc-icon">⚡</span>
+                          <span>Least-Cost Mix Formula — <strong>Calculated in 12ms</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SLIDE 2: Live Interactive Feed Simulator -->
+              <div class="showcase-slide" data-slide-index="1">
+                <div class="slide-grid slide-simulator-grid">
+                  <!-- Simulator Left Controls -->
+                  <div class="sim-controls-pane">
+                    <div class="sim-pane-header">
+                      <span class="sim-tag">INTERACTIVE FEED SIMULATOR</span>
+                      <h4 class="sim-title">Test The FeedWise Optimization Engine</h4>
+                      <p class="sim-hint">Adjust the ingredient sliders or simulate corn price inflation below, then tap <strong>Auto-Optimize</strong> to watch the algorithm rebalance nutrition and cost!</p>
+                    </div>
+
+                    <!-- Growth Stage Selector Tabs -->
+                    <div class="sim-stage-group">
+                      <span class="sim-sublabel">POULTRY GROWTH STAGE</span>
+                      <div class="sim-stage-pills" id="fwStageSelector">
+                        <button class="stage-pill active" data-stage="broiler">🍗 Broiler</button>
+                        <button class="stage-pill" data-stage="layer">🥚 Layer</button>
+                        <button class="stage-pill" data-stage="breeder">🐓 Breeder</button>
+                      </div>
+                    </div>
+
+                    <!-- Ingredient Sliders -->
+                    <div class="sim-sliders-group">
+                      <div class="sim-slider-row">
+                        <div class="slider-label-flex">
+                          <span>🌽 Yellow Corn (Energy)</span>
+                          <span class="slider-pct" id="valCorn">54%</span>
+                        </div>
+                        <input type="range" id="sliderCorn" min="10" max="80" value="54" class="fw-range-input" />
+                      </div>
+
+                      <div class="sim-slider-row">
+                        <div class="slider-label-flex">
+                          <span>🌱 Soybean Meal (Protein)</span>
+                          <span class="slider-pct" id="valSoybean">35%</span>
+                        </div>
+                        <input type="range" id="sliderSoybean" min="10" max="60" value="35" class="fw-range-input" />
+                      </div>
+
+                      <div class="sim-slider-row">
+                        <div class="slider-label-flex">
+                          <span>🐟 Fish Meal (High Protein / Cal)</span>
+                          <span class="slider-pct" id="valFishMeal">9%</span>
+                        </div>
+                        <input type="range" id="sliderFishMeal" min="0" max="30" value="9" class="fw-range-input" />
+                      </div>
+
+                      <div class="sim-slider-row">
+                        <div class="slider-label-flex">
+                          <span>🪨 Limestone (Calcium)</span>
+                          <span class="slider-pct" id="valLimestone">2%</span>
+                        </div>
+                        <input type="range" id="sliderLimestone" min="0" max="15" value="2" class="fw-range-input" />
+                      </div>
+
+                      <!-- Total Mix indicator -->
+                      <div class="sim-total-bar">
+                        <span>Total Formulation Mix:</span>
+                        <span id="fwTotalMixPct" class="mix-status-val compliant">100%</span>
+                      </div>
+                    </div>
+
+                    <!-- Market Price Fluctuation Slider -->
+                    <div class="sim-market-box">
+                      <div class="market-box-header">
+                        <span>📈 Corn Market Price Simulation</span>
+                        <span id="valCornPrice" class="market-price-tag">₱16/kg</span>
+                      </div>
+                      <input type="range" id="sliderCornPrice" min="12" max="30" value="16" class="fw-range-input market-slider" />
+                      <div class="market-scale-labels">
+                        <span>₱12/kg (Low Market)</span>
+                        <span>₱30/kg (High Inflation)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Simulator Right Live Output Card -->
+                  <div class="sim-output-pane">
+                    <div class="sim-output-card" id="simOutputCard">
+                      <div class="sim-card-topbar">
+                        <span class="live-pulse-green"></span>
+                        <span class="live-out-label">LIVE FORMULATION OUTPUT</span>
+                        <button class="btn-auto-optimize" id="fwAutoOptimizeBtn" title="Calculate optimal least-cost mix">
+                          <span>✨ Auto-Optimize</span>
+                        </button>
+                      </div>
+
+                      <div class="sim-score-block">
+                        <span class="score-sub">NUTRIENT BALANCE SCORE</span>
+                        <div class="score-display">
+                          <span class="score-number" id="fwScoreDisplay">94</span>
+                          <span class="score-max">/100</span>
+                        </div>
+                        <p class="score-desc" id="fwScoreDesc">
+                          Nutrient levels closely meet PhilSAN standards. Tap <strong>Auto-Optimize</strong> to recalculate the optimal least-cost mix.
+                        </p>
+                      </div>
+
+                      <div class="sim-metrics-2col">
+                        <div class="sim-metric-cell">
+                          <span class="metric-cell-label">CRUDE PROTEIN</span>
+                          <span class="metric-cell-val" id="fwProteinOutput">25.39%</span>
+                          <span class="metric-cell-target" id="fwProteinTarget">PhilSAN Target: Min 21%</span>
+                        </div>
+                        <div class="sim-metric-cell">
+                          <span class="metric-cell-label">CALCIUM</span>
+                          <span class="metric-cell-val" id="fwCalciumOutput">1.29%</span>
+                          <span class="metric-cell-target" id="fwCalciumTarget">PhilSAN Target: Min 0.9%</span>
+                        </div>
+                      </div>
+
+                      <div class="sim-cost-strip">
+                        <div class="cost-item">
+                          <span class="cost-lbl">ESTIMATED COST / KG</span>
+                          <span class="cost-big" id="fwCostOutput">₱29.12</span>
+                        </div>
+                        <div class="cost-divider"></div>
+                        <div class="cost-item">
+                          <span class="cost-lbl">ESTIMATED SAVINGS</span>
+                          <span class="savings-big" id="fwSavingsOutput">₱3.38/kg</span>
+                        </div>
+                      </div>
+
+                      <div class="sim-cta-area">
+                        <div class="sim-auto-toast" id="simFeedbackToast">
+                          ✓ Live Formula Synced with PhilSAN Rules
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SLIDE 3: Architecture & Platform Capabilities -->
+              <div class="showcase-slide" data-slide-index="2">
+                <div class="slide-capabilities-container">
+                  <div class="capabilities-header text-center">
+                    <span class="slide-pill-tag">+ PLATFORM CAPABILITIES</span>
+                    <h4 class="slide-headline">Why FeedWise Works</h4>
+                    <p class="slide-subtitle">Built around the real science of poultry nutrition — not guesswork.</p>
+                  </div>
+
+                  <div class="capabilities-grid">
+                    <!-- Capability 1: Precision Nutrition Tracking -->
+                    <div class="capability-card card-green">
+                      <div class="cap-icon-box">🎯</div>
+                      <h5 class="cap-title">Precision Nutrition Tracking</h5>
+                      <p class="cap-desc">
+                        Every nutrient is calculated against official PhilSAN standards in real time — crude protein, calcium, phosphorus, and metabolizable energy.
+                      </p>
+                      <div class="cap-metric-preview">
+                        <div class="cap-metric-row">
+                          <span>Crude Protein</span>
+                          <span class="cap-val-ok">21.4% / 21.0% min (✓ Compliant)</span>
+                        </div>
+                        <div class="cap-metric-row">
+                          <span>Calcium</span>
+                          <span class="cap-val-ok">1.05% / 0.90% min</span>
+                        </div>
+                        <div class="cap-metric-row">
+                          <span>Metabolizable Energy</span>
+                          <span class="cap-val-ok">3,012 kcal / 2,950 kcal min</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Capability 2: Least-Cost Optimization -->
+                    <div class="capability-card card-light">
+                      <div class="cap-icon-box">💰</div>
+                      <h5 class="cap-title">Least-Cost Optimization</h5>
+                      <p class="cap-desc">
+                        Our mathematical algorithm automatically identifies the cheapest ingredient combination that satisfies every nutrient threshold — down to the peso.
+                      </p>
+                      <div class="cap-cost-preview">
+                        <div class="cap-donut-mock">
+                          <div class="cap-donut-ring">
+                            <span class="cap-donut-price">₱29<small>/kg</small></span>
+                          </div>
+                          <div class="cap-legend">
+                            <div class="leg-item"><span class="leg-dot c-corn"></span> Corn: ₱15.6</div>
+                            <div class="leg-item"><span class="leg-dot c-soy"></span> Soybean: ₱9.2</div>
+                            <div class="leg-item"><span class="leg-dot c-oth"></span> Others: ₱4.2</div>
+                          </div>
+                        </div>
+                        <div class="cap-savings-tag">↓ ₱3.38/kg vs Manual Average Saved</div>
+                      </div>
+                    </div>
+
+                    <!-- Capability 3: Works Without Internet -->
+                    <div class="capability-card card-navy">
+                      <div class="cap-icon-box">📶</div>
+                      <h5 class="cap-title">Works Without Internet (Offline-First)</h5>
+                      <p class="cap-desc">
+                        Installed as a PWA and Flutter Mobile App on phones or tablets, FeedWise caches local data via SQLite and secure storage — farmers can formulate feed in remote rural areas with zero signal.
+                      </p>
+                      <div class="cap-offline-list">
+                        <div class="offline-status-bar">
+                          <span class="off-dot"></span> Connection Status: <strong>Offline Mode Active</strong>
+                        </div>
+                        <div class="off-feature-item"><span>Calculate Feed Formula</span> <span class="tag-avail">✓ Available</span></div>
+                        <div class="off-feature-item"><span>View Saved Formulations</span> <span class="tag-avail">✓ Available</span></div>
+                        <div class="off-feature-item"><span>Nutrient Requirements</span> <span class="tag-avail">✓ Available</span></div>
+                        <div class="off-feature-item"><span>Export PDF Report</span> <span class="tag-avail">✓ Available</span></div>
+                        <div class="off-sync-footer">Syncs automatically when online</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SLIDE 4: 3-Step Farmer Workflow & DomPDF -->
+              <div class="showcase-slide" data-slide-index="3">
+                <div class="slide-workflow-container">
+                  <div class="workflow-header text-center">
+                    <span class="slide-pill-tag">SIMPLE 3-STEP PROCESS</span>
+                    <h4 class="slide-headline">From Farm to Formula in Minutes</h4>
+                    <p class="slide-subtitle">No nutritionist degree required — FeedWise guides every step of the way.</p>
+                  </div>
+
+                  <div class="workflow-steps-grid">
+                    <!-- Step 1 -->
+                    <div class="workflow-step-card">
+                      <div class="step-icon-bubble">🐔</div>
+                      <div class="step-num-badge">1</div>
+                      <h5 class="step-title">Choose Your Poultry</h5>
+                      <p class="step-desc">
+                        Select <strong>Broiler, Layer, or Breeder</strong> — then pick the specific growth stage (Starter, Grower, Finisher). Official PhilSAN nutrient targets load automatically into memory.
+                      </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="workflow-step-card">
+                      <div class="step-icon-bubble">⚖️</div>
+                      <div class="step-num-badge">2</div>
+                      <h5 class="step-title">Adjust & Auto-Balance</h5>
+                      <p class="step-desc">
+                        Manually slide ingredient percentages or tap <strong>Auto-Optimize</strong>. The least-cost mathematical algorithm instantly finds the cheapest compliant mix in milliseconds.
+                      </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="workflow-step-card">
+                      <div class="step-icon-bubble">💾</div>
+                      <div class="step-num-badge">3</div>
+                      <h5 class="step-title">Save, Export & Share</h5>
+                      <p class="step-desc">
+                        Save your formula to MySQL via Eloquent ORM, generate print-ready official PDF reports via <strong>Barryvdh DomPDF</strong>, or export formula sheets for cooperative feed millers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Full Categorized Tech Stack Grid (All 20 User Technologies) -->
+            <div class="feedwise-tech-section">
+              <div class="feedwise-tech-top">
+                <div class="feedwise-tech-heading">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  <span>Technologies & Architecture Stack Used in FeedWise</span>
+                </div>
+                <span class="tech-total-badge">20 Integrated Technologies</span>
+              </div>
+
+              <div class="feedwise-tech-grid">
+                <!-- Group 1: Backend & REST API -->
+                <div class="tech-category-group">
+                  <div class="tech-group-title">
+                    <span class="group-dot dot-blue"></span> Backend & REST API Engine
+                  </div>
+                  <div class="tech-tags-flex">
+                    <span class="tech-pill fw-tag-php">PHP 8.2+</span>
+                    <span class="tech-pill fw-tag-laravel">Laravel 12</span>
+                    <span class="tech-pill">Eloquent ORM</span>
+                    <span class="tech-pill">Laravel Sanctum (REST API Auth)</span>
+                    <span class="tech-pill">Laravel Breeze (Web Auth)</span>
+                    <span class="tech-pill fw-tag-pdf">Barryvdh DomPDF (PDF Generation)</span>
+                    <span class="tech-pill">Composer</span>
+                  </div>
+                </div>
+
+                <!-- Group 2: Web Frontend & UI -->
+                <div class="tech-category-group">
+                  <div class="tech-group-title">
+                    <span class="group-dot dot-emerald"></span> Web Frontend & Templating
+                  </div>
+                  <div class="tech-tags-flex">
+                    <span class="tech-pill fw-tag-blade">Laravel Blade (Web Templating)</span>
+                    <span class="tech-pill fw-tag-tailwind">Tailwind CSS v4</span>
+                    <span class="tech-pill fw-tag-vite">Vite 7</span>
+                    <span class="tech-pill">Axios</span>
+                    <span class="tech-pill fw-tag-chart">Chart.js</span>
+                    <span class="tech-pill">NPM</span>
+                  </div>
+                </div>
+
+                <!-- Group 3: Cross-Platform Mobile App -->
+                <div class="tech-category-group">
+                  <div class="tech-group-title">
+                    <span class="group-dot dot-cyan"></span> Cross-Platform Mobile Application
+                  </div>
+                  <div class="tech-tags-flex">
+                    <span class="tech-pill fw-tag-flutter">Flutter</span>
+                    <span class="tech-pill fw-tag-dart">Dart</span>
+                    <span class="tech-pill">Provider (Mobile State Management)</span>
+                    <span class="tech-pill">Dio (Mobile HTTP Client)</span>
+                    <span class="tech-pill">Flutter Secure Storage</span>
+                    <span class="tech-pill">FL Chart (Mobile Charting)</span>
+                  </div>
+                </div>
+
+                <!-- Group 4: Database & Local Environment -->
+                <div class="tech-category-group">
+                  <div class="tech-group-title">
+                    <span class="group-dot dot-amber"></span> Database & Server Environment
+                  </div>
+                  <div class="tech-tags-flex">
+                    <span class="tech-pill fw-tag-sql">MySQL / MariaDB (via XAMPP)</span>
+                    <span class="tech-pill fw-tag-apache">Apache & XAMPP (Local Web Server)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
         <!-- Projects Grid -->
         <div class="projects-grid" id="projectsGrid">
 

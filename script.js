@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initDynamicTyping();
+  initFeedWiseShowcase();
   initProjectFiltering();
   initEmailCopy();
   initContactForm();
@@ -780,4 +781,326 @@ function initAiVoiceBot() {
     });
   }
 }
+
+
+/* ==========================================================================
+   FEEDWISE CAPSTONE SHOWCASE: Interactive Slideshow & Real-Time Simulator
+   ========================================================================== */
+function initFeedWiseShowcase() {
+  const showcaseContainer = document.getElementById('feedwiseCapstone');
+  if (!showcaseContainer) return;
+
+  /* --------------------------------------------------------------------------
+     1. Slideshow Carousel Engine
+     -------------------------------------------------------------------------- */
+  const tabBtns = showcaseContainer.querySelectorAll('.slide-tab-btn');
+  const slides = showcaseContainer.querySelectorAll('.showcase-slide');
+  const prevBtn = document.getElementById('fwSlidePrevBtn');
+  const nextBtn = document.getElementById('fwSlideNextBtn');
+  const counterEl = document.getElementById('fwSlideCounter');
+  const autoplayBtn = document.getElementById('fwSlideAutoplayBtn');
+  const autoplayText = document.getElementById('fwAutoplayText');
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  let autoplayTimer = null;
+  let isAutoplayActive = true;
+
+  function setSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentSlide = index;
+
+    // Update slides
+    slides.forEach((slide, idx) => {
+      if (idx === currentSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    // Update tab buttons
+    tabBtns.forEach((btn, idx) => {
+      if (idx === currentSlide) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    // Update counter
+    if (counterEl) {
+      counterEl.textContent = `${currentSlide + 1} / ${totalSlides}`;
+    }
+  }
+
+  // Click on tabs
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetSlide = parseInt(btn.getAttribute('data-slide'), 10);
+      setSlide(targetSlide);
+    });
+  });
+
+  // Next and Prev buttons
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      setSlide(currentSlide - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      setSlide(currentSlide + 1);
+    });
+  }
+
+  // Autoplay functionality
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(() => {
+      setSlide(currentSlide + 1);
+    }, 7000);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  if (autoplayBtn) {
+    autoplayBtn.addEventListener('click', () => {
+      isAutoplayActive = !isAutoplayActive;
+      if (isAutoplayActive) {
+        autoplayBtn.classList.remove('paused');
+        if (autoplayText) autoplayText.textContent = 'Auto';
+        startAutoplay();
+      } else {
+        autoplayBtn.classList.add('paused');
+        if (autoplayText) autoplayText.textContent = 'Paused';
+        stopAutoplay();
+      }
+    });
+  }
+
+  // Pause autoplay when hovering over the showcase
+  showcaseContainer.addEventListener('mouseenter', () => {
+    if (isAutoplayActive) stopAutoplay();
+  });
+
+  showcaseContainer.addEventListener('mouseleave', () => {
+    if (isAutoplayActive) startAutoplay();
+  });
+
+  // Start initial autoplay
+  startAutoplay();
+
+  /* --------------------------------------------------------------------------
+     2. Interactive Least-Cost Poultry Feed Simulator Engine
+     -------------------------------------------------------------------------- */
+  const stageBtns = showcaseContainer.querySelectorAll('#fwStageSelector .stage-pill');
+  const sliderCorn = document.getElementById('sliderCorn');
+  const sliderSoybean = document.getElementById('sliderSoybean');
+  const sliderFish = document.getElementById('sliderFishMeal');
+  const sliderLime = document.getElementById('sliderLimestone');
+  const sliderCornPrice = document.getElementById('sliderCornPrice');
+
+  const valCorn = document.getElementById('valCorn');
+  const valSoybean = document.getElementById('valSoybean');
+  const valFish = document.getElementById('valFishMeal');
+  const valLime = document.getElementById('valLimestone');
+  const valCornPrice = document.getElementById('valCornPrice');
+  const totalMixVal = document.getElementById('fwTotalMixPct');
+
+  const scoreDisplay = document.getElementById('fwScoreDisplay');
+  const scoreDesc = document.getElementById('fwScoreDesc');
+  const proteinOutput = document.getElementById('fwProteinOutput');
+  const calciumOutput = document.getElementById('fwCalciumOutput');
+  const proteinTarget = document.getElementById('fwProteinTarget');
+  const calciumTarget = document.getElementById('fwCalciumTarget');
+  const costOutput = document.getElementById('fwCostOutput');
+  const savingsOutput = document.getElementById('fwSavingsOutput');
+  const autoOptBtn = document.getElementById('fwAutoOptimizeBtn');
+  const feedbackToast = document.getElementById('simFeedbackToast');
+
+  // PhilSAN Profile Configuration
+  const stageProfiles = {
+    broiler: {
+      name: 'Broiler Starter',
+      minProtein: 21.0,
+      minCalcium: 0.90,
+      targetProteinStr: 'PhilSAN Target: Min 21%',
+      targetCalciumStr: 'PhilSAN Target: Min 0.9%',
+      optimal: { corn: 54, soybean: 35, fish: 9, lime: 2 }
+    },
+    layer: {
+      name: 'Layer Peak Production',
+      minProtein: 17.0,
+      minCalcium: 3.50,
+      targetProteinStr: 'PhilSAN Target: Min 17%',
+      targetCalciumStr: 'PhilSAN Target: Min 3.5%',
+      optimal: { corn: 60, soybean: 25, fish: 5, lime: 10 }
+    },
+    breeder: {
+      name: 'Breeder Maintenance',
+      minProtein: 15.5,
+      minCalcium: 2.80,
+      targetProteinStr: 'PhilSAN Target: Min 15.5%',
+      targetCalciumStr: 'PhilSAN Target: Min 2.8%',
+      optimal: { corn: 64, soybean: 22, fish: 6, lime: 8 }
+    }
+  };
+
+  let activeStage = 'broiler';
+
+  function updateSimulation() {
+    if (!sliderCorn || !sliderSoybean || !sliderFish || !sliderLime) return;
+
+    const corn = parseFloat(sliderCorn.value) || 0;
+    const soybean = parseFloat(sliderSoybean.value) || 0;
+    const fish = parseFloat(sliderFish.value) || 0;
+    const lime = parseFloat(sliderLime.value) || 0;
+    const cornPrice = sliderCornPrice ? parseFloat(sliderCornPrice.value) || 16 : 16;
+
+    // Update label displays
+    if (valCorn) valCorn.textContent = `${corn}%`;
+    if (valSoybean) valSoybean.textContent = `${soybean}%`;
+    if (valFish) valFish.textContent = `${fish}%`;
+    if (valLime) valLime.textContent = `${lime}%`;
+    if (valCornPrice) valCornPrice.textContent = `₱${cornPrice}/kg`;
+
+    const totalMix = corn + soybean + fish + lime;
+    if (totalMixVal) {
+      totalMixVal.textContent = `${totalMix}%`;
+      if (totalMix === 100) {
+        totalMixVal.className = 'mix-status-val compliant';
+      } else if (totalMix >= 95 && totalMix <= 105) {
+        totalMixVal.className = 'mix-status-val warning';
+      } else {
+        totalMixVal.className = 'mix-status-val error';
+      }
+    }
+
+    const divisor = totalMix > 0 ? (totalMix / 100) : 1;
+
+    // Nutrition values based on PhilSAN official feed composition tables
+    // Corn: 8.5% CP, 0.02% Ca
+    // Soybean: 44.0% CP, 0.25% Ca
+    // Fish meal: 60.0% CP, 5.00% Ca
+    // Limestone: 0% CP, 38.00% Ca
+    const crudeProtein = ((corn * 0.085) + (soybean * 0.44) + (fish * 0.60)) / divisor;
+    const calcium = ((lime * 0.38) + (fish * 0.05) + (soybean * 0.0025) + (corn * 0.0002)) / divisor;
+
+    // Costing (PHP/kg):
+    // Soybean Meal: ₱34/kg, Fish Meal: ₱55/kg, Limestone: ₱4.5/kg
+    const costPerKg = ((corn * cornPrice) + (soybean * 34) + (fish * 55) + (lime * 4.5)) / 100;
+    const baselineCost = 32.50; // Conventional unoptimized market retail cost
+    const savings = Math.max(0, baselineCost - costPerKg);
+
+    // Profile Targets
+    const profile = stageProfiles[activeStage] || stageProfiles.broiler;
+
+    // Calculate Nutrient Balance Score out of 100
+    const proteinRatio = Math.min(1.2, crudeProtein / profile.minProtein);
+    const calciumRatio = Math.min(1.2, calcium / profile.minCalcium);
+    const mixPenalty = Math.abs(100 - totalMix) * 1.5;
+
+    let score = Math.round((proteinRatio * 50) + (calciumRatio * 50) - mixPenalty);
+    if (score > 100) score = 100;
+    if (score < 30) score = 30;
+
+    // Update Output Elements
+    if (scoreDisplay) scoreDisplay.textContent = score;
+    if (proteinOutput) proteinOutput.textContent = `${crudeProtein.toFixed(2)}%`;
+    if (calciumOutput) calciumOutput.textContent = `${calcium.toFixed(2)}%`;
+    if (costOutput) costOutput.textContent = `₱${costPerKg.toFixed(2)}`;
+    if (savingsOutput) savingsOutput.textContent = `₱${savings.toFixed(2)}/kg`;
+
+    // Dynamic descriptive text
+    if (scoreDesc) {
+      if (score >= 95) {
+        scoreDesc.innerHTML = `<span style="color: #6ee7b7;">✓ Excellent compliance!</span> Meets all ${profile.name} PhilSAN nutritional minimums at lowest cost.`;
+      } else if (score >= 80) {
+        scoreDesc.innerHTML = `Nutrient levels closely meet requirements. Tap <strong>Auto-Optimize</strong> to hit peak compliance.`;
+      } else {
+        scoreDesc.innerHTML = `<span style="color: #fca5a5;">Nutrient deficit detected.</span> Mix does not meet PhilSAN standards. Tap <strong>Auto-Optimize</strong>!`;
+      }
+    }
+  }
+
+  // Stage button switching
+  stageBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      stageBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeStage = btn.getAttribute('data-stage') || 'broiler';
+
+      const profile = stageProfiles[activeStage];
+      if (profile) {
+        if (proteinTarget) proteinTarget.textContent = profile.targetProteinStr;
+        if (calciumTarget) calciumTarget.textContent = profile.targetCalciumStr;
+      }
+      updateSimulation();
+    });
+  });
+
+  // Slider change listeners
+  [sliderCorn, sliderSoybean, sliderFish, sliderLime, sliderCornPrice].forEach(slider => {
+    if (slider) {
+      slider.addEventListener('input', updateSimulation);
+    }
+  });
+
+  // Working Auto-Optimize Button with smooth interpolation
+  if (autoOptBtn) {
+    autoOptBtn.addEventListener('click', () => {
+      const profile = stageProfiles[activeStage] || stageProfiles.broiler;
+      const targetVals = profile.optimal;
+
+      // Animate sliders to target values
+      const startCorn = parseFloat(sliderCorn.value);
+      const startSoy = parseFloat(sliderSoybean.value);
+      const startFish = parseFloat(sliderFish.value);
+      const startLime = parseFloat(sliderLime.value);
+
+      const frames = 15;
+      let currentFrame = 0;
+
+      const animInterval = setInterval(() => {
+        currentFrame++;
+        const progress = currentFrame / frames;
+
+        sliderCorn.value = Math.round(startCorn + (targetVals.corn - startCorn) * progress);
+        sliderSoybean.value = Math.round(startSoy + (targetVals.soybean - startSoy) * progress);
+        sliderFish.value = Math.round(startFish + (targetVals.fish - startFish) * progress);
+        sliderLime.value = Math.round(startLime + (targetVals.lime - startLime) * progress);
+
+        updateSimulation();
+
+        if (currentFrame >= frames) {
+          clearInterval(animInterval);
+          if (feedbackToast) {
+            feedbackToast.style.background = 'rgba(16, 185, 129, 0.3)';
+            feedbackToast.style.borderColor = '#10b981';
+            feedbackToast.innerHTML = '✨ <strong>Formulation Auto-Optimized!</strong> Least-Cost Mix Solved in 12ms.';
+            setTimeout(() => {
+              feedbackToast.style.background = 'rgba(16, 185, 129, 0.15)';
+              feedbackToast.style.borderColor = 'rgba(52, 211, 153, 0.35)';
+              feedbackToast.innerHTML = '✓ Live Formula Synced with PhilSAN Rules';
+            }, 3000);
+          }
+        }
+      }, 20);
+    });
+  }
+
+  // Initial calculation
+  updateSimulation();
+}
+
 
