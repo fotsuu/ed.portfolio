@@ -12,7 +12,7 @@ Welcome to the personal developer portfolio of **Eric E. Diamante** — Software
 - **Interactive Project Showcase**: Filterable showcase featuring Web Development, AI Workflows & Automation, and Data Services.
 - **Live Terminal Simulator**: Interactive command-line terminal to query bio, skills, projects, and contact info in real-time.
 - **Interactive Skills Matrix**: Visual category breakdown with proficiency meters and detailed skill tags.
-- **Built-in Contact & Interactive Modals**: Functional contact interface with toast notifications and CV preview/download.
+- **Built-in Contact & Interactive Modals**: Functional contact interface with toast notifications and direct outreach links.
 - **Responsive & Accessible**: Fully optimized for mobile, tablet, and ultra-wide displays with semantic markup.
 
 ---
@@ -31,7 +31,6 @@ Welcome to the personal developer portfolio of **Eric E. Diamante** — Software
 ├── index.html        # Main portfolio markup & semantic structure
 ├── style.css         # Complete design system, themes, layouts, animations
 ├── script.js         # Interactive features, terminal emulator, particles, filters
-├── hnz-CV.pdf        # Downloadable curriculum vitae / resume
 ├── ai-core.jpg       # Project illustration asset
 ├── eric-formal.jpg   # Profile picture asset
 ├── profile.jpg       # Hero avatar asset
