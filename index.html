@@ -111,23 +111,22 @@
       <div class="section-container">
         
         <div class="section-header text-center">
-          <div class="section-tag">Portfolio Showcase</div>
-          <h2 class="section-title">Engineered Systems, AI & Data Projects</h2>
+          <div class="section-tag">Featured Deployments</div>
+          <h2 class="section-title">Engineered Production Software</h2>
           <p class="section-subtitle">
-            Production software, database systems, and AI-driven automation pipelines.
+            Flagship Capstone System & Government Production Deployments.
           </p>
 
           <!-- Filter Navigation Tabs -->
           <div class="filter-pills-bar">
-            <button class="filter-pill active" data-filter="all">All Projects</button>
-            <button class="filter-pill" data-filter="systems">Systems & Web</button>
-            <button class="filter-pill" data-filter="ai">AI & Automation</button>
-            <button class="filter-pill" data-filter="data">Data & Audio</button>
+            <button class="filter-pill active" data-filter="all">All Deployments (2)</button>
+            <button class="filter-pill" data-filter="capstone">Capstone: FeedWise</button>
+            <button class="filter-pill" data-filter="govtech">GovTech: DENR-CENRO</button>
           </div>
         </div>
 
         <!-- ══════════════════ FEATURED CAPSTONE: FEEDWISE ══════════════════ -->
-        <article class="feedwise-showcase-card project-card featured-capstone" id="feedwiseCapstone" data-category="systems" data-project-id="feedwise">
+        <article class="feedwise-showcase-card project-card featured-capstone" id="feedwiseCapstone" data-category="capstone" data-project-id="feedwise">
           <div class="feedwise-card-inner">
             
             <!-- Showcase Header -->
@@ -640,131 +639,60 @@
           </div>
         </article>
 
-        <!-- Projects Grid -->
-        <div class="projects-grid" id="projectsGrid">
+        <!-- Projects Grid: Single Column for Clean Full-Width Showcase -->
+        <div class="projects-grid single-project-grid" id="projectsGrid">
 
-          <!-- Project 1: RLTA Inventory Management System (DENR-CENRO Davao del Sur) -->
-          <article class="project-card denr-project-card" data-category="systems" data-project-id="rlta-system">
+          <!-- Project 2: RLTA Inventory Management System (DENR-CENRO Davao del Sur) -->
+          <article class="project-card denr-project-card" data-category="govtech" data-project-id="rlta-system">
             <div class="card-inner">
-              <div class="project-badge-bar">
-                <span class="category-tag denr-gov-tag">GovTech Production</span>
-                <span class="project-status">DENR-CENRO Davao del Sur</span>
+              <div class="denr-card-left">
+                <div class="project-badge-bar">
+                  <span class="category-tag denr-gov-tag">GovTech Production</span>
+                  <span class="project-status">DENR-CENRO Davao del Sur</span>
+                </div>
+                <h3 class="project-title">DENR CENRO: Land Inventory & RLTA Assessment Database</h3>
+                <p class="project-desc">
+                  Government cadastral land assessment and inventory platform engineered and deployed in production during internship at <strong>DENR-CENRO Davao del Sur, Philippines</strong>. Automates barangay land overview metrics, balance and remaining computations, cadastral lot management, and multi-parameter search across Davao del Sur municipalities.
+                </p>
+
+                <div class="tech-stack-tags">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">MySQL / Database</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">Excel Bulk Ingestion</span>
+                  <span class="tech-tag">Cadastral Modeling</span>
+                  <span class="tech-tag">DENR RLTA</span>
+                </div>
+
+                <div class="project-card-footer">
+                  <button type="button" class="btn-card-details denr-modal-open-btn" id="openDenrModalBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Open Interactive System Preview</span>
+                  </button>
+                </div>
               </div>
-              <div class="project-icon-wrapper denr-icon-wrap">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 12v.01"/><path d="M9 15v.01"/><path d="M9 18v.01"/></svg>
-              </div>
-              <h3 class="project-title">DENR CENRO: Land Inventory & RLTA Assessment Database</h3>
-              <p class="project-desc">
-                Government cadastral land assessment and inventory platform engineered and deployed during internship at <strong>DENR-CENRO Davao del Sur, Philippines</strong>. Automates barangay land overview metrics, balance and remaining computations, cadastral lot management, and multi-parameter search across Davao del Sur municipalities.
-              </p>
 
               <!-- Live Mini Mockup Preview of the Deployed DENR Interface -->
-              <div class="denr-card-preview" id="denrCardTrigger" role="button" tabindex="0" title="Click to view full interactive deployed system preview">
-                <div class="denr-preview-bar">
-                  <span class="denr-pulse-dot"></span>
-                  <span class="denr-preview-title">DENR CENRO · Land Inventory & RLTA</span>
-                  <span class="denr-status-online">● Deployed</span>
+              <div class="denr-card-right">
+                <div class="denr-card-preview" id="denrCardTrigger" role="button" tabindex="0" title="Click to view full interactive deployed system preview">
+                  <div class="denr-preview-bar">
+                    <span class="denr-pulse-dot"></span>
+                    <span class="denr-preview-title">DENR CENRO · Land Inventory & RLTA</span>
+                    <span class="denr-status-online">● Deployed</span>
+                  </div>
+                  <div class="denr-preview-grid">
+                    <div class="muni-chip active"><span>DIGOS</span> <strong>25 Brgys</strong></div>
+                    <div class="muni-chip active"><span>MATANAO</span> <strong>16 Brgys</strong></div>
+                    <div class="muni-chip"><span>BANSALAN</span> <strong>Tracked</strong></div>
+                    <div class="muni-chip"><span>STA. CRUZ</span> <strong>Tracked</strong></div>
+                  </div>
+                  <div class="denr-search-hint">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Search lot no, survey no, claimant, barangay...</span>
+                  </div>
                 </div>
-                <div class="denr-preview-grid">
-                  <div class="muni-chip active"><span>DIGOS</span> <strong>25 Brgys</strong></div>
-                  <div class="muni-chip active"><span>MATANAO</span> <strong>16 Brgys</strong></div>
-                  <div class="muni-chip"><span>BANSALAN</span> <strong>Tracked</strong></div>
-                  <div class="muni-chip"><span>STA. CRUZ</span> <strong>Tracked</strong></div>
-                </div>
-                <div class="denr-search-hint">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                  <span>Search lot no, survey no, claimant, barangay...</span>
-                </div>
               </div>
 
-              <div class="tech-stack-tags">
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL / Database</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Excel Bulk Ingestion</span>
-                <span class="tech-tag">Cadastral Modeling</span>
-                <span class="tech-tag">DENR RLTA</span>
-              </div>
-
-              <div class="project-card-footer">
-                <button type="button" class="btn-card-details denr-modal-open-btn" id="openDenrModalBtn">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <span>Interactive System Preview</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 2: AI Dubbing Platform -->
-          <article class="project-card" data-category="ai" data-project-id="ai-dubbing">
-            <div class="card-inner">
-              <div class="project-badge-bar">
-                <span class="category-tag ai-tag">AI Integration</span>
-                <span class="project-status">Production Ready</span>
-              </div>
-              <div class="project-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-10 10c0 5.523 4.477 10 10 10s10-4.477 10-10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
-              </div>
-              <h3 class="project-title">AI Video Dubbing & Transcription Engine</h3>
-              <p class="project-desc">
-                Asynchronous media pipeline generating millisecond-precise transcripts and multilingual translations via <strong>Claude & Codex LLMs</strong> with speech-to-text integration.
-              </p>
-              <div class="tech-stack-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">Speech-to-Text</span>
-                <span class="tech-tag">Claude / LLM</span>
-                <span class="tech-tag">FFmpeg</span>
-                <span class="tech-tag">Docker</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 3: DittoDub Notifier Chrome Extension -->
-          <article class="project-card" data-category="ai" data-project-id="ditto-notifier">
-            <div class="card-inner">
-              <div class="project-badge-bar">
-                <span class="category-tag extension-tag">Browser Extension</span>
-                <span class="project-status">Manifest V3</span>
-              </div>
-              <div class="project-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-              </div>
-              <h3 class="project-title">DittoDub Smart Notifier & Automation Extension</h3>
-              <p class="project-desc">
-                Browser automation extension (Manifest V3) for transcription workflows with real-time <strong>DOM Observers</strong>, background workers, and instant audio chimes.
-              </p>
-              <div class="tech-stack-tags">
-                <span class="tech-tag">JavaScript (ES6+)</span>
-                <span class="tech-tag">Chrome MV3</span>
-                <span class="tech-tag">Web Audio API</span>
-                <span class="tech-tag">DOM Observers</span>
-                <span class="tech-tag">Automation</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 4: High-Accuracy Data Encoding & Validation -->
-          <article class="project-card" data-category="data" data-project-id="data-encoding">
-            <div class="card-inner">
-              <div class="project-badge-bar">
-                <span class="category-tag data-tag">Data Quality</span>
-                <span class="project-status">99.9% Accuracy</span>
-              </div>
-              <div class="project-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-              </div>
-              <h3 class="project-title">High-Volume Data Quality & Audit Engine</h3>
-              <p class="project-desc">
-                Systematic data validation engine applying advanced <strong>Excel formulas</strong>, <strong>cross-referencing rules</strong>, and schema checks to maintain 99.9% data accuracy.
-              </p>
-              <div class="tech-stack-tags">
-                <span class="tech-tag">Data Encoding</span>
-                <span class="tech-tag">Advanced Excel</span>
-                <span class="tech-tag">Data Validation</span>
-                <span class="tech-tag">Digital Archiving</span>
-                <span class="tech-tag">Error Auditing</span>
-              </div>
             </div>
           </article>
 
