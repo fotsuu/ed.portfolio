@@ -500,14 +500,30 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   margin-bottom: 18px;
 }
 
-.role-typed { color: var(--accent); font-weight: 500; }
+.role-typed {
+  color: var(--accent);
+  font-weight: 500;
+  transition: color 0.4s ease;
+  min-width: 2ch;
+}
+
+/* Per-role accent colors — set via JS, CSS provides the fallback */
+.role-typed.typed-web   { color: #22d3ee; }
+.role-typed.typed-ai    { color: #a78bfa; }
+.role-typed.typed-data  { color: #34d399; }
+.role-typed.typed-code  { color: #fb923c; }
 
 .typing-cursor {
   color: var(--accent);
-  animation: blink 1s step-end infinite;
+  font-weight: 300;
+  animation: blink 0.9s step-end infinite;
+  opacity: 1;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
 
 .hero-description {
   font-size: 1rem;

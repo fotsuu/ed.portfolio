@@ -25,43 +25,80 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initDynamicTyping() {
   const target = document.getElementById('typedRole');
+  const prefix = document.querySelector('.role-prefix');
   if (!target) return;
 
+  // Each entry: [text, prefix override, accent CSS class]
   const roles = [
-    'full-stack web applications',
-    'custom AI automation workflows',
-    'robust database systems',
-    'high-performance software'
+    ['full-stack web applications',   'Building',  'typed-web'],
+    ['AI automation workflows',       'Designing', 'typed-ai'],
+    ['reliable database systems',     'Crafting',  'typed-data'],
+    ['clean, efficient software',     'Writing',   'typed-code'],
+    ['data-driven solutions',         'Building',  'typed-data'],
   ];
+
+  const accentColors = {
+    'typed-web':  '#22d3ee',
+    'typed-ai':   '#a78bfa',
+    'typed-data': '#34d399',
+    'typed-code': '#fb923c',
+  };
 
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typingSpeed = 75;
+  let isPaused = false;
+  let currentClass = '';
+
+  function naturalSpeed(base) {
+    // Randomize ±30% for a more human feel
+    return base + Math.floor(Math.random() * base * 0.6 - base * 0.3);
+  }
+
+  function setAccent(cls) {
+    if (currentClass) target.classList.remove(currentClass);
+    currentClass = cls;
+    target.classList.add(cls);
+    const color = accentColors[cls];
+    if (color) target.style.color = color;
+  }
 
   function type() {
-    const currentRole = roles[roleIndex];
+    if (isPaused) return;
 
-    if (isDeleting) {
-      target.textContent = currentRole.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 35;
-    } else {
-      target.textContent = currentRole.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 75;
+    const [text, pre, cls] = roles[roleIndex];
+
+    if (!isDeleting && charIndex === 0) {
+      // Update prefix word and accent at the start of a new role
+      if (prefix && pre) prefix.textContent = pre;
+      setAccent(cls);
     }
 
-    if (!isDeleting && charIndex === currentRole.length) {
-      isDeleting = true;
-      typingSpeed = 1800;
+    if (isDeleting) {
+      target.textContent = text.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      target.textContent = text.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let delay;
+    if (!isDeleting && charIndex === text.length) {
+      // Pause at full word
+      isPaused = true;
+      setTimeout(() => { isPaused = false; isDeleting = true; setTimeout(type, 40); }, 2200);
+      return;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
-      typingSpeed = 400;
+      delay = naturalSpeed(480);
+    } else if (isDeleting) {
+      delay = naturalSpeed(32);
+    } else {
+      delay = naturalSpeed(78);
     }
 
-    setTimeout(type, typingSpeed);
+    setTimeout(type, delay);
   }
 
   type();
