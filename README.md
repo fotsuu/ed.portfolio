@@ -28,7 +28,7 @@ Welcome to the personal developer portfolio of **Eric E. Diamante** — Software
 
 ## 📂 Project Structure
 
-```
+```text
 ├── index.html            # Main portfolio markup & semantic structure
 ├── style.css             # Complete design system, themes, layouts, animations
 ├── script.js             # Interactive features, terminal emulator, particles, CV modal
@@ -44,12 +44,14 @@ Welcome to the personal developer portfolio of **Eric E. Diamante** — Software
 ## 💻 Local Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/fotsuu/ed.portfolio.git
    cd ed.portfolio
    ```
 
 2. Open `index.html` in your browser or run a simple local web server:
+
    ```bash
    npx serve .
    # or

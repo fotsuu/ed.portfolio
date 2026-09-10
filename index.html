@@ -93,7 +93,7 @@
           </div>
 
           <p class="hero-description">
-            BS IT graduate specializing in <strong>Full-Stack Software</strong>, <strong>AI Workflow Automation</strong> (Codex, Claude, Whisper), and <strong>Enterprise Database Systems</strong> (DENR-CENRO RLTA).
+            BS IT graduate specializing in <strong>Full-Stack Software</strong>, <strong>AI Workflow Automation</strong> (Claude, Codex, Custom LLMs), and <strong>Enterprise Database Systems</strong> (DENR-CENRO RLTA).
           </p>
 
           <!-- Metrics Row -->
@@ -224,12 +224,12 @@
               </div>
               <h3 class="project-title">AI Video Dubbing & Transcription Engine</h3>
               <p class="project-desc">
-                Asynchronous media pipeline generating millisecond-precise transcripts with <strong>Whisper AI</strong> and multilingual translations via <strong>Claude & Codex LLMs</strong>.
+                Asynchronous media pipeline generating millisecond-precise transcripts and multilingual translations via <strong>Claude & Codex LLMs</strong> with speech-to-text integration.
               </p>
               <div class="tech-stack-tags">
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">Whisper AI</span>
+                <span class="tech-tag">Speech-to-Text</span>
                 <span class="tech-tag">Claude / LLM</span>
                 <span class="tech-tag">FFmpeg</span>
                 <span class="tech-tag">Docker</span>
@@ -333,7 +333,7 @@
             <div class="skills-chip-list">
               <div class="skill-chip" data-skill="claude api anthropic agents"><span class="chip-dot"></span>Claude API & Agents</div>
               <div class="skill-chip" data-skill="openai codex gpt models"><span class="chip-dot"></span>OpenAI Codex / GPT</div>
-              <div class="skill-chip" data-skill="whisper speech to text transcription"><span class="chip-dot"></span>Whisper AI Engine</div>
+              <div class="skill-chip" data-skill="speech to text transcription"><span class="chip-dot"></span>Speech-to-Text Pipelines</div>
               <div class="skill-chip" data-skill="chrome extension manifest v3"><span class="chip-dot"></span>Chrome Extensions (MV3)</div>
               <div class="skill-chip" data-skill="prompt pipelines automation"><span class="chip-dot"></span>Prompt Pipelines</div>
               <div class="skill-chip" data-skill="ffmpeg audio extraction"><span class="chip-dot"></span>FFmpeg Media Processing</div>
@@ -550,7 +550,7 @@
                 </div>
               </div>
 
-              <div class="resume-cta-box" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="resume-cta-box">
                 <button type="button" class="btn-primary view-cv-btn" id="contactViewCvBtn" title="View Eric's Curriculum Vitae">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                   <span>View Curriculum Vitae (CV)</span>
@@ -619,6 +619,80 @@
       </div>
     </div>
   </footer>
+
+  <!-- ────────────────── INTERACTIVE 3D CYBER MODEL BOT ────────────────── -->
+  <aside id="aiModelBot" class="ai-model-bot" aria-label="Eric's AI Companion Model Bot">
+    <!-- Minimal Real-Time Subtitle Pill -->
+    <div id="aiSubtitlePill" class="ai-subtitle-pill hidden" aria-live="polite">
+      <span class="sub-dot"></span>
+      <span id="aiSubtitleText" class="sub-text">"Hello! I am Eric's AI companion."</span>
+    </div>
+
+    <!-- The 3D-styled Cyber Robot Model Character -->
+    <div class="model-bot-container" id="modelBotEntity" role="button" tabindex="0" title="Click me to talk or pause!">
+      <div class="bot-ambient-glow"></div>
+      
+      <div class="bot-character">
+        <!-- Antenna with pulsing sensor orb -->
+        <div class="bot-antenna">
+          <span class="antenna-orb"></span>
+          <span class="antenna-rod"></span>
+        </div>
+
+        <!-- Robot Head -->
+        <div class="bot-head">
+          <div class="bot-ear ear-left"></div>
+          <div class="bot-ear ear-right"></div>
+          
+          <!-- Obsidian Curved Face Visor -->
+          <div class="bot-face-visor">
+            <!-- Robotic Animated Eyes with blinking -->
+            <div class="bot-eyes-row">
+              <div class="bot-eye eye-left">
+                <span class="eye-glow"></span>
+              </div>
+              <div class="bot-eye eye-right">
+                <span class="eye-glow"></span>
+              </div>
+            </div>
+
+            <!-- Digital Talking Mouth / Audio Waveform Grill -->
+            <div class="bot-mouth" id="botMouth">
+              <span class="mouth-bar"></span>
+              <span class="mouth-bar"></span>
+              <span class="mouth-bar"></span>
+              <span class="mouth-bar"></span>
+              <span class="mouth-bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Robot Torso / Chassis -->
+        <div class="bot-torso">
+          <div class="bot-arm arm-left"></div>
+          <div class="bot-arm arm-right"></div>
+          <div class="bot-chest">
+            <div class="bot-core-reactor">
+              <span class="core-pulsar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Holographic Repulsor / Jet Platform -->
+        <div class="bot-repulsor">
+          <div class="thruster-cone"></div>
+          <div class="hover-halo ring-1"></div>
+          <div class="hover-halo ring-2"></div>
+        </div>
+      </div>
+
+      <!-- Status Pill attached to the Model Bot -->
+      <div class="bot-status-tag" id="botStatusTag">
+        <span class="tag-pulse"></span>
+        <span class="tag-text" id="botTagText">TALK TO ME</span>
+      </div>
+    </div>
+  </aside>
 
   <!-- Curriculum Vitae (CV) Interactive Viewer Modal -->
   <div id="cvModal" class="cv-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initBackgroundAnimation();
   initCvModal();
+  initAiVoiceBot();
 });
 
 
@@ -568,5 +569,215 @@ function initCvModal() {
       closeCvModal();
     }
   });
+}
+
+/* ==========================================================================
+   11. Interactive 3D Cyber Model Bot Engine with Real-Time Subtitles
+   ========================================================================== */
+function initAiVoiceBot() {
+  const botContainer = document.getElementById('aiModelBot');
+  if (!botContainer) return;
+
+  const modelEntity = document.getElementById('modelBotEntity');
+  const subtitlePill = document.getElementById('aiSubtitlePill');
+  const subtitleText = document.getElementById('aiSubtitleText');
+  const botTagText = document.getElementById('botTagText');
+
+  // Warm, natural conversational sentences spoken like a human
+  const scriptSentences = [
+    "Hi there! Welcome to Eric's portfolio.",
+    "I'm his AI companion, and I'm excited to show you around.",
+    "Eric is a skilled Software Developer and AI Integration Specialist.",
+    "He builds full-stack web apps, database systems, and custom AI automations.",
+    "Feel free to click me anytime to pause, or explore his projects and CV below!"
+  ];
+
+  let currentSentenceIndex = 0;
+  let isSpeaking = false;
+  let hasAutoPlayed = false;
+  let availableVoices = [];
+
+  const synth = window.speechSynthesis;
+
+  function loadVoices() {
+    if (!synth) return;
+    availableVoices = synth.getVoices();
+  }
+
+  if (synth) {
+    loadVoices();
+    if (synth.onvoiceschanged !== undefined) {
+      synth.onvoiceschanged = loadVoices;
+    }
+  }
+
+  function getBestVoice() {
+    if (!availableVoices || availableVoices.length === 0) {
+      if (synth) availableVoices = synth.getVoices();
+    }
+    if (!availableVoices || availableVoices.length === 0) return null;
+
+    const enVoices = availableVoices.filter(v => v.lang && v.lang.startsWith('en'));
+    const pool = enVoices.length > 0 ? enVoices : availableVoices;
+
+    // Prioritize high-definition human neural & natural voices (Edge/Chrome/macOS/Windows 11)
+    const humanVoicePreferences = [
+      'Christopher Online (Natural)',
+      'Guy Online (Natural)',
+      'Eric Online (Natural)',
+      'Jenny Online (Natural)',
+      'Aria Online (Natural)',
+      'Natural',
+      'Neural',
+      'Google US English',
+      'Google UK English Male',
+      'Google UK English Female',
+      'Samantha',
+      'Daniel',
+      'Alex',
+      'Microsoft Zira',
+      'Microsoft Mark'
+    ];
+
+    for (const pref of humanVoicePreferences) {
+      const match = pool.find(v => v.name && v.name.includes(pref));
+      if (match) return match;
+    }
+
+    // Avoid legacy robotic Windows SAPI desktop David if another English voice is available
+    const nonRobotic = pool.find(v => !v.name.includes('David') && !v.name.includes('Desktop'));
+    return nonRobotic || pool[0];
+  }
+
+  function setPlayingState(playing) {
+    isSpeaking = playing;
+    if (playing) {
+      botContainer.classList.add('speaking');
+      if (botTagText) botTagText.textContent = 'SPEAKING...';
+      if (subtitlePill) subtitlePill.classList.remove('hidden');
+    } else {
+      botContainer.classList.remove('speaking');
+      if (botTagText) botTagText.textContent = 'CLICK TO TALK';
+      if (subtitlePill) subtitlePill.classList.add('hidden');
+    }
+  }
+
+  function speakNextSentence() {
+    if (!synth) return;
+
+    if (currentSentenceIndex >= scriptSentences.length) {
+      setPlayingState(false);
+      currentSentenceIndex = 0;
+      return;
+    }
+
+    const currentLine = scriptSentences[currentSentenceIndex];
+    if (subtitleText) {
+      subtitleText.textContent = `"${currentLine}"`;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(currentLine);
+    const voice = getBestVoice();
+    if (voice) {
+      utterance.voice = voice;
+      utterance.lang = voice.lang || 'en-US';
+    }
+
+    // Human conversational tuning: articulate speed with warm vocal pitch
+    utterance.rate = 0.96;
+    utterance.pitch = 1.02;
+    utterance.volume = 1.0;
+
+    utterance.onstart = () => {
+      setPlayingState(true);
+    };
+
+    utterance.onend = () => {
+      if (!isSpeaking) return;
+      currentSentenceIndex++;
+      // Small natural pause between sentences
+      setTimeout(() => {
+        if (isSpeaking) {
+          speakNextSentence();
+        }
+      }, 250);
+    };
+
+    utterance.onerror = () => {
+      setPlayingState(false);
+      currentSentenceIndex = 0;
+    };
+
+    synth.speak(utterance);
+  }
+
+  function startSpeech() {
+    if (!synth) return;
+    synth.cancel();
+    currentSentenceIndex = 0;
+    isSpeaking = true;
+    speakNextSentence();
+  }
+
+  function stopSpeech() {
+    isSpeaking = false;
+    currentSentenceIndex = 0;
+    if (synth) {
+      synth.cancel();
+    }
+    setPlayingState(false);
+  }
+
+  // Attempt automatic speech on arrival
+  function triggerAutoIntro() {
+    if (hasAutoPlayed) return;
+    hasAutoPlayed = true;
+
+    setTimeout(() => {
+      startSpeech();
+    }, 700);
+  }
+
+  // Browser Autoplay Policy: Listen for first interaction to unlock audio
+  function handleFirstUserGesture() {
+    if (hasAutoPlayed) return;
+    triggerAutoIntro();
+    removeGestureListeners();
+  }
+
+  function removeGestureListeners() {
+    document.removeEventListener('click', handleFirstUserGesture);
+    document.removeEventListener('touchstart', handleFirstUserGesture);
+    document.removeEventListener('keydown', handleFirstUserGesture);
+    window.removeEventListener('scroll', handleFirstUserGesture);
+  }
+
+  document.addEventListener('click', handleFirstUserGesture);
+  document.addEventListener('touchstart', handleFirstUserGesture);
+  document.addEventListener('keydown', handleFirstUserGesture);
+  window.addEventListener('scroll', handleFirstUserGesture);
+
+  // Immediate attempt for browsers with autoplay granted
+  setTimeout(() => {
+    if (!hasAutoPlayed) {
+      try {
+        triggerAutoIntro();
+      } catch (e) {
+        // Fallback waiting for gesture
+      }
+    }
+  }, 900);
+
+  // Click on the 3D Robot Model Entity to toggle talking / pause
+  if (modelEntity) {
+    modelEntity.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isSpeaking) {
+        stopSpeech();
+      } else {
+        startSpeech();
+      }
+    });
+  }
 }
 
