@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initScrollReveal();
   initBackgroundAnimation();
+  initCvModal();
 });
 
 
@@ -516,6 +517,55 @@ function initBackgroundAnimation() {
       if (!prefersReducedMotion) {
         animate();
       }
+    }
+  });
+}
+
+/* ==========================================================================
+   10. Interactive CV Modal Viewer
+   ========================================================================== */
+function initCvModal() {
+  const modal = document.getElementById('cvModal');
+  const closeBtn = document.getElementById('cvModalClose');
+  const triggerBtns = document.querySelectorAll('.view-cv-btn');
+
+  if (!modal) return;
+
+  function openCvModal(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCvModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  triggerBtns.forEach(btn => {
+    btn.addEventListener('click', openCvModal);
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeCvModal();
+    });
+  }
+
+  // Close when clicking outside the window
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeCvModal();
+    }
+  });
+
+  // Close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeCvModal();
     }
   });
 }

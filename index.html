@@ -44,9 +44,14 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#education" class="nav-link">Education</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="#cv" class="nav-link view-cv-btn">CV</a>
       </nav>
 
       <div class="nav-cta-group">
+        <button type="button" class="btn-glow-sm view-cv-btn" id="navViewCvBtn" title="View Curriculum Vitae">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+          <span>View CV</span>
+        </button>
         <button id="quickCopyEmailNav" class="btn-icon-subtle" title="Copy email address" aria-label="Copy Email" data-email="diamanteeric0501@gmail.com">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -115,6 +120,10 @@
               <span>View Projects</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
+            <button type="button" class="btn-secondary cv-btn-highlight view-cv-btn" id="heroViewCvBtn" title="View Curriculum Vitae (CV)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>View CV</span>
+            </button>
             <a href="#skills" class="btn-secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               <span>Core Skills</span>
@@ -541,8 +550,12 @@
                 </div>
               </div>
 
-              <div class="resume-cta-box">
-                <a href="mailto:diamanteeric0501@gmail.com" class="btn-primary">
+              <div class="resume-cta-box" style="display: flex; flex-direction: column; gap: 10px;">
+                <button type="button" class="btn-primary view-cv-btn" id="contactViewCvBtn" title="View Eric's Curriculum Vitae">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  <span>View Curriculum Vitae (CV)</span>
+                </button>
+                <a href="mailto:diamanteeric0501@gmail.com" class="btn-secondary">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                   <span>Inquire via Email</span>
                 </a>
@@ -606,6 +619,38 @@
       </div>
     </div>
   </footer>
+
+  <!-- Curriculum Vitae (CV) Interactive Viewer Modal -->
+  <div id="cvModal" class="cv-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal-window">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span class="cv-modal-title" id="cvModalTitle">Curriculum Vitae — Eric E. Diamante</span>
+          <span class="cv-modal-badge">Official PDF</span>
+        </div>
+        <div class="cv-modal-actions">
+          <a href="Eric-Diamante-CV.pdf" target="_blank" rel="noopener noreferrer" class="cv-btn-sm" title="Open PDF in new tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>New Tab</span>
+          </a>
+          <a href="Eric-Diamante-CV.pdf" download="Eric-E-Diamante-CV.pdf" class="cv-btn-sm cv-btn-primary-sm" title="Download CV PDF">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download</span>
+          </a>
+          <button type="button" id="cvModalClose" class="cv-modal-close" aria-label="Close CV preview">&times;</button>
+        </div>
+      </div>
+      <div class="cv-modal-body">
+        <iframe id="cvFrame" src="Eric-Diamante-CV.pdf#toolbar=1" title="Eric E. Diamante CV Preview">
+          <p style="padding: 24px; color: var(--text-2); text-align: center;">
+            Your browser does not support inline PDF previews. 
+            <a href="Eric-Diamante-CV.pdf" target="_blank" style="color: var(--accent); text-decoration: underline;">Click here to view or download the CV</a>.
+          </p>
+        </iframe>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
