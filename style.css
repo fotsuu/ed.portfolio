@@ -2467,8 +2467,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   font-weight: 600;
   padding: 6px 14px;
   border-radius: var(--r-full);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   opacity: 0;
   transform: translateY(6px);
   transition: all 0.22s ease;
@@ -3030,8 +3030,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   font-weight: 600;
   padding: 6px 14px;
   border-radius: var(--r-full);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
@@ -3111,8 +3111,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   position: absolute;
   inset: 0;
   background: rgba(3, 8, 14, 0.94);
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .lightbox-container {
