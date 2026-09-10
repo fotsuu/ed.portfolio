@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackgroundAnimation();
   initCvModal();
   initAiVoiceBot();
+  initScreenshotLightbox();
 });
 
 
@@ -901,218 +902,25 @@ function initFeedWiseShowcase() {
   // Start initial autoplay
   startAutoplay();
 
-  /* --------------------------------------------------------------------------
-     2. Interactive Least-Cost Poultry Feed Simulator Engine
-     -------------------------------------------------------------------------- */
-  const stageBtns = showcaseContainer.querySelectorAll('#fwStageSelector .stage-pill');
-  const sliderCorn = document.getElementById('sliderCorn');
-  const sliderSoybean = document.getElementById('sliderSoybean');
-  const sliderFish = document.getElementById('sliderFishMeal');
-  const sliderLime = document.getElementById('sliderLimestone');
-  const sliderCornPrice = document.getElementById('sliderCornPrice');
-
-  const valCorn = document.getElementById('valCorn');
-  const valSoybean = document.getElementById('valSoybean');
-  const valFish = document.getElementById('valFishMeal');
-  const valLime = document.getElementById('valLimestone');
-  const valCornPrice = document.getElementById('valCornPrice');
-  const totalMixVal = document.getElementById('fwTotalMixPct');
-
-  const scoreDisplay = document.getElementById('fwScoreDisplay');
-  const scoreDesc = document.getElementById('fwScoreDesc');
-  const proteinOutput = document.getElementById('fwProteinOutput');
-  const calciumOutput = document.getElementById('fwCalciumOutput');
-  const proteinTarget = document.getElementById('fwProteinTarget');
-  const calciumTarget = document.getElementById('fwCalciumTarget');
-  const costOutput = document.getElementById('fwCostOutput');
-  const savingsOutput = document.getElementById('fwSavingsOutput');
-  const autoOptBtn = document.getElementById('fwAutoOptimizeBtn');
-  const feedbackToast = document.getElementById('simFeedbackToast');
-
-  // PhilSAN Profile Configuration
-  const stageProfiles = {
-    broiler: {
-      name: 'Broiler Starter',
-      minProtein: 21.0,
-      minCalcium: 0.90,
-      targetProteinStr: 'PhilSAN Target: Min 21%',
-      targetCalciumStr: 'PhilSAN Target: Min 0.9%',
-      optimal: { corn: 54, soybean: 35, fish: 9, lime: 2 }
-    },
-    layer: {
-      name: 'Layer Peak Production',
-      minProtein: 17.0,
-      minCalcium: 3.50,
-      targetProteinStr: 'PhilSAN Target: Min 17%',
-      targetCalciumStr: 'PhilSAN Target: Min 3.5%',
-      optimal: { corn: 60, soybean: 25, fish: 5, lime: 10 }
-    },
-    breeder: {
-      name: 'Breeder Maintenance',
-      minProtein: 15.5,
-      minCalcium: 2.80,
-      targetProteinStr: 'PhilSAN Target: Min 15.5%',
-      targetCalciumStr: 'PhilSAN Target: Min 2.8%',
-      optimal: { corn: 64, soybean: 22, fish: 6, lime: 8 }
-    }
-  };
-
-  let activeStage = 'broiler';
-
-  function updateSimulation() {
-    if (!sliderCorn || !sliderSoybean || !sliderFish || !sliderLime) return;
-
-    const corn = parseFloat(sliderCorn.value) || 0;
-    const soybean = parseFloat(sliderSoybean.value) || 0;
-    const fish = parseFloat(sliderFish.value) || 0;
-    const lime = parseFloat(sliderLime.value) || 0;
-    const cornPrice = sliderCornPrice ? parseFloat(sliderCornPrice.value) || 16 : 16;
-
-    // Update label displays
-    if (valCorn) valCorn.textContent = `${corn}%`;
-    if (valSoybean) valSoybean.textContent = `${soybean}%`;
-    if (valFish) valFish.textContent = `${fish}%`;
-    if (valLime) valLime.textContent = `${lime}%`;
-    if (valCornPrice) valCornPrice.textContent = `₱${cornPrice}/kg`;
-
-    const totalMix = corn + soybean + fish + lime;
-    if (totalMixVal) {
-      totalMixVal.textContent = `${totalMix}%`;
-      if (totalMix === 100) {
-        totalMixVal.className = 'mix-status-val compliant';
-      } else if (totalMix >= 95 && totalMix <= 105) {
-        totalMixVal.className = 'mix-status-val warning';
-      } else {
-        totalMixVal.className = 'mix-status-val error';
-      }
-    }
-
-    const divisor = totalMix > 0 ? (totalMix / 100) : 1;
-
-    // Nutrition values based on PhilSAN official feed composition tables
-    // Corn: 8.5% CP, 0.02% Ca
-    // Soybean: 44.0% CP, 0.25% Ca
-    // Fish meal: 60.0% CP, 5.00% Ca
-    // Limestone: 0% CP, 38.00% Ca
-    const crudeProtein = ((corn * 0.085) + (soybean * 0.44) + (fish * 0.60)) / divisor;
-    const calcium = ((lime * 0.38) + (fish * 0.05) + (soybean * 0.0025) + (corn * 0.0002)) / divisor;
-
-    // Costing (PHP/kg):
-    // Soybean Meal: ₱34/kg, Fish Meal: ₱55/kg, Limestone: ₱4.5/kg
-    const costPerKg = ((corn * cornPrice) + (soybean * 34) + (fish * 55) + (lime * 4.5)) / 100;
-    const baselineCost = 32.50; // Conventional unoptimized market retail cost
-    const savings = Math.max(0, baselineCost - costPerKg);
-
-    // Profile Targets
-    const profile = stageProfiles[activeStage] || stageProfiles.broiler;
-
-    // Calculate Nutrient Balance Score out of 100
-    const proteinRatio = Math.min(1.2, crudeProtein / profile.minProtein);
-    const calciumRatio = Math.min(1.2, calcium / profile.minCalcium);
-    const mixPenalty = Math.abs(100 - totalMix) * 1.5;
-
-    let score = Math.round((proteinRatio * 50) + (calciumRatio * 50) - mixPenalty);
-    if (score > 100) score = 100;
-    if (score < 30) score = 30;
-
-    // Update Output Elements
-    if (scoreDisplay) scoreDisplay.textContent = score;
-    if (proteinOutput) proteinOutput.textContent = `${crudeProtein.toFixed(2)}%`;
-    if (calciumOutput) calciumOutput.textContent = `${calcium.toFixed(2)}%`;
-    if (costOutput) costOutput.textContent = `₱${costPerKg.toFixed(2)}`;
-    if (savingsOutput) savingsOutput.textContent = `₱${savings.toFixed(2)}/kg`;
-
-    // Dynamic descriptive text
-    if (scoreDesc) {
-      if (score >= 95) {
-        scoreDesc.innerHTML = `<span style="color: #6ee7b7;">✓ Excellent compliance!</span> Meets all ${profile.name} PhilSAN nutritional minimums at lowest cost.`;
-      } else if (score >= 80) {
-        scoreDesc.innerHTML = `Nutrient levels closely meet requirements. Tap <strong>Auto-Optimize</strong> to hit peak compliance.`;
-      } else {
-        scoreDesc.innerHTML = `<span style="color: #fca5a5;">Nutrient deficit detected.</span> Mix does not meet PhilSAN standards. Tap <strong>Auto-Optimize</strong>!`;
-      }
-    }
-  }
-
-  // Stage button switching
-  stageBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      stageBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeStage = btn.getAttribute('data-stage') || 'broiler';
-
-      const profile = stageProfiles[activeStage];
-      if (profile) {
-        if (proteinTarget) proteinTarget.textContent = profile.targetProteinStr;
-        if (calciumTarget) calciumTarget.textContent = profile.targetCalciumStr;
-      }
-      updateSimulation();
-    });
-  });
-
-  // Slider change listeners
-  [sliderCorn, sliderSoybean, sliderFish, sliderLime, sliderCornPrice].forEach(slider => {
-    if (slider) {
-      slider.addEventListener('input', updateSimulation);
+  // Keyboard navigation for FeedWise Slideshow (when hovered or focused)
+  showcaseContainer.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      setSlide(currentSlide + 1);
+    } else if (e.key === 'ArrowLeft') {
+      setSlide(currentSlide - 1);
     }
   });
-
-  // Working Auto-Optimize Button with smooth interpolation
-  if (autoOptBtn) {
-    autoOptBtn.addEventListener('click', () => {
-      const profile = stageProfiles[activeStage] || stageProfiles.broiler;
-      const targetVals = profile.optimal;
-
-      // Animate sliders to target values
-      const startCorn = parseFloat(sliderCorn.value);
-      const startSoy = parseFloat(sliderSoybean.value);
-      const startFish = parseFloat(sliderFish.value);
-      const startLime = parseFloat(sliderLime.value);
-
-      const frames = 15;
-      let currentFrame = 0;
-
-      const animInterval = setInterval(() => {
-        currentFrame++;
-        const progress = currentFrame / frames;
-
-        sliderCorn.value = Math.round(startCorn + (targetVals.corn - startCorn) * progress);
-        sliderSoybean.value = Math.round(startSoy + (targetVals.soybean - startSoy) * progress);
-        sliderFish.value = Math.round(startFish + (targetVals.fish - startFish) * progress);
-        sliderLime.value = Math.round(startLime + (targetVals.lime - startLime) * progress);
-
-        updateSimulation();
-
-        if (currentFrame >= frames) {
-          clearInterval(animInterval);
-          if (feedbackToast) {
-            feedbackToast.style.background = 'rgba(16, 185, 129, 0.3)';
-            feedbackToast.style.borderColor = '#10b981';
-            feedbackToast.innerHTML = '✨ <strong>Formulation Auto-Optimized!</strong> Least-Cost Mix Solved in 12ms.';
-            setTimeout(() => {
-              feedbackToast.style.background = 'rgba(16, 185, 129, 0.15)';
-              feedbackToast.style.borderColor = 'rgba(52, 211, 153, 0.35)';
-              feedbackToast.innerHTML = '✓ Live Formula Synced with PhilSAN Rules';
-            }, 3000);
-          }
-        }
-      }, 20);
-    });
-  }
-
-  // Initial calculation
-  updateSimulation();
 }
 
-
 /* ==========================================================================
-   DENR-CENRO DAVAO DEL SUR: Interactive System Modal & Cadastral Filter
+   DENR-CENRO DAVAO DEL SUR: Deployed System Modal Presentation
    ========================================================================== */
 function initDenrModal() {
   const modal = document.getElementById('denrModal');
   const openBtn = document.getElementById('openDenrModalBtn');
   const cardTrigger = document.getElementById('denrCardTrigger');
   const closeBtn = document.getElementById('denrModalClose');
+  const imgWrap = document.getElementById('denrModalImgWrap');
 
   if (!modal) return;
 
@@ -1146,89 +954,87 @@ function initDenrModal() {
     }
   });
 
-  /* --------------------------------------------------------------------------
-     Live Cadastral Search & Municipality Filter inside DENR Modal
-     -------------------------------------------------------------------------- */
-  const searchInput = document.getElementById('denrSearchInput');
-  const searchBtn = document.getElementById('denrSearchBtn');
-  const clearSearchBtn = document.getElementById('denrClearSearch');
-  const muniCards = modal.querySelectorAll('.denr-muni-card');
-  const tableRows = modal.querySelectorAll('#denrTableBody tr');
-  const tableStatus = document.getElementById('denrTableStatus');
-  const navBtns = modal.querySelectorAll('.denr-nav-btn');
-
-  function filterTable() {
-    const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
-
-    if (clearSearchBtn) {
-      clearSearchBtn.style.display = query ? 'block' : 'none';
-    }
-
-    let matchCount = 0;
-
-    tableRows.forEach(row => {
-      const text = row.textContent.toLowerCase();
-      if (!query || text.includes(query)) {
-        row.style.display = '';
-        matchCount++;
-      } else {
-        row.style.display = 'none';
-      }
-    });
-
-    if (tableStatus) {
-      if (query) {
-        tableStatus.textContent = `Found ${matchCount} parcel record(s) matching "${query}"`;
-      } else {
-        tableStatus.textContent = 'Showing sample parcel records across Davao del Sur';
-      }
-    }
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener('input', filterTable);
-  }
-
-  if (searchBtn) {
-    searchBtn.addEventListener('click', filterTable);
-  }
-
-  if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      muniCards.forEach(c => c.classList.remove('active-filter'));
-      filterTable();
-      searchInput.focus();
+  // Clicking on screenshot in modal triggers full resolution lightbox
+  if (imgWrap) {
+    imgWrap.addEventListener('click', () => {
+      openLightbox(
+        'denr-dashboard.png',
+        'DENR CENRO Davao del Sur: Land Inventory & RLTA Dashboard',
+        'Cadastral database system deployed at DENR-CENRO Davao del Sur. Shows 7 municipalities tracking with automated barangay remaining & balance computations.'
+      );
     });
   }
+}
 
-  // Municipality Cards Click Filter
-  muniCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const muni = card.getAttribute('data-muni');
-      const isAlreadyActive = card.classList.contains('active-filter');
+/* ==========================================================================
+   Universal Screenshot Lightbox Modal Engine
+   ========================================================================== */
+let openLightbox = null;
 
-      muniCards.forEach(c => c.classList.remove('active-filter'));
+function initScreenshotLightbox() {
+  const lightboxModal = document.getElementById('screenshotLightboxModal');
+  const overlay = document.getElementById('lightboxOverlay');
+  const closeBtn = document.getElementById('lightboxCloseBtn');
+  const imgEl = document.getElementById('lightboxImg');
+  const titleEl = document.getElementById('lightboxTitle');
+  const captionEl = document.getElementById('lightboxCaption');
+  const newTabBtn = document.getElementById('lightboxNewTabBtn');
 
-      if (!isAlreadyActive && muni) {
-        card.classList.add('active-filter');
-        if (searchInput) searchInput.value = muni;
-        filterTable();
-      } else {
-        if (searchInput) searchInput.value = '';
-        filterTable();
+  if (!lightboxModal || !imgEl) return;
+
+  openLightbox = function(src, title, caption) {
+    imgEl.src = src;
+    imgEl.alt = title || 'Project Screenshot';
+    if (titleEl) titleEl.textContent = title || 'System Screenshot';
+    if (captionEl) captionEl.textContent = caption || '';
+    if (newTabBtn) newTabBtn.href = src;
+
+    lightboxModal.classList.add('is-open');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function closeLightbox() {
+    lightboxModal.classList.remove('is-open');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+    // Only restore scroll if denr modal isn't open
+    const denrModal = document.getElementById('denrModal');
+    if (!denrModal || !denrModal.classList.contains('is-open')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (overlay) overlay.addEventListener('click', closeLightbox);
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+
+  // Attach click listener to all zoom buttons and screenshot containers
+  const zoomBtns = document.querySelectorAll('.btn-zoom-screenshot');
+  zoomBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const src = btn.getAttribute('data-img-src');
+      const title = btn.getAttribute('data-title');
+      const caption = btn.getAttribute('data-caption');
+      if (src && openLightbox) {
+        openLightbox(src, title, caption);
       }
     });
   });
 
-  // Sidebar Navigation buttons
-  navBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      navBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const view = btn.getAttribute('data-view');
-      if (view !== 'dashboard' && tableStatus) {
-        tableStatus.textContent = `Switched view to ${btn.textContent.trim()} — Production module live`;
+  const screenshotWraps = document.querySelectorAll('.screenshot-img-wrap');
+  screenshotWraps.forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      const src = wrap.getAttribute('data-img-src');
+      const title = wrap.getAttribute('data-title');
+      const caption = wrap.getAttribute('data-caption');
+      if (src && openLightbox) {
+        openLightbox(src, title, caption);
       }
     });
   });
