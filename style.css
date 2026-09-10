@@ -2318,6 +2318,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   overflow: hidden;
   background: #03080c;
   display: flex;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -2539,11 +2540,6 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   display: flex;
   align-items: center;
   gap: 6px;
-}
-  background: rgba(9, 15, 22, 0.7);
-  padding: 16px;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .tech-group-title {
