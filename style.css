@@ -2394,10 +2394,10 @@ h1,h2,h3,h4 { font-family: var(--font-display); line-height: 1.2; }
   }
   .minimal-project-title {
     font-size: 1.2rem;
-    min-height: auto;
+    min-height: 0;
   }
   .minimal-project-summary {
-    min-height: auto;
+    min-height: 0;
   }
 }
 
