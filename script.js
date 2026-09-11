@@ -273,6 +273,7 @@ function initContactForm() {
     const templateParams = {
       from_name:        name,
       name:             name,
+      from_email:       email,
       reply_to:         email,
       opportunity_type: categoryTxt,
       message:          `Category: ${categoryTxt}\n\n${message}`,
