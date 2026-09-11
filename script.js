@@ -223,7 +223,7 @@ function initContactForm() {
   // Reset button to switch back from success card to empty form
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      if (successCard) successCard.style.display = 'none';
+      if (successCard) successCard.classList.remove('active');
       form.style.display = 'block';
       form.reset();
       submitBtn.disabled = false;
@@ -300,7 +300,7 @@ function initContactForm() {
       // Smooth transition to Success Card
       form.style.display = 'none';
       if (successCard) {
-        successCard.style.display = 'flex';
+        successCard.classList.add('active');
       }
 
       showToast(`Delivered! Eric will reply to ${email} shortly.`);
