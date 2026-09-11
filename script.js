@@ -201,41 +201,81 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   9. Contact Form Simulation & Feedback
+   9. Contact Form — Real Email via EmailJS
    ========================================================================== */
+const EMAILJS_PUBLIC_KEY  = 'X2Kdu79gY7q-FuOqk';
+const EMAILJS_SERVICE_ID  = 'service_mg8c1ng';
+const EMAILJS_TEMPLATE_ID = 'template_61kult8';
+
 function initContactForm() {
   const form = document.getElementById('portfolioContactForm');
   const submitBtn = document.getElementById('submitFormBtn');
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  // Initialize EmailJS with the public key
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('senderName').value;
-    const email = document.getElementById('senderEmail').value;
+    const name        = document.getElementById('senderName').value.trim();
+    const email       = document.getElementById('senderEmail').value.trim();
     const projectType = document.getElementById('projectType').value;
-    const message = document.getElementById('senderMessage').value;
+    const message     = document.getElementById('senderMessage').value.trim();
 
     if (!name || !email || !message) {
       showToast('Please fill out all required fields.');
       return;
     }
 
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      showToast('Please enter a valid email address.');
+      return;
+    }
+
+    // UI: loading state
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<span>Sending...</span>`;
 
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `<span>Message Prepared!</span>`;
-      showToast(`Thank you, ${name}! Your inquiry has been processed.`);
+    const templateParams = {
+      from_name:        name,
+      name:             name,           // template uses {{name}}
+      reply_to:         email,
+      opportunity_type: projectType,
+      message:          `Category: ${projectType}\n\n${message}`,
+    };
 
-      const subject = encodeURIComponent(`Opportunity regarding ${projectType} from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nFocus: ${projectType}\n\nMessage:\n${message}`);
-      window.open(`mailto:diamanteeric0501@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    try {
+      if (typeof emailjs === 'undefined') {
+        throw new Error('EmailJS not loaded');
+      }
 
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+
+      // Success state
+      submitBtn.innerHTML = `<span>✓ Message Sent!</span>`;
+      submitBtn.style.background = '#10b981';
+      showToast(`Message sent! Eric will reply to ${email} soon.`);
       form.reset();
-    }, 800);
+
+      // Reset button after 4 seconds
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Send Message</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
+        submitBtn.style.background = '';
+      }, 4000);
+
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<span>Send Message</span>`;
+      showToast('Failed to send. Please email directly: diamanteeric0501@gmail.com');
+    }
   });
 }
 
