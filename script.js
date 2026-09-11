@@ -210,21 +210,46 @@ const EMAILJS_TEMPLATE_ID = 'template_61kult8';
 function initContactForm() {
   const form = document.getElementById('portfolioContactForm');
   const submitBtn = document.getElementById('submitFormBtn');
+  const successCard = document.getElementById('formSuccessCard');
+  const resetBtn = document.getElementById('resetContactFormBtn');
 
   if (!form) return;
 
-  // Initialize EmailJS with the public key
+  // Initialize EmailJS with public key
   if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  // Reset button to switch back from success card to empty form
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if (successCard) successCard.style.display = 'none';
+      form.style.display = 'block';
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <span class="btn-text">Send Message</span>
+        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      `;
+      submitBtn.style.background = '';
+      const firstInput = document.getElementById('senderName');
+      if (firstInput) firstInput.focus();
+    });
   }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name        = document.getElementById('senderName').value.trim();
-    const email       = document.getElementById('senderEmail').value.trim();
-    const projectType = document.getElementById('projectType').value;
-    const message     = document.getElementById('senderMessage').value.trim();
+    const nameInput     = document.getElementById('senderName');
+    const emailInput    = document.getElementById('senderEmail');
+    const projectSelect = document.getElementById('projectType');
+    const messageInput  = document.getElementById('senderMessage');
+
+    const name        = nameInput ? nameInput.value.trim() : '';
+    const email       = emailInput ? emailInput.value.trim() : '';
+    const projectType = projectSelect ? projectSelect.value : 'General';
+    const categoryTxt = projectSelect && projectSelect.options[projectSelect.selectedIndex] ? projectSelect.options[projectSelect.selectedIndex].text : projectType;
+    const message     = messageInput ? messageInput.value.trim() : '';
 
     if (!name || !email || !message) {
       showToast('Please fill out all required fields.');
@@ -238,16 +263,19 @@ function initContactForm() {
       return;
     }
 
-    // UI: loading state
+    // UI: Rich loading state with animated spinner
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `<span>Sending...</span>`;
+    submitBtn.innerHTML = `
+      <span class="submit-spinner"></span>
+      <span class="btn-text">Transmitting Message...</span>
+    `;
 
     const templateParams = {
       from_name:        name,
-      name:             name,           // template uses {{name}}
+      name:             name,
       reply_to:         email,
-      opportunity_type: projectType,
-      message:          `Category: ${projectType}\n\n${message}`,
+      opportunity_type: categoryTxt,
+      message:          `Category: ${categoryTxt}\n\n${message}`,
     };
 
     try {
@@ -257,24 +285,34 @@ function initContactForm() {
 
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
 
-      // Success state
-      submitBtn.innerHTML = `<span>✓ Message Sent!</span>`;
-      submitBtn.style.background = '#10b981';
-      showToast(`Message sent! Eric will reply to ${email} soon.`);
-      form.reset();
+      // Populate metadata in success card
+      const senderMetaEl   = document.getElementById('successSenderMeta');
+      const categoryMetaEl = document.getElementById('successCategoryMeta');
+      const timeMetaEl     = document.getElementById('successTimeMeta');
 
-      // Reset button after 4 seconds
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>Send Message</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
-        submitBtn.style.background = '';
-      }, 4000);
+      if (senderMetaEl) senderMetaEl.textContent = `${name} (${email})`;
+      if (categoryMetaEl) categoryMetaEl.textContent = categoryTxt;
+      if (timeMetaEl) {
+        const now = new Date();
+        timeMetaEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' PHT';
+      }
+
+      // Smooth transition to Success Card
+      form.style.display = 'none';
+      if (successCard) {
+        successCard.style.display = 'flex';
+      }
+
+      showToast(`Delivered! Eric will reply to ${email} shortly.`);
 
     } catch (err) {
       console.error('EmailJS error:', err);
       submitBtn.disabled = false;
-      submitBtn.innerHTML = `<span>Send Message</span>`;
-      showToast('Failed to send. Please email directly: diamanteeric0501@gmail.com');
+      submitBtn.innerHTML = `
+        <span class="btn-text">Send Message</span>
+        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      `;
+      showToast('Failed to dispatch. Please email directly: diamanteeric0501@gmail.com');
     }
   });
 }

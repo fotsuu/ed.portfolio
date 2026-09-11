@@ -522,7 +522,13 @@
             <!-- Right: Interactive Contact Form -->
             <div class="contact-form-side">
               <form id="portfolioContactForm" class="contact-form">
-                <h3 class="form-title">Send a Direct Message</h3>
+                <div class="form-header-row">
+                  <h3 class="form-title">Send a Direct Message</h3>
+                  <a href="email-preview.html" target="_blank" class="email-preview-badge" title="View matching dark email UI template">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <span>Email Template UI</span>
+                  </a>
+                </div>
                 <div class="form-group">
                   <label for="senderName">Your Name / Company</label>
                   <input type="text" id="senderName" required placeholder="e.g. Hiring Manager / Team" />
@@ -546,10 +552,53 @@
                   <textarea id="senderMessage" rows="4" required placeholder="Describe your project, role scope, or interview details..."></textarea>
                 </div>
                 <button type="submit" class="btn-submit" id="submitFormBtn">
-                  <span>Send Message</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  <span class="btn-text">Send Message</span>
+                  <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
               </form>
+
+              <!-- Futuristic Glass Success State Card -->
+              <div id="formSuccessCard" class="form-success-card" style="display: none;">
+                <div class="success-icon-wrap">
+                  <div class="success-glow-ring"></div>
+                  <svg class="success-check-svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h3 class="success-title">Transmission Delivered!</h3>
+                <p class="success-desc">Your message has landed directly in Eric's primary inbox via EmailJS. Expect a prompt response within 24 hours.</p>
+
+                <div class="success-meta-card">
+                  <div class="meta-row">
+                    <span class="meta-label">Recipient</span>
+                    <span class="meta-val highlight">Eric E. Diamante (diamanteeric0501@gmail.com)</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-label">From</span>
+                    <span class="meta-val" id="successSenderMeta">—</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-label">Category</span>
+                    <span class="meta-val tag" id="successCategoryMeta">—</span>
+                  </div>
+                  <div class="meta-row">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-val status-live"><span class="pulse-dot"></span> Dispatched to Gmail</span>
+                  </div>
+                </div>
+
+                <div class="success-actions">
+                  <button type="button" id="resetContactFormBtn" class="btn-reset-action">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+                    <span>Send Another Message</span>
+                  </button>
+                  <a href="email-preview.html" target="_blank" class="btn-preview-action">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>View Matching Email UI Template</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
 
           </div>
