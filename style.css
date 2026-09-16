@@ -97,6 +97,7 @@ body {
   align-items: center;
   letter-spacing: -0.03em;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  -webkit-user-select: none;
   user-select: none;
 }
 
