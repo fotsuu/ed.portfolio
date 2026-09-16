@@ -19,6 +19,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }, duration);
   }
 
+  // ────────────────── THEME MANAGER (DARK / LIGHT MODE) ──────────────────
+  const themeToggle = document.getElementById('themeToggle');
+
+  function updateThemeUI(theme) {
+    const isDark = theme === 'dark';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      themeToggle.setAttribute('title', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+  }
+
+  function setTheme(theme, save = true) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (save) {
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) {}
+    }
+    updateThemeUI(theme);
+  }
+
+  // Initialize theme state
+  const initialTheme = document.documentElement.getAttribute('data-theme') ||
+    localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  setTheme(initialTheme, false);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme, true);
+      showToast(newTheme === 'dark' ? '🌙 Dark mode enabled' : '☀️ Light mode enabled', 2200);
+    });
+  }
+
+  // Listen to OS scheme changes if user hasn't explicitly set a preference in localStorage
+  try {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light', false);
+      }
+    });
+  } catch (e) {}
+
   // ────────────────── MOBILE NAVIGATION ──────────────────
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
@@ -684,8 +731,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (dist < maxDist) {
           const power = 1 - (dist / maxDist);
-          // Icons are lighter and more agile; buttons have slightly firmer resistance
-          const intensity = el.classList.contains('social-btn') ? 0.42 : 0.28;
+          // Icons and toggles are lighter and more agile; buttons have slightly firmer resistance
+          const intensity = (el.classList.contains('social-btn') || el.classList.contains('theme-toggle')) ? 0.42 : 0.28;
           const pullX = deltaX * intensity * power;
           const pullY = deltaY * intensity * power;
 
