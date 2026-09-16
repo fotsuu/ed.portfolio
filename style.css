@@ -115,6 +115,7 @@ body {
   color: var(--primary-blue);
   background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: filter 0.2s ease;
 }
