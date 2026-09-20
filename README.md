@@ -14,6 +14,7 @@ Open http://127.0.0.1:8080 in your browser. Stop the server with Ctrl+C. No buil
 
 ## Features
 
+- Sequenced hero entrance, staggered scroll reveals, subtle pointer-driven portrait movement, and button hover feedback. Motion respects device accessibility preferences.
 - Light/night mode with device-theme detection and a saved preference.
 - Expandable project screenshot galleries with arrow-key navigation and full-size links.
 - A floating back-to-top button after scrolling.
@@ -36,6 +37,7 @@ The form opens the visitor's email application with a prepared message. The visi
 - `style.css`: design and responsive layouts.
 - `script.js`: navigation, case studies, dialogs, carousel, and contact interactions.
 - `theme.js`: theme initialization before rendering and saved preference handling.
+- `motion.js`: progressive scroll reveals and restrained portrait movement.
 - `features.css`: night-mode colors, theme controls, and screenshot gallery styling.
 - `Eric-Diamante-CV.pdf`: downloadable CV.
 - `assets/`: portrait and supporting assets.
