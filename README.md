@@ -1,66 +1,43 @@
-# Eric E. Diamante - Developer & Specialist Portfolio
+# Eric Diamante — Developer Portfolio
 
-Welcome to the personal developer portfolio of **Eric E. Diamante** — Software Developer, AI Integration & Workflows Specialist, Data Specialist, and Transcriber.
+A responsive HTML, CSS, and JavaScript portfolio featuring DENR land inventory work and the FeedWise platform.
 
-🌐 **Live Portfolio Showcase** built with modern HTML5, Vanilla CSS, and JavaScript.
+## Run locally
 
----
+From this directory:
 
-## 🚀 Features
-
-- **Modern Glassmorphism & Cyber Aesthetic**: Dynamic mesh backgrounds, ambient glow orbs, and interactive particle canvas.
-- **Interactive Project Showcase**: Filterable showcase featuring Web Development, AI Workflows & Automation, and Data Services.
-- **Live Terminal Simulator**: Interactive command-line terminal to query bio, skills, projects, and contact info in real-time.
-- **Interactive Skills Matrix**: Visual category breakdown with proficiency meters and detailed skill tags.
-- **Interactive CV Viewer**: Integrated modal for instant in-browser CV preview, new-tab viewing, and direct PDF download.
-- **Built-in Contact & Interactive Modals**: Functional contact interface with toast notifications and direct outreach links.
-- **Responsive & Accessible**: Fully optimized for mobile, tablet, and ultra-wide displays with semantic markup.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: HTML5, Vanilla CSS3 (Custom Design System, CSS Variables, Glassmorphism, Keyframe Animations), Vanilla JavaScript (ES6+)
-- **Typography**: Outfit, Inter, JetBrains Mono
-- **Hosting / Deployment**: GitHub Pages ready
-
----
-
-## 📂 Project Structure
-
-```text
-├── index.html            # Main portfolio markup & semantic structure
-├── style.css             # Complete design system, themes, layouts, animations
-├── script.js             # Interactive features, terminal emulator, particles, CV modal
-├── Eric-Diamante-CV.pdf  # Curriculum Vitae (CV) official document
-├── ai-core.jpg           # Project illustration asset
-├── eric-formal.jpg       # Profile picture asset
-├── profile.jpg           # Hero avatar asset
-└── README.md             # Project documentation
+```powershell
+python -m http.server 8080 --bind 127.0.0.1
 ```
 
----
+Open http://127.0.0.1:8080 in your browser. Stop the server with Ctrl+C. No build step or package installation is required.
 
-## 💻 Local Setup
+## Features
 
-1. Clone the repository:
+- Light/night mode with device-theme detection and a saved preference.
+- Expandable project screenshot galleries with arrow-key navigation and full-size links.
+- A floating back-to-top button after scrolling.
+- Project-first layout, experience highlights, and direct CV download.
+- Individual DENR and FeedWise case studies with screenshots.
+- Manually controlled FeedWise screenshot carousel.
+- Responsive navigation, active section tracking, and browser history support.
+- Keyboard-accessible dialogs with focus trapping, Escape dismissal, and focus restoration.
+- Reduced-motion support and visible keyboard focus styles.
+- CV preview with open-in-new-tab and download alternatives.
+- Email copy and a contact form that prepares an email draft.
 
-   ```bash
-   git clone https://github.com/fotsuu/ed.portfolio.git
-   cd ed.portfolio
-   ```
+## Contact behavior
 
-2. Open `index.html` in your browser or run a simple local web server:
+The form opens the visitor's email application with a prepared message. The visitor reviews and sends it there; this site does not send email itself. Input stays in the form after preparing a draft. A configured email service or backend would be needed for direct delivery. No email credentials are included.
 
-   ```bash
-   npx serve .
-   # or
-   python -m http.server 8080
-   ```
+## Main files
 
----
+- `index.html`: content and semantic markup.
+- `style.css`: design and responsive layouts.
+- `script.js`: navigation, case studies, dialogs, carousel, and contact interactions.
+- `theme.js`: theme initialization before rendering and saved preference handling.
+- `features.css`: night-mode colors, theme controls, and screenshot gallery styling.
+- `Eric-Diamante-CV.pdf`: downloadable CV.
+- `assets/`: portrait and supporting assets.
 
-## 📬 Contact & Connect
-
-- **GitHub**: [@fotsuu](https://github.com/fotsuu)
-- **LinkedIn / Email**: Available via the portfolio contact section.
+Changes are local until explicitly committed and published.

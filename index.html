@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Diamante | Software & Web Developer</title>
   <meta name="description" content="Portfolio of Eric Diamante — BS Information Technology, Software & Web Developer, AI Workflows & Data Specialist. Deployed GovTech systems, full-stack applications, and database management." />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><text y='20' font-size='20' font-family='sans-serif' font-weight='bold'>E</text></svg>" />
 
@@ -14,13 +14,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:title" content="Eric Diamante | Software & Web Developer" />
+  <meta property="og:description" content="Practical web systems, government land inventory, and feed formulation. Explore selected work by Eric Diamante." />
+  <meta property="og:type" content="website" />
 
+  <script src="theme.js"></script>
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="features.css" />
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Toast Notification Container -->
   <div id="toast" class="toast" role="alert" aria-live="polite"></div>
@@ -34,55 +39,49 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link active" data-page="home">Home</a>
-        <a href="#about" class="nav-link" data-page="about">About</a>
         <a href="#projects" class="nav-link" data-page="projects">Projects</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
         <a href="#skills" class="nav-link" data-page="skills">Skills</a>
         <a href="#contact" class="nav-link" id="navContactLink" data-page="contact">Contact</a>
       </nav>
 
-      <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch to night mode" aria-pressed="false"><span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Night</span></button>
+      <button aria-controls="navMenu" id="mobileMenuBtn" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="mainContent" tabindex="-1">
     <!-- ────────────────── 1. HOME LANDING VIEW ────────────────── -->
     <section id="home" class="page-view active hero-section">
       <div class="hero-container">
-        
+
         <!-- Left Hero Content -->
         <div class="hero-content">
-          <span class="hero-greeting"><span class="hero-dot"></span> Hi, I'm</span>
+          <span class="hero-greeting"><span class="hero-dot"></span> DEVELOPER · DIGOS CITY, PHILIPPINES</span>
           <h1 class="hero-name">Eric Diamante</h1>
           <h2 class="hero-role">Software & Web Developer</h2>
-          
+
           <p class="hero-desc">
-            I build modern full-stack web applications, AI automation workflows, and reliable database systems with clean code and high performance.
+            I turn complex workflows into practical software — from government land inventory to smarter poultry feed formulation.
           </p>
 
           <div class="hero-btn-group">
             <a href="#projects" class="btn-primary magnetic-btn" id="viewProjectsBtn" data-navigate="projects">
-              <span>View My Projects</span>
+              <span>Explore my work</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <button type="button" class="btn-secondary magnetic-btn" id="contactMeBtn" data-navigate="contact">
-              Contact Me
-            </button>
+            <a class="btn-secondary" href="Eric-Diamante-CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
           </div>
 
           <div class="hero-social-icons">
             <a href="https://github.com/fotsuu" target="_blank" rel="noopener noreferrer" class="social-btn magnetic-btn" aria-label="GitHub Profile" title="GitHub">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-btn magnetic-btn" aria-label="LinkedIn Profile" title="LinkedIn">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
               </svg>
             </a>
             <a href="mailto:diamanteeric0501@gmail.com" class="social-btn magnetic-btn" aria-label="Email Eric" title="Email Eric">
@@ -105,9 +104,100 @@
 
             <!-- Main 3D Portrait Frame with HD Image -->
             <div class="portrait-wrapper" id="portraitWrapper">
-              <img src="assets/hero-portrait-3d-hd.png?v=noblob1" alt="Eric Diamante - Web Developer" class="hero-portrait-img" id="heroPortraitImg" width="920" height="694" />
+              <img src="assets/hero-portrait-realistic-v2.png" alt="Eric Diamante - Web Developer" fetchpriority="high" decoding="async" class="hero-portrait-img" id="heroPortraitImg" width="1448" height="1086" />
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="proof-strip" aria-label="Experience highlights">
+      <div><span class="proof-number">01 / GOVTECH</span><strong>Built for real operations</strong><p>Land inventory across 7 municipalities</p></div>
+      <div><span class="proof-number">02 / APPLIED SOFTWARE</span><strong>From data to decisions</strong><p>Feed formulation for web &amp; mobile</p></div>
+      <a href="#contact" data-navigate="contact"><span class="proof-number">03 / LET’S CONNECT</span><strong>Have a problem to solve? <span aria-hidden="true">↗</span></strong><p>Let’s talk about your next project</p></a>
+    </div>
+
+    <!-- ────────────────── 3. PROJECTS LANDING VIEW ────────────────── -->
+    <section id="projects" class="page-view projects-view-section">
+      <div class="view-container">
+        <div class="view-header projects-header-row">
+          <div>
+            <span class="view-badge"><span class="badge-dot"></span> Portfolio Showcase</span>
+            <h2 class="view-title">Selected work</h2>
+            <p class="view-subtitle">Two different domains. One focus: software that makes complex work easier.</p>
+          </div>
+<a href="https://github.com/fotsuu" target="_blank" rel="noopener noreferrer" class="view-all-link">Explore GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Card 1: DENR-CENRO Land Inventory -->
+          <article class="project-card" data-project="denr">
+            <div class="card-glare" aria-hidden="true"></div>
+            <div class="project-img-wrap">
+              <img src="denr-dashboard.png" alt="DENR-CENRO Land Inventory & RLTA Assessment Platform" class="project-img" loading="lazy" />
+              <span class="slide-badge">Production GovTech</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">DENR Land Inventory & RLTA</h3>
+              <p class="project-desc">
+                Cadastral land inventory and assessment platform deployed to automate barangay metrics and remaining lot calculations across Davao del Sur.
+              </p>
+              <div class="project-tags">
+                <span class="tag-pill">PHP</span>
+                <span class="tag-pill">MySQL</span>
+                <span class="tag-pill">JavaScript</span>
+                <span class="tag-pill">Bootstrap</span>
+                <span class="tag-pill">Excel Ingestion</span>
+              </div>
+            </div><div class="project-card-footer"><span>Production system · 7 municipalities</span><button type="button" class="case-link" data-case="denr" aria-label="Read DENR case study">Read case study <span aria-hidden="true">↗</span></button></div>
+          </article>
+
+          <!-- Card 2: FeedWise AI Platform & Simulator (Combined 2-in-1 View) -->
+          <article class="project-card" data-project="feedwise">
+            <div class="card-glare" aria-hidden="true"></div>
+            <div class="project-img-wrap card-carousel" id="feedwiseCarousel">
+              <!-- Slide 1: Platform Overview -->
+              <div class="carousel-slide active" data-slide-index="0">
+                <img src="feedwise-hero.png" alt="FeedWise AI Platform Overview" class="project-img" loading="lazy" />
+                <span class="slide-badge">1. Platform Overview</span>
+              </div>
+              <!-- Slide 2: Feed Simulator -->
+              <div class="carousel-slide" data-slide-index="1">
+                <img src="feedwise-simulator.png" alt="FeedWise Feed Formulation Simulator" class="project-img" loading="lazy" />
+                <span class="slide-badge">2. Feed Simulator</span>
+              </div>
+
+              <!-- Interactive Carousel Controls -->
+              <div class="carousel-controls">
+                <button type="button" class="carousel-nav-btn prev" id="fwPrevBtn" aria-label="Previous view" title="Previous preview">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="carousel-dots" id="fwDots">
+                  <button type="button" class="carousel-dot active" data-index="0" aria-label="View Platform Overview" title="Platform Overview"></button>
+                  <button type="button" class="carousel-dot" data-index="1" aria-label="View Feed Simulator" title="Feed Simulator"></button>
+                </div>
+                <button type="button" class="carousel-nav-btn next" id="fwNextBtn" aria-label="Next view" title="Next preview">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">FeedWise AI Platform & Simulator</h3>
+              <p class="project-desc">
+                Dual-platform poultry feed formulation system compliant with PhilSAN standards, featuring an interactive least-cost simulation engine and real-time nutrient balancing.
+              </p>
+              <div class="project-tags">
+                <span class="tag-pill">Laravel</span>
+                <span class="tag-pill">Flutter</span>
+                <span class="tag-pill">PHP</span>
+                <span class="tag-pill">Python</span>
+                <span class="tag-pill">Data Modeling</span>
+                <span class="tag-pill">Tailwind CSS</span>
+              </div>
+            </div><div class="project-card-footer"><span>Capstone · Web & mobile</span><button type="button" class="case-link" data-case="feedwise" aria-label="Read FeedWise case study">Read case study <span aria-hidden="true">↗</span></button></div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -117,7 +207,7 @@
       <div class="view-container">
         <div class="view-header">
           <span class="view-badge"><span class="badge-dot"></span> Profile & Background</span>
-          <h2 class="view-title">About Me</h2>
+          <h2 class="view-title">The developer behind the work</h2>
           <p class="view-subtitle">Software & Web Developer specializing in full-stack web applications, cadastral platforms, and intelligent data systems.</p>
         </div>
 
@@ -137,7 +227,7 @@
 
             <div class="about-actions-row">
               <a href="#projects" class="btn-primary magnetic-btn" data-navigate="projects">
-                <span>View Featured Projects</span>
+                <span>View selected work</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -204,97 +294,6 @@
       </div>
     </section>
 
-    <!-- ────────────────── 3. PROJECTS LANDING VIEW ────────────────── -->
-    <section id="projects" class="page-view projects-view-section">
-      <div class="view-container">
-        <div class="view-header projects-header-row">
-          <div>
-            <span class="view-badge"><span class="badge-dot"></span> Portfolio Showcase</span>
-            <h2 class="view-title">Featured Projects</h2>
-            <p class="view-subtitle">Real-world production platforms and algorithmic formulation engines.</p>
-          </div>
-          <button type="button" class="view-all-link magnetic-btn" id="viewAllProjectsBtn">
-            <span>View All Projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <div class="projects-grid">
-          
-          <!-- Card 1: DENR-CENRO Land Inventory -->
-          <article class="project-card" data-project="denr" tabindex="0">
-            <div class="card-glare" aria-hidden="true"></div>
-            <div class="project-img-wrap">
-              <img src="denr-dashboard.png" alt="DENR-CENRO Land Inventory & RLTA Assessment Platform" class="project-img" loading="lazy" />
-              <span class="slide-badge">Production GovTech</span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">DENR Land Inventory & RLTA</h3>
-              <p class="project-desc">
-                Cadastral land inventory and assessment platform deployed to automate barangay metrics and remaining lot calculations across Davao del Sur.
-              </p>
-              <div class="project-tags">
-                <span class="tag-pill">PHP</span>
-                <span class="tag-pill">MySQL</span>
-                <span class="tag-pill">JavaScript</span>
-                <span class="tag-pill">Bootstrap</span>
-                <span class="tag-pill">Excel Ingestion</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2: FeedWise AI Platform & Simulator (Combined 2-in-1 View) -->
-          <article class="project-card" data-project="feedwise" tabindex="0">
-            <div class="card-glare" aria-hidden="true"></div>
-            <div class="project-img-wrap card-carousel" id="feedwiseCarousel">
-              <!-- Slide 1: Platform Overview -->
-              <div class="carousel-slide active" data-slide-index="0">
-                <img src="feedwise-hero.png" alt="FeedWise AI Platform Overview" class="project-img" loading="lazy" />
-                <span class="slide-badge">1. Platform Overview</span>
-              </div>
-              <!-- Slide 2: Feed Simulator -->
-              <div class="carousel-slide" data-slide-index="1">
-                <img src="feedwise-simulator.png" alt="FeedWise Feed Formulation Simulator" class="project-img" loading="lazy" />
-                <span class="slide-badge">2. Feed Simulator</span>
-              </div>
-
-              <!-- Interactive Carousel Controls -->
-              <div class="carousel-controls">
-                <button type="button" class="carousel-nav-btn prev" id="fwPrevBtn" aria-label="Previous view" title="Previous preview">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <div class="carousel-dots" id="fwDots">
-                  <button type="button" class="carousel-dot active" data-index="0" aria-label="View Platform Overview" title="Platform Overview"></button>
-                  <button type="button" class="carousel-dot" data-index="1" aria-label="View Feed Simulator" title="Feed Simulator"></button>
-                </div>
-                <button type="button" class="carousel-nav-btn next" id="fwNextBtn" aria-label="Next view" title="Next preview">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">FeedWise AI Platform & Simulator</h3>
-              <p class="project-desc">
-                Dual-platform poultry feed formulation system compliant with PhilSAN standards, featuring an interactive least-cost simulation engine and real-time nutrient balancing.
-              </p>
-              <div class="project-tags">
-                <span class="tag-pill">Laravel</span>
-                <span class="tag-pill">Flutter</span>
-                <span class="tag-pill">PHP</span>
-                <span class="tag-pill">Python</span>
-                <span class="tag-pill">Data Modeling</span>
-                <span class="tag-pill">Tailwind CSS</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ────────────────── 4. SKILLS LANDING VIEW ────────────────── -->
     <section id="skills" class="page-view skills-view-section">
       <div class="view-container">
@@ -306,7 +305,7 @@
 
         <div class="skills-grid-wrapper">
           <div class="skills-grid">
-            
+
             <!-- 1. PHP -->
             <div class="skill-card">
               <div class="skill-icon-wrap">
@@ -431,7 +430,7 @@
       <div class="view-container">
         <div class="view-header">
           <span class="view-badge"><span class="badge-dot"></span> Let's Connect</span>
-          <h2 class="view-title">Contact Me</h2>
+          <h2 class="view-title">Let’s build something useful.</h2>
           <p class="view-subtitle">Have an opportunity, project proposal, or inquiry? Feel free to reach out directly or send a message below.</p>
         </div>
 
@@ -497,25 +496,27 @@
 
           <!-- Right: Message Form -->
           <div class="contact-form-card">
-            <h3 class="card-heading">Send a Message</h3>
-            <p class="form-subtext">Fill out the form below and it will be delivered directly to Eric's inbox.</p>
+            <h3 class="card-heading">Start a conversation</h3>
+            <p class="form-subtext">Write a short introduction. This opens a draft in your email app, ready for you to review and send.</p>
             <form id="contactPageForm" class="contact-modal-form">
               <div class="form-group">
                 <label for="contactPageSenderName">Your Name</label>
-                <input type="text" id="contactPageSenderName" name="name" placeholder="e.g. Maria Santos" required />
+                <input type="text" id="contactPageSenderName" name="name" autocomplete="name" maxlength="100" placeholder="e.g. Maria Santos" required />
               </div>
               <div class="form-group">
                 <label for="contactPageSenderEmail">Your Email Address</label>
-                <input type="email" id="contactPageSenderEmail" name="email" placeholder="e.g. maria@example.com" required />
+                <input type="email" id="contactPageSenderEmail" name="email" autocomplete="email" maxlength="254" placeholder="e.g. maria@example.com" required />
               </div>
               <div class="form-group">
                 <label for="contactPageMessage">Message</label>
-                <textarea id="contactPageMessage" name="message" rows="5" placeholder="Tell me about your project, team, or opportunity..." required></textarea>
+                <textarea id="contactPageMessage" name="message" maxlength="5000" rows="5" placeholder="Tell me about your project, team, or opportunity..." required></textarea>
               </div>
               <button type="submit" class="btn-primary btn-w100 magnetic-btn" id="contactPageSendBtn">
-                <span>Send Message</span>
+                <span>Prepare email draft</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </button>
+              <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+              <p class="form-note">Prefer a direct message? <a href="mailto:diamanteeric0501@gmail.com">Email Eric</a></p>
             </form>
           </div>
         </div>
@@ -539,11 +540,6 @@
             </svg>
           </a>
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-btn magnetic-btn" aria-label="LinkedIn Profile" title="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-            </svg>
-          </a>
           <!-- Email -->
           <a href="mailto:diamanteeric0501@gmail.com" class="social-btn magnetic-btn" aria-label="Email Eric" title="Email Eric">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -558,158 +554,11 @@
 
   <!-- ────────────────── MODALS ────────────────── -->
 
-  <!-- 1. All Projects & Production Work Showcase Modal -->
-  <div id="allProjectsModal" class="app-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="allProjectsTitle">
-    <div class="modal-backdrop" id="allProjectsBackdrop"></div>
-    <div class="modal-content modal-lg">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="allProjectsTitle">All Projects & Technical Work</h3>
-          <p class="modal-subtitle">Full portfolio of production systems, modern web apps, and deployed software.</p>
-        </div>
-        <button type="button" class="modal-close-btn" id="allProjectsCloseBtn" aria-label="Close modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="modal-projects-list">
-          
-          <!-- DENR-CENRO Production Platform -->
-          <div class="modal-project-item featured-deployed">
-            <div class="modal-project-header">
-              <div class="project-badge-row">
-                <span class="badge badge-success">Deployed GovTech System</span>
-                <span class="badge badge-subtle">DENR-CENRO Davao del Sur</span>
-              </div>
-              <h4 class="modal-proj-name">DENR-CENRO Land Inventory & RLTA Assessment Platform</h4>
-            </div>
-            <p class="modal-proj-desc">
-              Centralized cadastral inventory and land assessment platform deployed in production at DENR-CENRO Davao del Sur. Automated barangay overview metrics, remaining & balance land computations across 7 municipalities, parcel lookup, and Excel bulk ingestion.
-            </p>
-            <div class="modal-proj-tags">
-              <span class="tag-pill">PHP</span>
-              <span class="tag-pill">MySQL</span>
-              <span class="tag-pill">JavaScript</span>
-              <span class="tag-pill">Bootstrap</span>
-              <span class="tag-pill">Excel Bulk Processing</span>
-            </div>
-            <div class="modal-proj-actions">
-              <button type="button" class="btn-sm btn-primary" id="openDenrPreviewBtn">
-                <span>View System Screenshot</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- FeedWise AI Nutritional Platform & Simulation Engine -->
-          <div class="modal-project-item">
-            <div class="modal-project-header">
-              <div class="project-badge-row">
-                <span class="badge badge-info">Capstone Platform & Simulator</span>
-                <span class="badge badge-subtle">Full-Stack Web & Mobile</span>
-                <span class="badge badge-success">PhilSAN Compliant</span>
-              </div>
-              <h4 class="modal-proj-name">FeedWise AI Nutritional Platform & Simulation Engine</h4>
-            </div>
-            <p class="modal-proj-desc">
-              Dual-platform web and mobile system for poultry feed formulation and least-cost optimization compliant with PhilSAN standards. Features algorithmic formulation, ingredient ratio optimization, nutrient requirement balance charts, and an interactive feed simulator enabling farmers to test custom ingredient compositions, simulate market price inflation (e.g., corn prices), and instantly compute nutrient balance scores and estimated per-kilogram savings.
-            </p>
-            <div class="modal-proj-tags">
-              <span class="tag-pill">Laravel</span>
-              <span class="tag-pill">Flutter</span>
-              <span class="tag-pill">PHP</span>
-              <span class="tag-pill">Python</span>
-              <span class="tag-pill">Data Modeling</span>
-              <span class="tag-pill">Chart.js</span>
-              <span class="tag-pill">Tailwind CSS</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. Contact Modal -->
-  <div id="contactModal" class="app-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-    <div class="modal-backdrop" id="contactBackdrop"></div>
-    <div class="modal-content modal-md">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="contactModalTitle">Get In Touch</h3>
-          <p class="modal-subtitle">Have a project, role, or collaboration in mind? Reach out directly.</p>
-        </div>
-        <button type="button" class="modal-close-btn" id="contactCloseBtn" aria-label="Close modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        <!-- Quick Email Copy Box -->
-        <div class="contact-quick-box">
-          <div class="quick-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-              <path d="M22 6l-10 7L2 6"></path>
-            </svg>
-          </div>
-          <div class="quick-info">
-            <span class="quick-label">Direct Email</span>
-            <strong class="quick-value" id="quickEmailValue">diamanteeric0501@gmail.com</strong>
-          </div>
-          <button type="button" class="btn-copy" id="copyEmailBtn" title="Copy email to clipboard">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span id="copyEmailText">Copy</span>
-          </button>
-        </div>
-
-        <!-- Quick Phone & Location Box -->
-        <div class="contact-quick-box">
-          <div class="quick-icon-wrap">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 11.88 19.79 19.79 0 0 1 1.06 3.2 2 2 0 0 1 3.03 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <div class="quick-info">
-            <span class="quick-label">Mobile Phone & Location</span>
-            <strong class="quick-value">09941912550 · Digos City, Davao del Sur</strong>
-          </div>
-        </div>
-
-        <div class="contact-actions-strip">
-          <button type="button" class="btn-secondary btn-w100" id="modalCvBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-            </svg>
-            <span>View / Download CV</span>
-          </button>
-        </div>
-
-        <!-- Interactive Direct Message Form -->
-        <form id="contactForm" class="contact-modal-form">
-          <div class="form-group">
-            <label for="formSenderName">Your Name</label>
-            <input type="text" id="formSenderName" required placeholder="e.g. Alex Smith" />
-          </div>
-          <div class="form-group">
-            <label for="formSenderEmail">Your Email</label>
-            <input type="email" id="formSenderEmail" required placeholder="e.g. alex@example.com" />
-          </div>
-          <div class="form-group">
-            <label for="formMessage">Message</label>
-            <textarea id="formMessage" rows="3" required placeholder="Tell me about your project, idea, or role..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary btn-w100" id="sendEmailBtn">
-            <span>Send Message</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          </button>
-        </form>
-      </div>
+  <div id="caseModal" class="app-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content modal-lg case-modal-content">
+      <div class="modal-header"><div><span class="case-eyebrow" id="caseEyebrow"></span><h2 class="modal-title" id="caseTitle"></h2></div><button type="button" class="modal-close-btn" aria-label="Close case study">&times;</button></div>
+      <div class="modal-body" id="caseBody"></div>
     </div>
   </div>
 
@@ -732,33 +581,23 @@
           <button type="button" class="modal-close-btn" id="cvCloseBtn" aria-label="Close modal">&times;</button>
         </div>
       </div>
-      <div class="modal-body cv-body">
-        <iframe id="cvFrame" src="Eric-Diamante-CV.pdf#toolbar=1" title="Eric Diamante CV">
+      <div class="modal-body cv-body"><p class="cv-help">If the preview is unavailable, use Open in New Tab or Download PDF above.</p>
+        <iframe id="cvFrame" data-src="Eric-Diamante-CV.pdf#toolbar=1" title="Eric Diamante CV">
           <p>Your browser does not support PDF embeds. <a href="Eric-Diamante-CV.pdf" target="_blank">Click here to view the CV</a>.</p>
         </iframe>
       </div>
     </div>
   </div>
 
-  <!-- 4. DENR Production System Screenshot Modal -->
-  <div id="denrModal" class="app-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="denrModalTitle">
-    <div class="modal-backdrop" id="denrBackdrop"></div>
-    <div class="modal-content modal-lg">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="denrModalTitle">DENR-CENRO Production Dashboard</h3>
-          <span class="badge badge-success">Production System</span>
-        </div>
-        <button type="button" class="modal-close-btn" id="denrCloseBtn" aria-label="Close modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="denr-screenshot-wrap">
-          <img src="denr-dashboard.png" alt="DENR-CENRO Dashboard" class="img-fluid" />
-        </div>
-      </div>
+  <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top" hidden>↑</button>
+  <div id="galleryModal" class="app-modal gallery-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content gallery-content">
+      <div class="modal-header"><h2 id="galleryTitle" class="modal-title">Project screenshots</h2><button type="button" class="modal-close-btn" aria-label="Close screenshot gallery">&times;</button></div>
+      <figure class="gallery-figure"><img id="galleryImage" alt="" /><figcaption id="galleryCaption" aria-live="polite"></figcaption></figure>
+      <div class="gallery-controls"><button type="button" id="galleryPrev" class="btn-secondary" aria-label="Previous screenshot">←</button><span id="galleryCount" role="status"></span><button type="button" id="galleryNext" class="btn-secondary" aria-label="Next screenshot">→</button><a id="galleryOriginal" class="gallery-original" target="_blank" rel="noopener noreferrer">Open full-size ↗</a></div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
