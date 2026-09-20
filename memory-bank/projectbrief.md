@@ -6,7 +6,7 @@ A modern, responsive, and performance-focused developer portfolio for **Eric Dia
 ## Goals & Objectives
 1. **Showcase Real-World Systems**: Highlight complex GovTech land disposition (DENR Land Inventory System) and intelligent agricultural algorithms (FeedWise poultry feed formulation).
 2. **Demonstrate Technical Craftsmanship**: Zero-build, fast-loading, pure HTML/CSS/JavaScript architecture with accessible components and responsive layouts.
-3. **Facilitate Contact & Hiring**: Direct CV download/preview, social links (GitHub, LinkedIn, Email), and a zero-friction contact form that drafts messages directly for the visitor.
+3. **Facilitate Contact & Hiring**: Direct CV download/preview, direct email access, and a zero-friction contact form that drafts messages directly for the visitor.
 
 ## Core Requirements
 - **Zero Build Toolchain**: Must run immediately via standard static web servers without Node.js build steps or npm installations.

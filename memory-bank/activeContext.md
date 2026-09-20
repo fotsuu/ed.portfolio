@@ -6,6 +6,11 @@
 - Ensuring seamless continuity across chat sessions, context resets, and new feature iterations.
 
 ## Recent Changes & Milestones
+- **Social & GitHub Profile Cleanup (`index.html`, `features.css`)**:
+  - Removed hero circular social icons (`.hero-social-icons`) below CTA buttons.
+  - Removed "Explore GitHub" link from the Projects section header.
+  - Removed "GitHub Profile" card from the Contact info section.
+  - Removed GitHub icon from the footer.
 - **Ambient Hero Atmosphere & Motion Controls (`motion.js`, `features.css`, `index.html`)**:
   - Implemented an ambient hero aura backdrop (`.hero-atmosphere`, `.aurora`, particles) isolated behind the portrait.
   - Added an accessible ambient motion toggle button (`#ambientToggle`) to pause/play background motion.

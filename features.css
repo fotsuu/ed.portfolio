@@ -87,7 +87,6 @@ figure .screenshot-trigger { height: auto; }
   .hero-role::after { content: ''; position: absolute; left: 0; bottom: 0; width: 58px; height: 3px; border-radius: 3px; background: var(--primary-blue); transform-origin: left; animation: portfolio-accent .6s .5s ease-out both; }
   .hero-desc { animation: portfolio-enter .65s .24s ease-out both; }
   .hero-btn-group { animation: portfolio-enter .65s .32s ease-out both; }
-  .hero-social-icons { animation: portfolio-enter .65s .4s ease-out both; }
   .hero-visual { animation: portfolio-enter .8s .15s ease-out both; }
   .hero-3d-scene { transform: none; }
   .reveal-item { transition: opacity .6s ease, translate .6s cubic-bezier(.2,.7,.3,1); transition-delay: var(--reveal-delay, 0ms); }
