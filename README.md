@@ -14,7 +14,7 @@ Open http://127.0.0.1:8080 in your browser. Stop the server with Ctrl+C. No buil
 
 ## Features
 
-- Sequenced hero entrance, staggered scroll reveals, subtle pointer-driven portrait movement, and button hover feedback. Motion respects device accessibility preferences.
+- Sequenced hero entrance, staggered scroll reveals, and button hover feedback. The portrait stays stationary while its aura animates, and motion respects device accessibility preferences.
 - Light/night mode with device-theme detection and a saved preference.
 - Expandable project screenshot galleries with arrow-key navigation and full-size links.
 - A floating back-to-top button after scrolling.

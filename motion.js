@@ -2,20 +2,27 @@
 (() => {
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   let observer;
-  let pendingFrame;
-  const scene = document.getElementById('hero3dScene');
   const visual = document.getElementById('heroVisual');
-  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-
-  function resetPortrait() {
-    scene.style.setProperty('--portrait-x', '0px');
-    scene.style.setProperty('--portrait-y', '0px');
+  const atmosphere = document.getElementById('heroAtmosphere');
+  let ambientVisible = true;
+  function updateAmbient() {
+    const paused = !ambientVisible || document.hidden || preference.matches;
+    atmosphere.classList.toggle('ambient-running', !paused);
   }
+  document.addEventListener('visibilitychange', updateAmbient);
+  preference.addEventListener('change', updateAmbient);
+  if ('IntersectionObserver' in window) {
+    const ambientObserver = new IntersectionObserver(entries => {
+      ambientVisible = entries[0].isIntersecting;
+      updateAmbient();
+    });
+    ambientObserver.observe(visual);
+  }
+  updateAmbient();
 
   function configureMotion() {
     observer?.disconnect();
     document.querySelectorAll('.reveal-pending').forEach(el => el.classList.remove('reveal-pending'));
-    resetPortrait();
     if (preference.matches || !('IntersectionObserver' in window)) return;
     observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -36,17 +43,6 @@
     });
   }
 
-  visual.addEventListener('pointermove', event => {
-    if (preference.matches || !finePointer.matches) return;
-    cancelAnimationFrame(pendingFrame);
-    pendingFrame = requestAnimationFrame(() => {
-      const box = visual.getBoundingClientRect();
-      // Whole-pixel translation avoids rotating or blurring the repaired eyes.
-      scene.style.setProperty('--portrait-x', `${Math.round((event.clientX - box.left - box.width / 2) / box.width * 10)}px`);
-      scene.style.setProperty('--portrait-y', `${Math.round((event.clientY - box.top - box.height / 2) / box.height * 8)}px`);
-    });
-  }, { passive: true });
-  visual.addEventListener('pointerleave', () => { cancelAnimationFrame(pendingFrame); resetPortrait(); });
   preference.addEventListener('change', configureMotion);
   configureMotion();
 })();

@@ -19,7 +19,8 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 - [x] Dual-theme engine (Light & Night modes) with instant pre-render theme application via `theme.js`.
 - [x] Saved theme persistence via `localStorage` and system `prefers-color-scheme` fallback.
 - [x] Consistent dark mode palette across cards, text contrast, buttons, and navigation bar.
-- [x] Progressive motion system (`motion.js` & `features.css`): entrance sequence, staggered scroll reveals, and pointer micro-interactions honoring `prefers-reduced-motion`.
+- [x] Progressive motion system (`motion.js` & `features.css`): entrance sequence, staggered scroll reveals, and micro-interactions honoring `prefers-reduced-motion`.
+- [x] Ambient hero atmosphere (`features.css`, `index.html`) with aura drift, particle motion, and accessible pause/play motion control.
 
 ### Interactive Components & Accessibility
 - [x] FeedWise manual screenshot carousel with indicators and navigation controls.

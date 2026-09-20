@@ -21,7 +21,7 @@
   <script src="theme.js"></script>
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css?v=7" />
-  <link rel="stylesheet" href="features.css" />
+  <link rel="stylesheet" href="features.css?v=2" />
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -94,12 +94,18 @@
 
         <!-- Right Hero: 3D Interactive Visual -->
         <div class="hero-visual" id="heroVisual">
+          <div class="hero-atmosphere" id="heroAtmosphere" aria-hidden="true">
+            <span class="aurora aurora-blue"></span><span class="aurora aurora-indigo"></span>
+            <span class="ambient-particle" style="--x:12%;--y:24%;--delay:-2s"></span>
+            <span class="ambient-particle" style="--x:28%;--y:12%;--delay:-7s"></span>
+            <span class="ambient-particle" style="--x:76%;--y:18%;--delay:-4s"></span>
+            <span class="ambient-particle" style="--x:89%;--y:40%;--delay:-9s"></span>
+            <span class="ambient-particle" style="--x:15%;--y:66%;--delay:-5s"></span>
+            <span class="ambient-particle" style="--x:80%;--y:76%;--delay:-1s"></span>
+          </div>
           <div class="hero-3d-scene" id="hero3dScene">
             <!-- 3D Ambient Depth Glow -->
             <div class="hero-3d-glow" id="hero3dGlow"></div>
-
-            <!-- Delicate Ambient Interactive Particle Mesh -->
-            <canvas id="heroMeshCanvas" class="hero-mesh-canvas" aria-hidden="true"></canvas>
 
             <!-- Main 3D Portrait Frame with HD Image -->
             <div class="portrait-wrapper" id="portraitWrapper">
@@ -598,6 +604,6 @@
     </div>
   </div>
   <script src="script.js"></script>
-  <script src="motion.js"></script>
+  <script src="motion.js?v=2"></script>
 </body>
 </html>

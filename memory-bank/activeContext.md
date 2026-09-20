@@ -6,10 +6,13 @@
 - Ensuring seamless continuity across chat sessions, context resets, and new feature iterations.
 
 ## Recent Changes & Milestones
+- **Ambient Hero Atmosphere & Motion Controls (`motion.js`, `features.css`, `index.html`)**:
+  - Implemented an ambient hero aura backdrop (`.hero-atmosphere`, `.aurora`, particles) isolated behind the portrait.
+  - Added an accessible ambient motion toggle button (`#ambientToggle`) to pause/play background motion.
+  - Connected background animation execution to page visibility and `IntersectionObserver` to preserve performance and battery life.
 - **Motion & Accessibility Interactions (`motion.js`, `features.css`)**:
   - Implemented sequenced hero entrance animation and staggered scroll reveals via `IntersectionObserver`.
-  - Added pointer-driven portrait translation with whole-pixel math and `prefers-reduced-motion` detection.
-  - Added button and link micro-interaction states.
+  - Added button and link micro-interaction states with `prefers-reduced-motion` compliance.
 - **Memory Bank Setup**: Created the canonical 6-file structure (`projectbrief.md`, `productContext.md`, `systemPatterns.md`, `techContext.md`, `activeContext.md`, `progress.md`).
 - **Agent Rules Configured**: Added `.agents/rules/memory-bank.md` and project root `AGENTS.md` to guarantee AI pair programmers follow the read-first, update-after workflow.
 - **Recent Portfolio Refinements**:
