@@ -1752,7 +1752,7 @@ body {
 .proof-number { display: block; font-size: .64rem; letter-spacing: .14em; font-weight: 700; color: #2563eb; margin-bottom: 8px; }
 .proof-strip strong { display: block; font-size: .92rem; }
 .proof-strip p { font-size: .79rem; color: var(--text-muted); margin-top: 4px; }
-.about-view-section, .projects-view-section, .skills-view-section, .contact-view-section { min-height: auto; }
+.about-view-section, .projects-view-section, .skills-view-section, .contact-view-section { min-height: 0; }
 .view-container { padding-top: 88px; padding-bottom: 88px; }
 .view-badge { border: 0; background: transparent; padding: 0; font-size: .68rem; letter-spacing: .15em; margin-bottom: 14px; }
 .view-title { font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -.045em; }
