@@ -10,12 +10,14 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 ## What Works (Completed Features)
 
 ### Core Layout & Structure
+
 - [x] Semantic HTML5 document hierarchy with skip links and landmarks.
 - [x] Responsive layout supporting desktop, tablet, and mobile displays.
 - [x] Multi-view hash navigation (`#home`, `#projects`, `#about`, `#skills`, `#contact`) with browser history integration.
 - [x] Interactive Hero section with avatar presentation, title, CTA buttons, and social links.
 
 ### Theming & Aesthetics
+
 - [x] Dual-theme engine (Light & Night modes) with instant pre-render theme application via `theme.js`.
 - [x] Saved theme persistence via `localStorage` and system `prefers-color-scheme` fallback.
 - [x] Consistent dark mode palette across cards, text contrast, buttons, and navigation bar.
@@ -23,6 +25,7 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 - [x] Ambient hero atmosphere (`features.css`, `index.html`) with aura drift, particle motion, and accessible pause/play motion control.
 
 ### Interactive Components & Accessibility
+
 - [x] FeedWise manual screenshot carousel with indicators and navigation controls.
 - [x] Project screenshot gallery modals with keyboard focus trapping, Escape dismissal, and arrow key cycling.
 - [x] Direct CV preview in modal with download and new-tab options.
@@ -31,12 +34,16 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 - [x] Contact form preparing pre-populated email drafts without data loss.
 
 ### Code Quality & Compatibility
+
 - [x] Zero-build vanilla architecture (no npm, no node_modules required).
 - [x] Clean W3C validation for HTML markup and attributes.
 - [x] Firefox CSS flexbox fix applied (`min-height: 0`).
+- [x] Chrome < 111 compatibility verified (`rgba()` color fallback).
+- [x] Zero inline CSS styles on HTML markup.
 - [x] Reduced-motion media query respect throughout CSS animations.
 
 ### AI IDE Integration & Workflow
+
 - [x] Complete **Memory Bank** framework deployed in `memory-bank/`.
 - [x] Workspace agent rules configured in `.agents/rules/memory-bank.md` and `AGENTS.md`.
 - [x] Systematic workflow mirroring Cline / Roo Code / Cursor / Windsurf memory bank operations.

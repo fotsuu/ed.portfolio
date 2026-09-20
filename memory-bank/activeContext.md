@@ -1,11 +1,17 @@
 # Active Context
 
 ## Current Work Focus
+
 - Initialized and deployed the complete **Memory Bank** framework (`memory-bank/`) alongside agent workflow rules in `.agents/rules/memory-bank.md` and `AGENTS.md`.
 - Established persistent project memory mirroring AI IDE workflows (Cline, Roo Code, Cursor, Windsurf).
 - Ensuring seamless continuity across chat sessions, context resets, and new feature iterations.
 
 ## Recent Changes & Milestones
+
+- **CSS & HTML Validation & Compatibility Fixes (`features.css`, `index.html`)**:
+  - Replaced `color-mix` with `rgba()` in `.hero-atmosphere::after` for Chrome < 111 compatibility.
+  - Eliminated inline `style` attributes on ambient particles by introducing `.particle-1` through `.particle-6` classes in `features.css`.
+  - Normalized markdown heading and list spacing in memory bank documentation.
 - **Social & GitHub Profile Cleanup (`index.html`, `features.css`)**:
   - Removed hero circular social icons (`.hero-social-icons`) below CTA buttons.
   - Removed "Explore GitHub" link from the Projects section header.
@@ -26,10 +32,12 @@
   - Optimized night mode palette, modal focus management, and responsive gallery viewports.
 
 ## Active Decisions & Considerations
+
 - **Memory Bank Synchronization Protocol**: AI agents must read `activeContext.md` and `progress.md` at task commencement and update them upon milestone completion.
 - **Static Integrity**: Keep the portfolio free of heavy framework build steps to preserve fast loading and zero-dependency maintenance.
 
 ## Immediate Next Steps
+
 1. Maintain memory bank synchronization as user requests further portfolio updates.
 2. Optional future enhancements:
    - Live interactive demo or prototype previews for DENR and FeedWise.

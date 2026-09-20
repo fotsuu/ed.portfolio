@@ -115,7 +115,13 @@ figure .screenshot-trigger { height: auto; }
 .aurora-blue { left: 0; top: 14%; background: radial-gradient(ellipse, #93c5fd80, #bfdbfe30 50%, transparent 72%); }
 .aurora-indigo { right: 0; top: 0; background: radial-gradient(ellipse, #c7d2fe90, #dbeafe20 55%, transparent 72%); animation-direction: alternate-reverse; animation-duration: 11s; }
 .ambient-particle { position: absolute; left: var(--x); top: var(--y); width: 4px; height: 4px; border-radius: 50%; background: #5d8ec4; opacity: .5; animation: particle-drift 7s var(--delay) ease-in-out infinite alternate; animation-play-state: paused; will-change: transform, opacity; }
-.hero-atmosphere::after { content: ''; position: absolute; inset: 14% 11%; border: 1px solid color-mix(in srgb, var(--primary-blue) 22%, transparent); border-radius: 50%; opacity: 0; transform: scale(.78); animation: atmosphere-ring 5s ease-out infinite; animation-play-state: paused; }
+.particle-1 { --x: 12%; --y: 24%; --delay: -2s; }
+.particle-2 { --x: 28%; --y: 12%; --delay: -7s; }
+.particle-3 { --x: 76%; --y: 18%; --delay: -4s; }
+.particle-4 { --x: 89%; --y: 40%; --delay: -9s; }
+.particle-5 { --x: 15%; --y: 66%; --delay: -5s; }
+.particle-6 { --x: 80%; --y: 76%; --delay: -1s; }
+.hero-atmosphere::after { content: ''; position: absolute; inset: 14% 11%; border: 1px solid rgba(37, 99, 235, 0.22); border-radius: 50%; opacity: 0; transform: scale(.78); animation: atmosphere-ring 5s ease-out infinite; animation-play-state: paused; }
 [data-theme="dark"] .aurora-blue { background: radial-gradient(ellipse, #2563eb85, #0ea5e925 52%, transparent 72%); opacity: .7; }
 [data-theme="dark"] .aurora-indigo { background: radial-gradient(ellipse, #6366f16b, #4338ca25 52%, transparent 72%); opacity: .7; }
 [data-theme="dark"] .ambient-particle { background: #9acbff; box-shadow: 0 0 8px #60a5fa60; }

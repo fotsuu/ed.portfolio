@@ -48,6 +48,7 @@ eric-developer-portfolio/
 ```
 
 ## Technical Constraints & Standards
+
 1. **Zero External Build Step**: Do not introduce bundlers (Webpack, Vite, Rollup) unless explicitly requested. The site must remain purely static.
 2. **Standard-Compliant HTML**: Comply with W3C HTML5 validator rules (avoid obsolete tags or invalid attributes).
 3. **Cross-Browser Styling**:
