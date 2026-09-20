@@ -7,20 +7,24 @@
 | **Markup** | HTML5 | Semantic structure, SEO-optimized metadata, OpenGraph tags, ARIA roles |
 | **Styling** | CSS3 + CSS Custom Properties | Custom tokens, dark/night mode palette, responsive Flexbox/Grid layouts |
 | **Logic** | Vanilla JavaScript (ES6+) | No framework overhead, native DOM APIs, event delegation |
-| **Typography**| Google Fonts | Inter (Body text) and Plus Jakarta Sans (Display headings) |
+| **Typography** | Google Fonts | Inter (Body text) and Plus Jakarta Sans (Display headings) |
 | **Documents** | PDF | `Eric-Diamante-CV.pdf` for direct download and browser preview |
 | **Runtime** | Static HTTP Server | Built-in Python `http.server` or any static host (GitHub Pages, Vercel, Netlify) |
 
 ## Development & Runtime Environment
 
 ### Local Server Launch
+
 Run local server without requiring Node.js or npm:
+
 ```powershell
 python -m http.server 8080 --bind 127.0.0.1
 ```
+
 Access at: `http://127.0.0.1:8080`
 
 ### File Structure Map
+
 ```text
 eric-developer-portfolio/
 ├── .agents/
