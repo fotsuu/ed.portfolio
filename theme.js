@@ -5,7 +5,13 @@
   try { preference = localStorage.getItem('portfolio-theme'); } catch { /* Storage may be unavailable. */ }
   function apply(theme) {
     document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0b1220' : '#ffffff';
+    let metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (!metaTheme) {
+      metaTheme = document.createElement('meta');
+      metaTheme.setAttribute('name', 'theme-color');
+      document.head.appendChild(metaTheme);
+    }
+    metaTheme.content = theme === 'dark' ? '#0b1220' : '#ffffff';
     const button = document.getElementById('themeToggle');
     if (!button) return;
     const dark = theme === 'dark';
