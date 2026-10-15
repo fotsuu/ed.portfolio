@@ -9,6 +9,8 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 
 ## What Works (Completed Features)
 
+- [x] Enhanced transparent avatar with responsive 1448px/3840px WebP sources and 3840x2880 PNG master. 4K export is upscaled from AI-enhanced 1448x1086 output. Local light/dark visual review passed; user approved GitHub publication on 2026-10-15.
+
 ### Welcome Introduction (2026-10-15, local review)
 
 - [x] Removed unintended logo focus rectangle after loading by focusing main content. Browser verified loader closed, main content focused, and logo outline absent.

@@ -2,6 +2,8 @@
 
 ## Current Work Focus
 
+- Enhanced avatar locally using built-in imagegen identity-preserving edit of original PNG. Generated 1448x1086, then upscaled to 3840x2880 with Sharp (not native 4K detail). Added transparent 4K PNG/WebP and 1448px high-quality WebP; responsive srcset replaces compressed 1000px image. Checked light/dark browser rendering. User approved publishing this avatar update to GitHub on 2026-10-15.
+
 - User authorized publishing the reviewed local portfolio to GitHub on 2026-10-15. Preparing commit on main including loading intro, logo focus fix, asset optimization, SEO, skills, and contact refinements.
 
 - Fixed boxed E.DEV appearance after loader dismissal: focus now moves to `#mainContent`, not the brand link. Browser confirmed logo outline is `none` after automatic reveal; keyboard focus styles remain available. Local only.

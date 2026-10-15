@@ -1,0 +1,4 @@
+Method: built-in image_gen edit, followed by Sharp Lanczos resize and WebP export.
+Generated resolution: 1448x1086. Upscaled export: 3840x2880; not native 4K detail.
+
+Use case: identity-preserve. Edit the supplied portfolio portrait for high-resolution 4K quality. Output 3840 pixels wide if supported, preserving its approximately 4:3 canvas and transparent background. Preserve exactly the person's identity, face proportions, expression, hairstyle, black T-shirt, crossed arms, pose, framing, and realistic photographic appearance. Refine image quality only: natural detailed eyes and iris catchlights without black pixel artifacts, crisp individual hair strands, natural skin texture, smooth anti-aliased transparent edges without blue fringe, sharp clothing texture. Do not beautify, change facial features, add objects, add text, or stylize. Preserve fully opaque face and eyes; only the background is transparent.
