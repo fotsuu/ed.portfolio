@@ -32,7 +32,7 @@
         observer.unobserve(entry.target);
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
-    document.querySelectorAll('.view-header, .project-card, .about-narrative-card, .highlight-box, .skill-card, .supporting-tech-banner, .contact-card, .contact-form-card').forEach(el => {
+    document.querySelectorAll('.view-header, .project-card, .about-narrative-card, .highlight-box, .skill-group, .skill-card, .supporting-tech-banner, .contact-card, .contact-form-card').forEach(el => {
       el.classList.add('reveal-item');
       // Never hide content already on screen, including direct section links.
       if (el.getBoundingClientRect().top < innerHeight) return;

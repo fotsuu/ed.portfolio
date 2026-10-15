@@ -9,6 +9,19 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 
 ## What Works (Completed Features)
 
+### Welcome Introduction (2026-10-15, local review)
+
+- [x] Removed unintended logo focus rectangle after loading by focusing main content. Browser verified loader closed, main content focused, and logo outline absent.
+
+- Latest revision supersedes the once-per-tab/button entry behavior below: automatic 2.6s loading intro on every home page load, with SVG stroke drawing, 3D-styled code tile, orbit rings, and loading sweep. Browser verified automatic dismissal and scroll restoration; syntax check passed. User review pending; no push.
+
+- [x] Interactive pointer glow, finite orbit animation, and smooth entry transition.
+- [x] Native dialog with immediate enter/skip controls, Enter/Escape handling, and reduced-motion styles.
+- [x] Once-per-tab-session display; direct section links bypass introduction.
+- [x] Browser verified at desktop 1280x720 and mobile 390x844; no mobile overflow. Enter/skip close dialog, restore scrolling, and focus brand link. Reload preserves dismissal.
+- [x] JavaScript syntax validation passed; browser error log empty during welcome review.
+- [x] User approved pushing the local portfolio updates to GitHub (2026-10-15).
+
 ### Core Layout & Structure
 
 - [x] Semantic HTML5 document hierarchy with skip links and landmarks.
@@ -36,6 +49,10 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 ### Code Quality & Compatibility
 
 - [x] Zero-build vanilla architecture (no npm, no node_modules required).
+- [x] Optimized WebP pipeline for all images (cutting hero portrait from 1.2 MB to 58 KB).
+- [x] Full SEO suite: OpenGraph 1200x630 card, Twitter card, Schema.org Person JSON-LD, robots.txt, sitemap.xml.
+- [x] Categorized skills architecture with domain usage badges and workflow tooling banner.
+- [x] Availability indicator card with live pulse animation balancing contact layout.
 - [x] Clean W3C validation for HTML markup and attributes.
 - [x] Firefox CSS flexbox fix applied (`min-height: 0`).
 - [x] Chrome < 111 compatibility verified (`rgba()` color fallback).

@@ -2,21 +2,33 @@
 
 ## Current Work Focus
 
+- User authorized publishing the reviewed local portfolio to GitHub on 2026-10-15. Preparing commit on main including loading intro, logo focus fix, asset optimization, SEO, skills, and contact refinements.
+
+- Fixed boxed E.DEV appearance after loader dismissal: focus now moves to `#mainContent`, not the brand link. Browser confirmed logo outline is `none` after automatic reveal; keyboard focus styles remain available. Local only.
+
+- Revised intro per user clarification: automatic loading screen, replacing button-gated welcome. Glowing SVG code icon draws itself inside a 3D-styled tile with counter-rotating cyan/violet rings and an indeterminate loading sweep. Home reload replays it; automatically exits after 2.6s plus 0.5s fade (200ms with reduced motion). Skip/Escape remain available. Browser confirmed automatic close and restored scrolling. No GitHub push.
+
+- Added a local-only interactive welcome introduction (2026-10-15) in `welcome.css` and `welcome.js`, connected from `index.html`. Native modal dialog shows once per tab session on the home route, with animated E emblem, pointer-following glow, entry/skip buttons, keyboard entry/Escape, and reduced-motion support. Direct section links bypass the intro. Hero avatar behavior is unchanged.
+- Local review server runs at `http://127.0.0.1:8083/#home`; no GitHub push performed. Desktop/mobile layout, enter/skip, scroll restoration, and session dismissal verified in browser.
+
 - Initialized and deployed the complete **Memory Bank** framework (`memory-bank/`) alongside agent workflow rules in `.agents/rules/memory-bank.md` and `AGENTS.md`.
 - Established persistent project memory mirroring AI IDE workflows (Cline, Roo Code, Cursor, Windsurf).
 - Ensuring seamless continuity across chat sessions, context resets, and new feature iterations.
 
 ## Recent Changes & Milestones
 
-- **CSS & HTML Validation & Compatibility Fixes (`features.css`, `index.html`)**:
-  - Replaced `color-mix` with `rgba()` in `.hero-atmosphere::after` for Chrome < 111 compatibility.
-  - Eliminated inline `style` attributes on ambient particles by introducing `.particle-1` through `.particle-6` classes in `features.css`.
-  - Normalized markdown heading and list spacing in memory bank documentation.
-- **Social & GitHub Profile Cleanup (`index.html`, `features.css`)**:
-  - Removed hero circular social icons (`.hero-social-icons`) below CTA buttons.
-  - Removed "Explore GitHub" link from the Projects section header.
-  - Removed "GitHub Profile" card from the Contact info section.
-  - Removed GitHub icon from the footer.
+- **SEO & Social Sharing Previews (`index.html`, `assets/img/`)**:
+  - Generated and added high-res Open Graph / Twitter social preview card (`og-image.jpg`, 1200x630) and modern SVG/PNG favicon suite.
+  - Added full canonical, Twitter Card, OpenGraph meta tags, and Schema.org JSON-LD Person structured data.
+  - Generated production-ready `robots.txt` and `sitemap.xml`.
+- **Performance & Asset Modernization (`assets/img/`, `index.html`, `script.js`)**:
+  - Converted hero portrait and all project screenshots into high-fidelity WebP assets, cutting hero image weight from 1.2 MB to 58 KB (~95% reduction).
+  - Explicit `width`, `height`, and `decoding="async"` attributes added to prevent Cumulative Layout Shift (CLS).
+- **Visual & Structural Refinements (`features.css`, `index.html`, `motion.js`)**:
+  - Added gradient mask to hero portrait for smooth bottom atmosphere blend.
+  - Redesigned Skills section from a sparse grid into 3 structured category groups (Frontend, Backend & Mobile, Data) with domain usage badges and workflow tooling banner.
+  - Balanced the Contact section layout by adding an interactive "Current Availability" card with real-time pulsing status indicator.
+  - Corrected heading semantics (`p.hero-role`), toast ARIA role (`role="status"`), and connected `.skill-group` to scroll reveal motion.
 - **Ambient Hero Atmosphere & Motion Controls (`motion.js`, `features.css`, `index.html`)**:
   - Implemented an ambient hero aura backdrop (`.hero-atmosphere`, `.aurora`, particles) isolated behind the portrait.
   - Added an accessible ambient motion toggle button (`#ambientToggle`) to pause/play background motion.

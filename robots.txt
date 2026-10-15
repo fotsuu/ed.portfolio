@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fotsuu.github.io/ed.portfolio/sitemap.xml

@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'DENR Land Inventory & RLTA',
       facts: [['Role', 'Software developer'], ['Context', 'DENR-CENRO, Davao del Sur'], ['Scope', '7 municipalities']],
       body: `<section class="case-section"><h3>The problem</h3><p>Land inventory work brings together parcel records, barangay metrics, and remaining lot calculations. Staff need a centralized way to find records and work with incoming spreadsheet data.</p></section>
-        <figure><img class="case-image" src="denr-dashboard.png" alt="DENR land inventory dashboard showing municipality and land assessment information" /><figcaption class="case-caption">The deployed land inventory and assessment dashboard.</figcaption></figure>
+        <figure><img class="case-image" src="assets/img/denr-dashboard.webp" alt="DENR land inventory dashboard showing municipality and land assessment information" /><figcaption class="case-caption">The deployed land inventory and assessment dashboard.</figcaption></figure>
         <section class="case-section"><h3>What I built</h3><ul><li>A centralized cadastral inventory with parcel lookup.</li><li>Automated barangay overview metrics and remaining land calculations.</li><li>Bulk Excel ingestion for bringing existing records into the system.</li></ul></section>
         <section class="case-section"><h3>Implementation</h3><p>PHP and MySQL support the application and relational records, with JavaScript and Bootstrap for the interface. Excel processing connects existing data workflows to the inventory.</p></section>
         <section class="case-section"><h3>Result & scope</h3><p>Deployed at DENR-CENRO Davao del Sur, supporting land inventory and assessment across 7 municipalities.</p></section>`
@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'FeedWise Platform & Simulator',
       facts: [['Role', 'Lead developer'], ['Platforms', 'Web & mobile'], ['Focus', 'Least-cost feed formulation']],
       body: `<section class="case-section"><h3>The problem</h3><p>Poultry feed formulation needs to balance ingredient costs with nutritional requirements. Changing market prices make comparing ingredient combinations an ongoing challenge.</p></section>
-        <figure><img class="case-image" src="feedwise-hero.png" alt="FeedWise poultry feed formulation platform overview" /><figcaption class="case-caption">FeedWise brings feed formulation into a web and mobile workflow.</figcaption></figure>
+        <figure><img class="case-image" src="assets/img/feedwise-hero.webp" alt="FeedWise poultry feed formulation platform overview" /><figcaption class="case-caption">FeedWise brings feed formulation into a web and mobile workflow.</figcaption></figure>
         <section class="case-section"><h3>What I built</h3><ul><li>Algorithmic feed formulation and ingredient ratio optimization.</li><li>Nutrient balance charts aligned with PhilSAN requirements.</li><li>An interactive simulator for ingredient combinations and market price changes.</li><li>Web and mobile interfaces for exploring formulation results.</li></ul></section>
-        <figure><img class="case-image" src="feedwise-simulator.png" alt="FeedWise simulator interface for ingredient costs and nutrient balance" loading="lazy" /><figcaption class="case-caption">The simulator supports cost and nutrient balance comparisons.</figcaption></figure>
+        <figure><img class="case-image" src="assets/img/feedwise-simulator.webp" alt="FeedWise simulator interface for ingredient costs and nutrient balance" loading="lazy" /><figcaption class="case-caption">The simulator supports cost and nutrient balance comparisons.</figcaption></figure>
         <section class="case-section"><h3>Implementation</h3><p>The project combines Laravel, PHP, Flutter, Python, and data modeling, with Chart.js visualizations and a Tailwind CSS web interface.</p></section>
         <section class="case-section"><h3>Result & scope</h3><p>A capstone platform combining formulation with interactive simulations, including nutrient balance scores and estimated per-kilogram savings.</p></section>`
     }
@@ -172,12 +172,12 @@ document.addEventListener('DOMContentLoaded', () => {
   showSlide(0);
 
   const galleries = {
-    denr: [{ src: 'denr-dashboard.png', caption: 'DENR — land inventory dashboard' }],
+    denr: [{ src: 'assets/img/denr-dashboard.webp', caption: 'DENR — land inventory dashboard' }],
     feedwise: [
-      { src: 'feedwise-hero.png', caption: 'FeedWise — platform overview' },
-      { src: 'feedwise-simulator.png', caption: 'FeedWise — feed formulation simulator' },
-      { src: 'feedwise-capabilities.png', caption: 'FeedWise — platform capabilities' },
-      { src: 'feedwise-process.png', caption: 'FeedWise — formulation process' }
+      { src: 'assets/img/feedwise-hero.webp', caption: 'FeedWise — platform overview' },
+      { src: 'assets/img/feedwise-simulator.webp', caption: 'FeedWise — feed formulation simulator' },
+      { src: 'assets/img/feedwise-capabilities.webp', caption: 'FeedWise — platform capabilities' },
+      { src: 'assets/img/feedwise-process.webp', caption: 'FeedWise — formulation process' }
     ]
   };
   let galleryKey = 'denr';

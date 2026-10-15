@@ -6,28 +6,70 @@
   <title>Eric Diamante | Software & Web Developer</title>
   <meta name="description" content="Portfolio of Eric Diamante — BS Information Technology, Software & Web Developer, AI Workflows & Data Specialist. Deployed GovTech systems, full-stack applications, and database management." />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><text y='20' font-size='20' font-family='sans-serif' font-weight='bold'>E</text></svg>" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
 
   <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Canonical & social previews. Update SITE URL here if the portfolio is hosted elsewhere. -->
+  <link rel="canonical" href="https://fotsuu.github.io/ed.portfolio/" />
   <meta property="og:title" content="Eric Diamante | Software & Web Developer" />
   <meta property="og:description" content="Practical web systems, government land inventory, and feed formulation. Explore selected work by Eric Diamante." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fotsuu.github.io/ed.portfolio/" />
+  <meta property="og:site_name" content="Eric Diamante — Portfolio" />
+  <meta property="og:image" content="https://fotsuu.github.io/ed.portfolio/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Eric Diamante, Software & Web Developer from Digos City, Philippines" />
+  <meta property="og:locale" content="en_PH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Eric Diamante | Software & Web Developer" />
+  <meta name="twitter:description" content="Practical web systems, government land inventory, and feed formulation. Explore selected work by Eric Diamante." />
+  <meta name="twitter:image" content="https://fotsuu.github.io/ed.portfolio/assets/img/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eric E. Diamante",
+    "jobTitle": "Software & Web Developer",
+    "url": "https://fotsuu.github.io/ed.portfolio/",
+    "image": "https://fotsuu.github.io/ed.portfolio/assets/img/og-image.jpg",
+    "email": "mailto:diamanteeric0501@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Digos City", "addressRegion": "Davao del Sur", "addressCountry": "PH" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Davao del Sur State College" },
+    "knowsAbout": ["PHP", "Laravel", "JavaScript", "MySQL", "Python", "Flutter", "Web development", "GovTech systems", "Data modeling"]
+  }
+  </script>
 
   <script src="theme.js"></script>
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=7" />
-  <link rel="stylesheet" href="features.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="features.css?v=3" />
+  <link rel="stylesheet" href="welcome.css?v=1" />
 </head>
 <body>
+  <dialog id="welcomeIntro" class="welcome-intro" aria-labelledby="welcomeTitle" aria-describedby="welcomeDescription">
+    <div class="welcome-glow" aria-hidden="true"></div>
+    <div class="welcome-top"><span>E.DEV / PORTFOLIO</span><button type="button" id="welcomeSkip" class="welcome-skip">Skip intro ↗</button></div>
+    <div class="welcome-center">
+      <div class="welcome-emblem" aria-hidden="true"><span class="welcome-orbit"></span><span class="welcome-orbit welcome-orbit-two"></span><span class="welcome-core"><svg viewBox="0 0 100 100" fill="none"><path d="M31 30 11 50l20 20M69 30l20 20-20 20"/><path class="code-slash" d="m58 22-16 56"/></svg></span></div>
+      <p class="welcome-eyebrow">CODE. CREATE. CONNECT.</p>
+      <h2 id="welcomeTitle">Eric Diamante<span>SOFTWARE &amp; WEB DEVELOPER</span></h2>
+      <div class="welcome-track" aria-hidden="true"><span></span></div>
+      <p id="welcomeDescription" role="status">Loading portfolio...</p>
+    </div>
+    <div class="welcome-bottom"><span>SOFTWARE &amp; WEB DEVELOPER</span><span>DIGOS CITY, PH</span></div>
+  </dialog>
   <a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Toast Notification Container -->
-  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <!-- Header / Navigation Bar -->
   <header class="navbar" id="navbar">
@@ -60,7 +102,7 @@
         <div class="hero-content">
           <span class="hero-greeting"><span class="hero-dot"></span> DEVELOPER · DIGOS CITY, PHILIPPINES</span>
           <h1 class="hero-name">Eric Diamante</h1>
-          <h2 class="hero-role">Software & Web Developer</h2>
+          <p class="hero-role">Software &amp; Web Developer</p>
 
           <p class="hero-desc">
             I turn complex workflows into practical software — from government land inventory to smarter poultry feed formulation.
@@ -95,7 +137,7 @@
 
             <!-- Main 3D Portrait Frame with HD Image -->
             <div class="portrait-wrapper" id="portraitWrapper">
-              <img src="assets/hero-portrait-realistic-v2.png" alt="Eric Diamante - Web Developer" decoding="async" class="hero-portrait-img" id="heroPortraitImg" width="1448" height="1086" />
+              <img src="assets/img/hero-portrait.webp" alt="Eric Diamante - Web Developer" decoding="async" class="hero-portrait-img" id="heroPortraitImg" width="1000" height="750" />
             </div>
           </div>
         </div>
@@ -125,7 +167,7 @@
           <article class="project-card" data-project="denr">
             <div class="card-glare" aria-hidden="true"></div>
             <div class="project-img-wrap">
-              <img src="denr-dashboard.png" alt="DENR-CENRO Land Inventory & RLTA Assessment Platform" class="project-img" loading="lazy" />
+              <img src="assets/img/denr-dashboard.webp" alt="DENR-CENRO Land Inventory & RLTA Assessment Platform" class="project-img" loading="lazy" decoding="async" width="1024" height="429" />
               <span class="slide-badge">Production GovTech</span>
             </div>
             <div class="project-body">
@@ -149,12 +191,12 @@
             <div class="project-img-wrap card-carousel" id="feedwiseCarousel">
               <!-- Slide 1: Platform Overview -->
               <div class="carousel-slide active" data-slide-index="0">
-                <img src="feedwise-hero.png" alt="FeedWise AI Platform Overview" class="project-img" loading="lazy" />
+                <img src="assets/img/feedwise-hero.webp" alt="FeedWise AI Platform Overview" class="project-img" loading="lazy" decoding="async" width="1024" height="477" />
                 <span class="slide-badge">1. Platform Overview</span>
               </div>
               <!-- Slide 2: Feed Simulator -->
               <div class="carousel-slide" data-slide-index="1">
-                <img src="feedwise-simulator.png" alt="FeedWise Feed Formulation Simulator" class="project-img" loading="lazy" />
+                <img src="assets/img/feedwise-simulator.webp" alt="FeedWise Feed Formulation Simulator" class="project-img" loading="lazy" decoding="async" width="1024" height="496" />
                 <span class="slide-badge">2. Feed Simulator</span>
               </div>
 
@@ -293,13 +335,46 @@
           <p class="view-subtitle">Technologies and tools I use to build robust web applications, data models, and automated workflows.</p>
         </div>
 
-        <div class="skills-grid-wrapper">
-          <div class="skills-grid">
-
-            <!-- 1. PHP -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="46" height="46" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+        <div class="skill-groups">
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <span class="skill-group-index" aria-hidden="true">01</span>
+                <div><h3 class="skill-group-title">Frontend</h3><p class="skill-group-desc">Interfaces people can actually use.</p></div>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 100 100">
+                  <rect width="100" height="100" rx="8" fill="#F7DF1E"/>
+                  <text x="50" y="66" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="800" font-size="44" fill="#000000" text-anchor="middle" letter-spacing="-1">JS</text>
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">JavaScript</span><span class="skill-used">DENR interface</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 512 512">
+                  <path fill="#E44D26" d="M71 460L30 0h452l-41 460-185 52"/>
+                  <path fill="#F16529" d="M256 472l149-41 35-391H256"/>
+                  <path fill="#EBEBEB" d="M256 208h-74l-5-57h79V95H119l15 171h122m0 94l-64-17-4-45H132l8 97 116 32"/>
+                  <path fill="#FFF" d="M256 208h74l-7 78-67 18v58l117-32 16-179H256v57m0-113h137l5-56H256v56"/>
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">HTML5</span><span class="skill-used">Every project</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
+                  <path fill="#06B6D4" d="M64 25.6c-25.6 0-41.6 12.8-48 38.4 9.6-12.8 20.8-17.6 33.6-14.4 7.3 1.8 12.5 7.1 18.3 12.9 9.4 9.6 20.3 20.7 44.1 20.7 25.6 0 41.6-12.8 48-38.4-9.6 12.8-20.8 17.6-33.6 14.4-7.3-1.8-12.5-7.1-18.3-12.9-9.4-9.6-20.3-20.7-44.1-20.7zm-48 38.4c-25.6 0-41.6 12.8-48 38.4 9.6-12.8 20.8-17.6 33.6-14.4 7.3 1.8 12.5 7.1 18.3 12.9 9.4 9.6 20.3 20.7 44.1 20.7 25.6 0 41.6-12.8 48-38.4-9.6 12.8-20.8 17.6-33.6 14.4-7.3-1.8-12.5-7.1-18.3-12.9-9.4-9.6-20.3-20.7-44.1-20.7z"/>
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">Tailwind CSS</span><span class="skill-used">FeedWise web</span></span>
+                </li>
+              </ul>
+              <div class="skill-also"><span class="skill-also-label">Also</span><span class="tag-pill">Bootstrap 5</span><span class="tag-pill">Chart.js</span><span class="tag-pill">Responsive design</span></div>
+            </article>
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <span class="skill-group-index" aria-hidden="true">02</span>
+                <div><h3 class="skill-group-title">Backend &amp; Mobile</h3><p class="skill-group-desc">Business logic, APIs, and cross-platform apps.</p></div>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="46" height="46" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <radialGradient id="phpGrad" cx="0" cy="0" r="1" gradientTransform="matrix(84.04 0 0 84.04 38.43 42.17)" gradientUnits="userSpaceOnUse">
                       <stop stop-color="#AEB2D5"/>
@@ -316,100 +391,60 @@
                   <path fill="#fff" d="M65.31 38.755h-7.291a1.39 1.39 0 0 0-1.364 1.124l-6.557 33.738a1.39 1.39 0 0 0 1.363 1.654h7.291a1.39 1.39 0 0 0 1.364-1.124l3.537-18.205h4.682c2.168 0 2.624.463 2.641.484.132.14.305.795.019 2.264l-2.9 14.927a1.39 1.39 0 0 0 1.364 1.654h7.408a1.39 1.39 0 0 0 1.363-1.124l3.051-15.7c.715-3.686.103-6.45-1.82-8.217-1.836-1.686-4.91-2.505-9.398-2.505h-4.81l1.421-7.315a1.39 1.39 0 0 0-1.364-1.655zm0 1.39-1.743 8.968h6.496c4.087 0 6.907.714 8.457 2.14 1.553 1.426 2.017 3.735 1.398 6.93l-3.052 15.699h-7.407l2.901-14.928c.33-1.698.208-2.856-.365-3.474-.573-.617-1.793-.926-3.658-.926h-5.829l-3.756 19.327H51.46l6.558-33.739h7.292z"/>
                   <path d="M92.136 67.864c2.793 0 4.878-.515 6.198-1.53 1.304-1.006 2.206-2.747 2.679-5.175.44-2.27.273-3.854-.5-4.71-.788-.874-2.493-1.317-5.067-1.317h-4.463l-2.475 12.732zM77.54 83.547a.694.694 0 0 1-.682-.828l6.557-33.738a.695.695 0 0 1 .682-.561H98.23c4.442 0 7.748 1.206 9.826 3.585 2.089 2.39 2.734 5.734 1.917 9.935a15.878 15.878 0 0 1-1.699 4.724 15.838 15.838 0 0 1-3.128 3.92c-1.53 1.432-3.265 2.472-5.147 3.083-1.852.604-4.232.91-7.071.91h-5.723l-1.633 8.408a.695.695 0 0 1-.683.562z"/>
                   <path fill="#fff" d="M91.555 55.826h3.891c3.107 0 4.186.682 4.552 1.089.61.674.724 2.097.333 4.112-.44 2.257-1.254 3.858-2.421 4.756-1.195.92-3.139 1.386-5.773 1.386h-2.786l2.204-11.342zm6.674-8.1H84.096a1.39 1.39 0 0 0-1.363 1.123l-6.558 33.739a1.39 1.39 0 0 0 1.364 1.653h7.35a1.39 1.39 0 0 0 1.363-1.124l1.525-7.846h5.15c2.911 0 5.364-.318 7.286-.944 1.978-.642 3.797-1.731 5.408-3.238a16.52 16.52 0 0 0 3.258-4.086c.832-1.487 1.428-3.147 1.775-4.931.86-4.423.162-7.964-2.076-10.524-2.216-2.537-5.697-3.823-10.35-3.823zM87.666 68.557h4.47c2.964 0 5.17-.557 6.622-1.675 1.45-1.116 2.428-2.98 2.936-5.591.487-2.508.266-4.277-.665-5.308-.93-1.03-2.791-1.546-5.583-1.546h-5.035Zm10.563-19.445c4.251 0 7.354 1.117 9.303 3.348 1.95 2.232 2.537 5.347 1.759 9.346-.32 1.648-.862 3.154-1.624 4.518-.763 1.366-1.76 2.614-2.992 3.747-1.467 1.373-3.097 2.352-4.892 2.935-1.793.584-4.078.875-6.856.875h-6.295l-1.745 8.97h-7.35l6.558-33.739h14.133"/>
-                </svg>
-              </div>
-              <span class="skill-label">PHP</span>
-            </div>
-
-            <!-- 2. JavaScript -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 100 100">
-                  <rect width="100" height="100" rx="8" fill="#F7DF1E"/>
-                  <text x="50" y="66" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="800" font-size="44" fill="#000000" text-anchor="middle" letter-spacing="-1">JS</text>
-                </svg>
-              </div>
-              <span class="skill-label">JavaScript</span>
-            </div>
-
-            <!-- 3. Python -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">PHP</span><span class="skill-used">DENR · FeedWise</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg class="skill-svg" width="40" height="40" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#FF2D20"/><text x="50" y="68" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="800" font-size="50" fill="#fff" text-anchor="middle">L</text></svg></span>
+                  <span class="skill-item-text"><span class="skill-label">Laravel</span><span class="skill-used">FeedWise platform</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg class="skill-svg" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path fill="#47C5FB" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357z"/><path fill="#02569B" d="M14.328 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46z"/></svg></span>
+                  <span class="skill-item-text"><span class="skill-label">Flutter</span><span class="skill-used">FeedWise mobile</span></span>
+                </li>
+              </ul>
+              <div class="skill-also"><span class="skill-also-label">Also</span><span class="tag-pill">RESTful APIs</span><span class="tag-pill">EmailJS</span></div>
+            </article>
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <span class="skill-group-index" aria-hidden="true">03</span>
+                <div><h3 class="skill-group-title">Data</h3><p class="skill-group-desc">From spreadsheets to structured, queryable records.</p></div>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="38" height="38" viewBox="0 0 24 24" fill="#00758F">
+                  <path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2.5c4.14 0 7.5 1.34 7.5 2s-3.36 2-7.5 2-7.5-1.34-7.5-2 3.36-2 7.5-2zm7.5 5.7c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2V8.3c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9zm0 5c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2v-1.9c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9zm0 5c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2v-1.9c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9z"/>
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">MySQL</span><span class="skill-used">DENR records</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
                   <path fill="#3776AB" d="M63.7 8.3c-23.1 0-21.7 10-21.7 10l.03 10.3h22.2v3.1H32.4S18 30.1 18 53c0 23 12.6 22.2 12.6 22.2h7.5V64.7s-.4-12.6 12.4-12.6h21.7s12.1-.2 12.1-11.8V20.3S86.2 8.3 63.7 8.3zm-12.2 6.8c2.4 0 4.4 2 4.4 4.4 0 2.4-2 4.4-4.4 4.4s-4.4-2-4.4-4.4c0-2.4 2-4.4 4.4-4.4z"/>
                   <path fill="#FFD43B" d="M64.3 119.7c23.1 0 21.7-10 21.7-10l-.03-10.3H63.7v-3.1h31.8s14.4 1.6 14.4-21.3c0-23-12.6-22.2-12.6-22.2h-7.5v10.5s.4 12.6-12.4 12.6H45.7s-12.1.2-12.1 11.8v17.4s-1.9 12 20.7 12zm12.2-6.8c-2.4 0-4.4-2-4.4-4.4 0-2.4 2-4.4 4.4-4.4s4.4 2 4.4 4.4c0 2.4-2 4.4-4.4 4.4z"/>
-                </svg>
-              </div>
-              <span class="skill-label">Python</span>
-            </div>
-
-            <!-- 4. MySQL -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="38" height="38" viewBox="0 0 24 24" fill="#00758F">
-                  <path d="M12 2C6.48 2 2 3.79 2 6v12c0 2.21 4.48 4 10 4s10-1.79 10-4V6c0-2.21-4.48-4-10-4zm0 2.5c4.14 0 7.5 1.34 7.5 2s-3.36 2-7.5 2-7.5-1.34-7.5-2 3.36-2 7.5-2zm7.5 5.7c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2V8.3c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9zm0 5c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2v-1.9c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9zm0 5c0 .66-3.36 2-7.5 2s-7.5-1.34-7.5-2v-1.9c1.8 1.1 4.4 1.7 7.5 1.7s5.7-.6 7.5-1.7v1.9z"/>
-                </svg>
-              </div>
-              <span class="skill-label">MySQL</span>
-            </div>
-
-            <!-- 5. HTML5 -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 512 512">
-                  <path fill="#E44D26" d="M71 460L30 0h452l-41 460-185 52"/>
-                  <path fill="#F16529" d="M256 472l149-41 35-391H256"/>
-                  <path fill="#EBEBEB" d="M256 208h-74l-5-57h79V95H119l15 171h122m0 94l-64-17-4-45H132l8 97 116 32"/>
-                  <path fill="#FFF" d="M256 208h74l-7 78-67 18v58l117-32 16-179H256v57m0-113h137l5-56H256v56"/>
-                </svg>
-              </div>
-              <span class="skill-label">HTML5</span>
-            </div>
-
-            <!-- 6. Tailwind CSS -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
-                  <path fill="#06B6D4" d="M64 25.6c-25.6 0-41.6 12.8-48 38.4 9.6-12.8 20.8-17.6 33.6-14.4 7.3 1.8 12.5 7.1 18.3 12.9 9.4 9.6 20.3 20.7 44.1 20.7 25.6 0 41.6-12.8 48-38.4-9.6 12.8-20.8 17.6-33.6 14.4-7.3-1.8-12.5-7.1-18.3-12.9-9.4-9.6-20.3-20.7-44.1-20.7zm-48 38.4c-25.6 0-41.6 12.8-48 38.4 9.6-12.8 20.8-17.6 33.6-14.4 7.3 1.8 12.5 7.1 18.3 12.9 9.4 9.6 20.3 20.7 44.1 20.7 25.6 0 41.6-12.8 48-38.4-9.6 12.8-20.8 17.6-33.6 14.4-7.3-1.8-12.5-7.1-18.3-12.9-9.4-9.6-20.3-20.7-44.1-20.7z"/>
-                </svg>
-              </div>
-              <span class="skill-label">Tailwind CSS</span>
-            </div>
-
-            <!-- 7. Git -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
-                  <path fill="#F05032" d="M125.5 58.7L69.3 2.5a8.7 8.7 0 0 0-12.3 0L44.8 14.7l15.5 15.5a10.4 10.4 0 0 1 13.1 13.3l15 15a10.4 10.4 0 1 1-6.2 6.1l-14.2-14.3v34.4a10.4 10.4 0 1 1-8.7-.3v-35l-16-16a10.4 10.4 0 0 1-13.8 13L2.5 69.3a8.7 8.7 0 0 0 0 12.3l56.2 56.2a8.7 8.7 0 0 0 12.3 0l54.5-56.8a8.7 8.7 0 0 0 0-12.3z"/>
-                </svg>
-              </div>
-              <span class="skill-label">Git</span>
-            </div>
-
-            <!-- 8. Excel & Data Systems -->
-            <div class="skill-card">
-              <div class="skill-icon-wrap">
-                <svg class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">Python</span><span class="skill-used">FeedWise modeling</span></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-icon-wrap"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
                   <rect x="14" y="14" width="100" height="100" rx="16" fill="#107C41"/>
                   <path fill="#FFF" d="M42 40l18 24-18 24h12l12-17 12 17h12L72 64l18-24H78L66 57 54 40H42z"/>
-                </svg>
-              </div>
-              <span class="skill-label">Excel & Data</span>
-            </div>
-
-          </div>
+                </svg></span>
+                  <span class="skill-item-text"><span class="skill-label">Excel &amp; Data</span><span class="skill-used">DENR bulk ingestion</span></span>
+                </li>
+              </ul>
+              <div class="skill-also"><span class="skill-also-label">Also</span><span class="tag-pill">Data cleansing</span><span class="tag-pill">Data modeling</span></div>
+            </article>
         </div>
 
-        <div class="supporting-tech-banner">
-          <span class="supporting-label">Supporting Frameworks & Workflows:</span>
+        <div class="supporting-tech-banner workflow-banner">
+          <span class="skill-icon-wrap skill-icon-sm"><svg aria-hidden="true" focusable="false" class="skill-svg" width="40" height="40" viewBox="0 0 128 128">
+                  <path fill="#F05032" d="M125.5 58.7L69.3 2.5a8.7 8.7 0 0 0-12.3 0L44.8 14.7l15.5 15.5a10.4 10.4 0 0 1 13.1 13.3l15 15a10.4 10.4 0 1 1-6.2 6.1l-14.2-14.3v34.4a10.4 10.4 0 1 1-8.7-.3v-35l-16-16a10.4 10.4 0 0 1-13.8 13L2.5 69.3a8.7 8.7 0 0 0 0 12.3l56.2 56.2a8.7 8.7 0 0 0 12.3 0l54.5-56.8a8.7 8.7 0 0 0 0-12.3z"/>
+                </svg></span>
+          <span class="supporting-label">Workflow &amp; tooling</span>
           <div class="supporting-tags">
-            <span class="tag-pill">Laravel</span>
-            <span class="tag-pill">Flutter</span>
-            <span class="tag-pill">Bootstrap 5</span>
-            <span class="tag-pill">RESTful APIs</span>
-            <span class="tag-pill">EmailJS</span>
-            <span class="tag-pill">Data Cleansing</span>
-            <span class="tag-pill">Git & GitHub</span>
+            <span class="tag-pill">Git &amp; GitHub</span>
+            <span class="tag-pill">Version control</span>
+            <span class="tag-pill">AI integration workflows</span>
           </div>
         </div>
       </div>
@@ -469,6 +504,17 @@
               <button type="button" class="btn-copy magnetic-btn" id="contactPageCvBtn">
                 <span>View PDF</span>
               </button>
+            </div>
+
+            <div class="contact-card contact-status-card">
+              <div class="contact-card-icon-wrap status-pulse-wrap" aria-hidden="true">
+                <span class="status-pulse-dot"></span>
+              </div>
+              <div class="contact-card-content">
+                <span class="contact-card-label">Current Availability</span>
+                <span class="contact-card-value status-value">Open to Opportunities</span>
+                <span class="contact-card-sub">Full-time, contract, or GovTech systems · Fast response</span>
+              </div>
             </div>
           </div>
 
@@ -571,5 +617,6 @@
   </div>
   <script src="script.js"></script>
   <script src="motion.js?v=2"></script>
+  <script src="welcome.js?v=1"></script>
 </body>
 </html>
