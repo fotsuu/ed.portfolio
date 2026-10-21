@@ -2,6 +2,8 @@
 
 ## Current Work Focus
 
+- 2026-10-22: Added Pickleball Booking System as first project card, using supplied 92.47s silent H.264 demo and a derived WebP poster. Project modal describes demonstrated court reservations, open play/paddle stacks, rewards, wallet and ledger screens without inventing stack or deployment claims. Native video controls, no autoplay/preload, full-size video link, and pause-on-modal-close. Local preview on port 8084; user approved GitHub publication on 2026-10-22.
+
 - Enhanced avatar locally using built-in imagegen identity-preserving edit of original PNG. Generated 1448x1086, then upscaled to 3840x2880 with Sharp (not native 4K detail). Added transparent 4K PNG/WebP and 1448px high-quality WebP; responsive srcset replaces compressed 1000px image. Checked light/dark browser rendering. User approved publishing this avatar update to GitHub on 2026-10-15.
 
 - User authorized publishing the reviewed local portfolio to GitHub on 2026-10-15. Preparing commit on main including loading intro, logo focus fix, asset optimization, SEO, skills, and contact refinements.

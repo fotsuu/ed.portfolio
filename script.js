@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function closeModal() {
     if (!activeModal) return;
+    activeModal.querySelectorAll('video').forEach(video => video.pause());
     activeModal.classList.remove('active');
     activeModal.setAttribute('aria-hidden', 'true');
     const focusTarget = returnFocus;
@@ -109,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (nav.classList.contains('open')) { closeMenu(); menuButton.focus(); }
     }
     if (e.key === 'Tab' && activeModal) {
-      const focusable = [...activeModal.querySelectorAll('button, a[href], input, textarea, iframe')].filter(el => !el.disabled && el.getClientRects().length);
+      const focusable = [...activeModal.querySelectorAll('button, a[href], input, textarea, iframe, video[controls]')].filter(el => !el.disabled && el.getClientRects().length);
       const first = focusable[0], last = focusable.at(-1);
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
@@ -122,6 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 
   const cases = {
+    pickleball: {
+      eyebrow: 'Selected work · Sports booking platform',
+      title: 'Pickleball Booking System',
+      facts: [['Focus', 'Court reservations & player experience'], ['Format', 'Web application'], ['Demo', '1 min 32 sec · Silent walkthrough']],
+      body: `<section class="case-section"><h3>From booking to game time</h3><p>A pickleball platform that brings court reservations and club activities into a single player-facing experience.</p></section>
+        <figure><video class="pickleball-video" controls playsinline preload="none" poster="assets/img/pickleball-booking.webp" aria-label="Pickleball booking system walkthrough" aria-describedby="pickleballDemoSummary"><source src="assets/video/pickleball-booking-demo.mp4" type="video/mp4" />Your browser does not support embedded video. <a href="assets/video/pickleball-booking-demo.mp4">Open the demo</a>.</video><figcaption class="case-caption">Recorded application walkthrough · No audio. Use the player controls to play, pause, or expand the video.</figcaption></figure>
+        <section class="case-section" id="pickleballDemoSummary"><h3>Features shown in the demo</h3><ul><li>Browse courts and manage reservations through My Bookings.</li><li>Explore open play and follow court assignments on the paddle-stack board.</li><li>Track club points and browse rewards.</li><li>Review wallet balances, top-up options, and booking ledger records.</li></ul><p>The walkthrough moves from court discovery and sign-in to player queues, bookings, account records, and wallet top-ups.</p></section>
+        <p><a class="case-link" href="assets/video/pickleball-booking-demo.mp4" target="_blank" rel="noopener">Open full-size video ↗</a></p>`
+    },
     denr: {
       eyebrow: 'Selected work / 01 · Production GovTech',
       title: 'DENR Land Inventory & RLTA',
