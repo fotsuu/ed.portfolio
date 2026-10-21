@@ -9,6 +9,8 @@ Deployment Status: Static site ready for local serving or static CDN hosting (Gi
 
 ## What Works (Completed Features)
 
+- [x] Removed Skip intro control; automatic loading transition remains. Publication requested by user (2026-10-22).
+
 - [x] Pickleball project card and modal with supplied 1080p silent video, feature summary, and poster. Browser verified dialog opening/closing and decoded video readyState 4 with 92.47s duration; paused after closing. JavaScript syntax and diff checks passed. User approved GitHub publication on 2026-10-22.
 
 - [x] Enhanced transparent avatar with responsive 1448px/3840px WebP sources and 3840x2880 PNG master. 4K export is upscaled from AI-enhanced 1448x1086 output. Local light/dark visual review passed; user approved GitHub publication on 2026-10-15.

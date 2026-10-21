@@ -1,4 +1,4 @@
-/** Bounded automatic loading intro with immediate keyboard/skip escape. */
+/** Bounded automatic loading intro with keyboard escape. */
 (() => {
   const dialog = document.getElementById('welcomeIntro');
   if (!dialog || typeof dialog.showModal !== 'function') return;
@@ -27,7 +27,6 @@
     dialog.classList.add('welcome-leaving');
     exitTimer = setTimeout(finish, 520);
   }
-  document.getElementById('welcomeSkip').addEventListener('click', enter);
   dialog.addEventListener('cancel', event => { event.preventDefault(); enter(); });
   dialog.addEventListener('keydown', event => {
     if (event.key === 'Enter') { event.preventDefault(); enter(); }
