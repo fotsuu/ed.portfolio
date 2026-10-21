@@ -2,6 +2,8 @@
 
 ## Current Work Focus
 
+- 2026-10-22: Revised hero role to “Software, Web & AI-Assisted Developer” and introduction to describe AI-assisted workflows across land inventory, feed formulation, and pickleball booking. Browser text verified; user approved GitHub publication.
+
 - 2026-10-22: Removed visible Skip intro button and its event listener/styles at user request. Automatic 2.6s completion and keyboard escape remain. User authorized GitHub push.
 
 - 2026-10-22: Added Pickleball Booking System as first project card, using supplied 92.47s silent H.264 demo and a derived WebP poster. Project modal describes demonstrated court reservations, open play/paddle stacks, rewards, wallet and ledger screens without inventing stack or deployment claims. Native video controls, no autoplay/preload, full-size video link, and pause-on-modal-close. Local preview on port 8084; user approved GitHub publication on 2026-10-22.
